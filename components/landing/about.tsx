@@ -63,9 +63,7 @@ export function About() {
               animate={isInView ? "animate" : "initial"}
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ scale: 1.02, rotateY: 2 }}
-              className="glass-card rounded-2xl p-6 shadow-3d transition-all duration-300"
-              style={{ transformStyle: "preserve-3d" }}
+              className="glass-card rounded-2xl p-6 shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out"
             >
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-primary/10">
@@ -88,9 +86,7 @@ export function About() {
               animate={isInView ? "animate" : "initial"}
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.6 }}
-              whileHover={{ scale: 1.02, rotateY: -2 }}
-              className="glass-card rounded-2xl p-6 shadow-3d transition-all duration-300"
-              style={{ transformStyle: "preserve-3d" }}
+              className="glass-card rounded-2xl p-6 shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out"
             >
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-primary/10">
@@ -121,18 +117,17 @@ export function About() {
             { icon: Target, title: "Missão", desc: "Impulsionar o esporte e a cultura no Brasil" },
             { icon: Users, title: "Conexão", desc: "Marcas, pessoas e projetos transformadores" },
             { icon: Shield, title: "Confiança", desc: "Segurança jurídica e transparência total" },
-          ].map((item, index) => (
-            <motion.div
+          ].map((item) => (
+            <div
               key={item.title}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="glass-card rounded-xl p-6 text-center shadow-3d transition-all duration-300"
+              className="glass-card rounded-xl p-6 text-center shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out group"
             >
-              <div className="inline-flex p-4 rounded-xl bg-primary/10 mb-4">
+              <div className="inline-flex p-4 rounded-xl bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors duration-300">
                 <item.icon className="w-8 h-8 text-primary" />
               </div>
               <h4 className="text-lg font-semibold text-foreground mb-2">{item.title}</h4>
               <p className="text-sm text-muted-foreground">{item.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </motion.div>
       </div>

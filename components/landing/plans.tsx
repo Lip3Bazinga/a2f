@@ -49,12 +49,10 @@ export function Plans() {
             animate={isInView ? "animate" : "initial"}
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ scale: 1.02, rotateY: 2 }}
-            className="glass-card rounded-2xl p-8 shadow-3d transition-all duration-300"
-            style={{ transformStyle: "preserve-3d" }}
+            className="glass-card rounded-2xl p-8 shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-4 rounded-xl bg-primary/10">
+              <div className="p-4 rounded-xl bg-primary/10 transition-colors duration-300">
                 <Building2 className="w-8 h-8 text-primary" />
               </div>
               <h4 className="text-2xl font-semibold text-foreground">Empresas</h4>
@@ -78,12 +76,10 @@ export function Plans() {
             animate={isInView ? "animate" : "initial"}
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.3 }}
-            whileHover={{ scale: 1.02, rotateY: -2 }}
-            className="glass-card rounded-2xl p-8 shadow-3d transition-all duration-300"
-            style={{ transformStyle: "preserve-3d" }}
+            className="glass-card rounded-2xl p-8 shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-4 rounded-xl bg-primary/10">
+              <div className="p-4 rounded-xl bg-primary/10 transition-colors duration-300">
                 <User className="w-8 h-8 text-primary" />
               </div>
               <h4 className="text-2xl font-semibold text-foreground">Pessoas Físicas</h4>

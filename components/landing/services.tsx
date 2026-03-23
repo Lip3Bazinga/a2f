@@ -87,31 +87,15 @@ export function Services() {
               animate={isInView ? "animate" : "initial"}
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              whileHover={{ 
-                scale: 1.03, 
-                rotateX: 2,
-                rotateY: -2,
-                z: 50
-              }}
-              className="glass-card rounded-2xl p-6 lg:p-8 shadow-3d transition-all duration-300 group"
-              style={{ transformStyle: "preserve-3d" }}
+              className="glass-card rounded-2xl p-6 lg:p-8 shadow-3d group hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out"
             >
-              <div 
-                className="inline-flex p-4 rounded-xl bg-primary/10 mb-6 group-hover:bg-primary/20 transition-colors duration-300"
-                style={{ transform: "translateZ(20px)" }}
-              >
+              <div className="inline-flex p-4 rounded-xl bg-primary/10 mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                 <service.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 
-                className="text-xl font-semibold text-foreground mb-4"
-                style={{ transform: "translateZ(15px)" }}
-              >
+              <h3 className="text-xl font-semibold text-foreground mb-4">
                 {service.title}
               </h3>
-              <p 
-                className="text-muted-foreground leading-relaxed"
-                style={{ transform: "translateZ(10px)" }}
-              >
+              <p className="text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
             </motion.div>

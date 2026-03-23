@@ -74,17 +74,16 @@ export function Projects() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16"
         >
-          {experiences.map((exp, index) => (
-            <motion.div
+          {experiences.map((exp) => (
+            <div
               key={exp.title}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="glass-card rounded-xl p-4 text-center shadow-3d transition-all duration-300"
+              className="glass-card rounded-xl p-4 text-center shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out group"
             >
-              <div className="inline-flex p-3 rounded-lg bg-primary/10 mb-3">
+              <div className="inline-flex p-3 rounded-lg bg-primary/10 mb-3 group-hover:bg-primary/20 transition-colors duration-300">
                 <exp.icon className="w-6 h-6 text-primary" />
               </div>
               <p className="text-sm font-medium text-foreground">{exp.title}</p>
-            </motion.div>
+            </div>
           ))}
         </motion.div>
 
@@ -104,21 +103,19 @@ export function Projects() {
           </p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {partners.map((partner, index) => (
-              <motion.a
+            {partners.map((partner) => (
+              <a
                 key={partner.name}
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.03, y: -3 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center gap-2 p-4 rounded-xl bg-secondary/50 hover:bg-primary/10 transition-all duration-300 group"
+                className="flex items-center justify-center gap-2 p-4 rounded-xl bg-secondary/50 hover:bg-primary/15 hover:border-primary/30 border border-transparent transition-all duration-300 ease-out group"
               >
-                <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-300">
                   {partner.name}
                 </span>
-                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-              </motion.a>
+                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+              </a>
             ))}
           </div>
 
