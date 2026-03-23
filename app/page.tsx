@@ -1,16 +1,23 @@
+import { Header } from "@/components/landing/header"
+import { Hero } from "@/components/landing/hero"
+import { About } from "@/components/landing/about"
+import { Services } from "@/components/landing/services"
+import { Projects } from "@/components/landing/projects"
+import { Plans } from "@/components/landing/plans"
+import { FAQ } from "@/components/landing/faq"
+import { Footer } from "@/components/landing/footer"
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center font-sans">
-      <main className="flex w-full max-w-3xl flex-col items-center gap-8 px-6 py-16 text-center sm:items-start sm:text-left">
-        <div className="flex flex-col gap-4">
-          <h1 className="text-4xl font-bold tracking-tight">
-            E2F
-          </h1>
-          <p className="max-w-md text-lg text-muted-foreground">
-            To get started, send a prompt or modify this page directly.
-          </p>
-        </div>
-      </main>
-    </div>
-  );
+    <main className="min-h-screen bg-background">
+      <Header />
+      <Hero />
+      <About />
+      <Services />
+      <Projects />
+      <Plans />
+      <FAQ />
+      <Footer />
+    </main>
+  )
 }
