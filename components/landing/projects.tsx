@@ -187,7 +187,7 @@ export function Projects() {
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="glass-card rounded-2xl overflow-hidden shadow-3d mb-8"
+          className="glass-card rounded-2xl overflow-hidden shadow-3d pb-0"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -278,23 +278,29 @@ export function Projects() {
               </div>
             </motion.div>
           </AnimatePresence>
+        </motion.div>
 
-          {/* Pagination Dots */}
-          <div className="flex justify-center gap-2 pb-6">
-            {projectCategories.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveCategory(index)}
-                className={cn(
-                  "w-2 h-2 rounded-full transition-all duration-300",
-                  activeCategory === index
-                    ? "w-8 bg-primary"
-                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                )}
-                aria-label={`Ir para projeto ${index + 1}`}
-              />
-            ))}
-          </div>
+        {/* Pagination Dots */}
+        <motion.div
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          variants={fadeInUp}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="flex justify-center gap-2 mt-8 mb-12"
+        >
+          {projectCategories.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveCategory(index)}
+              className={cn(
+                "w-2 h-2 rounded-full transition-all duration-300",
+                activeCategory === index
+                  ? "w-8 bg-primary"
+                  : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+              )}
+              aria-label={`Ir para projeto ${index + 1}`}
+            />
+          ))}
         </motion.div>
 
         {/* Partners Section */}
