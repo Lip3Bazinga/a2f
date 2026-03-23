@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { Phone, Mail, User, Building2, MessageSquare, ArrowRight } from "lucide-react"
+import { Phone, Mail, User, Building2, MessageSquare, ArrowRight, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -197,9 +197,50 @@ export function ContactForm() {
                 Patrocinador Oficial
               </span>
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
               Preencha o formulario ou entre em contato diretamente com nossa equipe comercial para receber o dossie completo de patrocinio e as cotas disponiveis.
             </p>
+
+            {/* Fale Conosco Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="glass-card rounded-2xl p-6 shadow-3d"
+            >
+              <h3 className="text-xl font-semibold text-foreground mb-5">
+                Fale Conosco
+              </h3>
+              <div className="space-y-4">
+                <a 
+                  href="mailto:contato@a2f.com.br"
+                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
+                >
+                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                    <Mail className="w-5 h-5 text-primary" />
+                  </div>
+                  <span>contato@a2f.com.br</span>
+                </a>
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Phone className="w-5 h-5 text-primary" />
+                  </div>
+                  <span>(XX) XXXXX-XXXX</span>
+                </div>
+                <a 
+                  href="https://www.a2f.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
+                >
+                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                    <Globe className="w-5 h-5 text-primary" />
+                  </div>
+                  <span>www.a2f.com.br</span>
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Right Side - Form */}
