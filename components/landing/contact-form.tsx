@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { Phone, Mail, MapPin, User, Building2, MessageSquare, ArrowRight } from "lucide-react"
+import { Phone, Mail, User, Building2, MessageSquare, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -12,24 +12,6 @@ const steps = [
   { id: 2, label: "Sua Empresa", icon: Building2 },
   { id: 3, label: "Contato", icon: Phone },
   { id: 4, label: "Mensagem", icon: MessageSquare },
-]
-
-const contactInfo = [
-  {
-    icon: Phone,
-    label: "TELEFONE",
-    value: "+55 (XX) XXXX-XXXX",
-  },
-  {
-    icon: Mail,
-    label: "E-MAIL",
-    value: "patrocinio@institutoeamanha.org.br",
-  },
-  {
-    icon: MapPin,
-    label: "LOCALIZAÇÃO",
-    value: "Brasil",
-  },
 ]
 
 export function ContactForm() {
@@ -63,7 +45,6 @@ export function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Form submitted:", formData)
-    // Handle form submission
   }
 
   const renderStepContent = () => {
@@ -212,37 +193,13 @@ export function ContactForm() {
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
               Torne-se um{" "}
-              <span className="bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">
+              <span className="text-gradient">
                 Patrocinador Oficial
               </span>
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-10">
-              Preencha o formulário ou entre em contato diretamente com nossa equipe comercial para receber o dossiê completo de patrocínio e as cotas disponíveis.
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Preencha o formulario ou entre em contato diretamente com nossa equipe comercial para receber o dossie completo de patrocinio e as cotas disponiveis.
             </p>
-
-            {/* Contact Info Cards */}
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={info.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="glass-card p-5 flex items-center gap-4"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <info.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <span className="text-xs tracking-wider text-muted-foreground block mb-1">
-                      {info.label}
-                    </span>
-                    <span className="text-foreground font-medium">{info.value}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
 
           {/* Right Side - Form */}
@@ -312,7 +269,7 @@ export function ContactForm() {
                 <Button
                   type={currentStep === 4 ? "submit" : "button"}
                   onClick={currentStep < 4 ? handleNext : undefined}
-                  className="flex-1 h-14 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white font-semibold"
+                  className="flex-1 h-14 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold"
                 >
                   {currentStep === 4 ? "Enviar" : "Continuar"}
                   <ArrowRight className="w-5 h-5 ml-2" />
