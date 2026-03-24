@@ -12,15 +12,15 @@ import {
 const faqs = [
   {
     question: "Quem pode contribuir?",
-    answer: "Empresas tributadas pelo Lucro Real; Pessoas físicas pagadoras de Imposto de Renda.",
+    answer: "Empresas tributadas pelo Lucro Real; Pessoas fisicas pagadoras de Imposto de Renda.",
   },
   {
-    question: "Como fazer o patrocínio ou contribuição?",
-    answer: "Após escolher o projeto, o processo é simples e rápido: Basta realizar o depósito ou transferência para a conta oficial do projeto no Banco do Brasil. Esse comprovante servirá como base legal para a dedução do Imposto de Renda.",
+    question: "Como fazer o patrocinio ou contribuicao?",
+    answer: "Apos escolher o projeto, o processo e simples e rapido: Basta realizar o deposito ou transferencia para a conta oficial do projeto no Banco do Brasil. Esse comprovante servira como base legal para a deducao do Imposto de Renda.",
   },
   {
-    question: "O que são projetos incentivados?",
-    answer: "São iniciativas aprovadas pelo governo federal que permitem que empresas e indivíduos direcionem parte do imposto para ações que o Estado não consegue alcançar sozinho — ampliando o impacto social de forma direta, transparente e legal.",
+    question: "O que sao projetos incentivados?",
+    answer: "Sao iniciativas aprovadas pelo governo federal que permitem que empresas e individuos direcionem parte do imposto para acoes que o Estado nao consegue alcançar sozinho — ampliando o impacto social de forma direta, transparente e legal.",
   },
 ]
 
@@ -35,10 +35,9 @@ export function FAQ() {
 
   return (
     <section id="faq" className="py-24 sm:py-32 relative" ref={ref}>
-      {/* Background Effect */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary/4 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -49,10 +48,11 @@ export function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gradient">
+          <p className="text-xs tracking-widest uppercase text-primary font-sans font-semibold mb-4">Duvidas Comuns</p>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Perguntas Frequentes
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
+          <div className="section-divider mx-auto" />
         </motion.div>
 
         <motion.div
@@ -68,16 +68,16 @@ export function FAQ() {
                 initial="initial"
                 animate={isInView ? "animate" : "initial"}
                 variants={fadeInUp}
-                transition={{ duration: 0.6, delay: 0.1 * index + 0.3 }}
+                transition={{ duration: 0.5, delay: 0.1 * index + 0.3 }}
               >
-                <AccordionItem 
+                <AccordionItem
                   value={`item-${index}`}
                   className="glass-card rounded-xl border-0 px-6 shadow-3d overflow-hidden"
                 >
-                  <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary transition-colors py-6 hover:no-underline">
+                  <AccordionTrigger className="font-serif text-left text-lg font-normal text-foreground hover:text-primary transition-colors py-6 hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                  <AccordionContent className="text-sm text-muted-foreground pb-6 leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

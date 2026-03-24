@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react"
 
 const navLinks = [
   { href: "#quem-somos", label: "Quem Somos" },
-  { href: "#servicos", label: "Serviços" },
+  { href: "#servicos", label: "Servicos" },
   { href: "#projetos", label: "Projetos" },
   { href: "#planos", label: "Planos" },
   { href: "#faq", label: "FAQ" },
@@ -18,9 +18,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -36,15 +34,15 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Brand wordmark — DM Serif Display */}
           <a
             href="#"
-            className="text-2xl font-bold text-gradient hover:opacity-80 transition-opacity duration-300"
+            className="font-serif text-2xl text-gradient hover:opacity-80 transition-opacity duration-300 tracking-tight"
           >
             A2F
           </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation — DM Sans body font */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link, index) => (
               <motion.a
@@ -52,13 +50,21 @@ export function Header() {
                 href={link.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
+                transition={{ delay: index * 0.08, duration: 0.4 }}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wide"
               >
                 {link.label}
               </motion.a>
             ))}
           </nav>
+
+          {/* CTA button */}
+          <a
+            href="#contato"
+            className="hidden md:inline-flex items-center px-5 py-2 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all duration-300 shadow-glow"
+          >
+            Fale Conosco
+          </a>
 
           {/* Mobile Menu Button */}
           <button
@@ -80,17 +86,24 @@ export function Header() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden mt-4 pb-4"
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 py-2"
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 py-2.5 border-b border-border/50 last:border-0"
                   >
                     {link.label}
                   </a>
                 ))}
+                <a
+                  href="#contato"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="mt-3 w-full text-center px-5 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all duration-300"
+                >
+                  Fale Conosco
+                </a>
               </div>
             </motion.nav>
           )}

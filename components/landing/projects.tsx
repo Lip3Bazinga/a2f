@@ -141,15 +141,13 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gradient">
+          <p className="text-xs tracking-widest uppercase text-primary font-sans font-semibold mb-4">Curadoria Estrategica</p>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Projetos e Produtos
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6" />
-          <h3 className="text-xl sm:text-2xl text-foreground font-medium mb-4">
-            Projetos e Experiencias que Conectam Marcas e Pessoas
-          </h3>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            A A2F oferece acesso a uma curadoria de projetos esportivos e culturais certificados, alem da criacao de produtos exclusivos.
+          <div className="section-divider mx-auto mb-6" />
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            A A2F oferece acesso a uma curadoria de projetos esportivos e culturais certificados, alem da criacao de produtos exclusivos que geram posicionamento de marca e impacto social.
           </p>
         </motion.div>
 
@@ -236,7 +234,7 @@ export function Projects() {
                   <div className="p-2 rounded-lg bg-primary/10">
                     <currentProject.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h4 className="text-2xl sm:text-3xl font-bold text-foreground">
+                  <h4 className="font-serif text-2xl sm:text-3xl font-normal text-foreground">
                     {currentProject.title}
                   </h4>
                 </div>
@@ -311,7 +309,7 @@ export function Projects() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="glass-card rounded-2xl p-8 lg:p-12 shadow-3d"
         >
-          <h4 className="text-xl font-semibold text-foreground mb-6 text-center">
+          <h4 className="font-serif text-xl font-normal text-foreground mb-6 text-center">
             Parceiros Renomados
           </h4>
           <p className="text-muted-foreground text-center mb-8 leading-relaxed">
