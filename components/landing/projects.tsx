@@ -29,7 +29,6 @@ const projectCategories = [
       "Conteudo para streaming"
     ],
     stats: { projects: "50+", reach: "10M+", partners: "25+" },
-    image: "/images/audiovisual-nacional.jpg"
   },
   {
     id: "audiovisual-estrangeiro",
@@ -44,7 +43,6 @@ const projectCategories = [
       "Distribuicao mundial"
     ],
     stats: { projects: "30+", reach: "50M+", partners: "15+" },
-    image: "/images/audiovisual-estrangeiro.jpg"
   },
   {
     id: "esportivo",
@@ -59,7 +57,6 @@ const projectCategories = [
       "Competicoes de e-sports"
     ],
     stats: { projects: "80+", reach: "5M+", partners: "40+" },
-    image: "/images/esportivo.jpg"
   },
   {
     id: "musical",
@@ -74,7 +71,6 @@ const projectCategories = [
       "Eventos corporativos"
     ],
     stats: { projects: "60+", reach: "8M+", partners: "35+" },
-    image: "/images/musical.jpg"
   },
   {
     id: "educacional",
@@ -89,7 +85,6 @@ const projectCategories = [
       "Inclusao digital"
     ],
     stats: { projects: "40+", reach: "2M+", partners: "20+" },
-    image: "/images/educacional.jpg"
   },
 ]
 
@@ -141,7 +136,7 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-widest uppercase text-primary font-sans font-semibold mb-4">Curadoria Estrategica</p>
+          <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Curadoria Estrategica</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Projetos e Produtos
           </h2>
@@ -167,8 +162,8 @@ export function Projects() {
                 className={cn(
                   "flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300 ease-out",
                   activeCategory === index
-                    ? "bg-primary text-primary-foreground shadow-glow"
-                    : "glass-card text-muted-foreground hover:text-foreground hover:border-primary/30"
+                    ? "bg-accent text-accent-foreground shadow-glow-accent"
+                    : "glass-card text-muted-foreground hover:text-foreground hover:border-accent/30"
                 )}
               >
                 <category.icon className="w-5 h-5" />
@@ -201,11 +196,11 @@ export function Projects() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="inline-flex p-6 rounded-2xl bg-primary/10 mb-4">
-                      <currentProject.icon className="w-16 h-16 text-primary" />
+                    <div className="inline-flex p-6 rounded-2xl bg-accent/10 mb-4">
+                      <currentProject.icon className="w-16 h-16 text-accent" />
                     </div>
                     <p className="text-muted-foreground text-sm">Imagem do projeto</p>
-                    <button className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors duration-300">
+                    <button className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent/20 text-accent hover:bg-accent/30 transition-colors duration-300">
                       <Play className="w-4 h-4" />
                       <span className="text-sm font-medium">Ver showcase</span>
                     </button>
@@ -214,14 +209,14 @@ export function Projects() {
                 {/* Navigation Arrows on Image */}
                 <button
                   onClick={handlePrevious}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
                   aria-label="Projeto anterior"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
                   aria-label="Proximo projeto"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -231,8 +226,8 @@ export function Projects() {
               {/* Content Section */}
               <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <currentProject.icon className="w-6 h-6 text-primary" />
+                  <div className="p-2 rounded-lg bg-accent/10">
+                    <currentProject.icon className="w-6 h-6 text-accent" />
                   </div>
                   <h4 className="font-serif text-2xl sm:text-3xl font-normal text-foreground">
                     {currentProject.title}
@@ -251,7 +246,7 @@ export function Projects() {
                   <ul className="grid sm:grid-cols-2 gap-2">
                     {currentProject.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                         <span className="text-sm">{highlight}</span>
                       </li>
                     ))}
@@ -261,7 +256,7 @@ export function Projects() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-4 p-4 rounded-xl bg-secondary/30">
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-primary">{currentProject.stats.projects}</p>
+                    <p className="text-2xl font-bold text-accent">{currentProject.stats.projects}</p>
                     <p className="text-xs text-muted-foreground uppercase tracking-wider">Projetos</p>
                   </div>
                   <div className="text-center border-x border-border">
@@ -269,7 +264,7 @@ export function Projects() {
                     <p className="text-xs text-muted-foreground uppercase tracking-wider">Alcance</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-primary">{currentProject.stats.partners}</p>
+                    <p className="text-2xl font-bold text-accent">{currentProject.stats.partners}</p>
                     <p className="text-xs text-muted-foreground uppercase tracking-wider">Parceiros</p>
                   </div>
                 </div>
@@ -293,7 +288,7 @@ export function Projects() {
               className={cn(
                 "w-2 h-2 rounded-full transition-all duration-300",
                 activeCategory === index
-                  ? "w-8 bg-primary"
+                  ? "w-8 bg-accent"
                   : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
               )}
               aria-label={`Ir para projeto ${index + 1}`}
@@ -323,12 +318,12 @@ export function Projects() {
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 p-4 rounded-xl bg-secondary/50 hover:bg-primary/15 hover:border-primary/30 border border-transparent transition-all duration-300 ease-out group"
+                className="flex items-center justify-center gap-2 p-4 rounded-xl bg-secondary/50 hover:bg-accent/15 hover:border-accent/30 border border-transparent transition-all duration-300 ease-out group"
               >
-                <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+                <span className="font-medium text-foreground group-hover:text-accent transition-colors duration-300">
                   {partner.name}
                 </span>
-                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
               </a>
             ))}
           </div>

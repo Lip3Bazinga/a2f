@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Target, Users, Shield } from "lucide-react"
+import { Target, Users, Shield, Award, Lightbulb } from "lucide-react"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -27,7 +27,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-widest uppercase text-orange font-sans font-semibold mb-4">Nossa Historia</p>
+          <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Nossa Historia</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Quem Somos
           </h2>
@@ -50,7 +50,7 @@ export function About() {
               Somos especialistas em criar pontes eficientes entre empresas e iniciativas sociais, oferecendo caminhos simples, seguros e altamente vantajosos para utilizar incentivos fiscais de forma estrategica.
             </p>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Somos um time dedicado a oferecer atendimento personalizado, alinhando objetivos de empresas e pessoas fisicas a projetos certificados que promovem impacto real na sociedade — sempre com simplicidade, agilidade e transparencia.
+              Somos um time dedicado a oferecer atendimento personalizado, alinhando objetivos de empresas e pessoas fisicas a projetos certificados que promovem impacto real na sociedade.
             </p>
           </motion.div>
 
@@ -61,11 +61,11 @@ export function About() {
               animate={isInView ? "animate" : "initial"}
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="glass-card rounded-2xl p-6 shadow-3d hover:shadow-glow-orange hover:border-orange/30 transition-all duration-500 ease-out"
+              className="glass-card rounded-2xl p-6 shadow-3d hover:shadow-glow-accent hover:border-accent/30 transition-all duration-500 ease-out"
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-orange/10 flex-shrink-0">
-                  <Target className="w-6 h-6 text-orange" />
+                <div className="p-3 rounded-xl bg-accent/10 flex-shrink-0">
+                  <Award className="w-6 h-6 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-serif text-xl font-normal text-foreground mb-2">
@@ -83,11 +83,11 @@ export function About() {
               animate={isInView ? "animate" : "initial"}
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="glass-card rounded-2xl p-6 shadow-3d hover:shadow-glow-purple hover:border-purple/30 transition-all duration-500 ease-out"
+              className="glass-card rounded-2xl p-6 shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out"
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-purple/10 flex-shrink-0">
-                  <Shield className="w-6 h-6 text-purple" />
+                <div className="p-3 rounded-xl bg-primary/10 flex-shrink-0">
+                  <Shield className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-serif text-xl font-normal text-foreground mb-2">
@@ -110,22 +110,29 @@ export function About() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16"
         >
-          {[
-            { icon: Target, title: "Missao", desc: "Impulsionar o esporte e a cultura no Brasil", color: "orange" },
-            { icon: Users, title: "Conexao", desc: "Marcas, pessoas e projetos transformadores", color: "pink" },
-            { icon: Shield, title: "Confianca", desc: "Seguranca juridica e transparencia total", color: "purple" },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className={`glass-card rounded-xl p-6 text-center shadow-3d hover:shadow-glow${item.color === "orange" ? "-orange" : item.color === "purple" ? "-purple" : ""} hover:border-${item.color}/30 transition-all duration-500 ease-out group`}
-            >
-              <div className={`inline-flex p-4 rounded-xl bg-${item.color}/10 mb-4 group-hover:bg-${item.color}/20 transition-colors duration-300`}>
-                <item.icon className={`w-7 h-7 text-${item.color}`} />
-              </div>
-              <h4 className="font-serif text-lg font-normal text-foreground mb-2">{item.title}</h4>
-              <p className="text-sm text-muted-foreground">{item.desc}</p>
+          <div className="glass-card rounded-xl p-6 text-center shadow-3d hover:shadow-glow-accent hover:border-accent/30 transition-all duration-500 ease-out group">
+            <div className="inline-flex p-4 rounded-xl bg-accent/10 mb-4 group-hover:bg-accent/20 transition-colors duration-300">
+              <Target className="w-7 h-7 text-accent" />
             </div>
-          ))}
+            <h4 className="font-serif text-lg font-normal text-foreground mb-2">Missao</h4>
+            <p className="text-sm text-muted-foreground">Impulsionar o esporte e a cultura no Brasil</p>
+          </div>
+          
+          <div className="glass-card rounded-xl p-6 text-center shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out group">
+            <div className="inline-flex p-4 rounded-xl bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+              <Users className="w-7 h-7 text-primary" />
+            </div>
+            <h4 className="font-serif text-lg font-normal text-foreground mb-2">Conexao</h4>
+            <p className="text-sm text-muted-foreground">Marcas, pessoas e projetos transformadores</p>
+          </div>
+          
+          <div className="glass-card rounded-xl p-6 text-center shadow-3d hover:shadow-glow hover:border-secondary/50 transition-all duration-500 ease-out group">
+            <div className="inline-flex p-4 rounded-xl bg-secondary/30 mb-4 group-hover:bg-secondary/50 transition-colors duration-300">
+              <Lightbulb className="w-7 h-7 text-foreground" />
+            </div>
+            <h4 className="font-serif text-lg font-normal text-foreground mb-2">Confianca</h4>
+            <p className="text-sm text-muted-foreground">Seguranca juridica e transparencia total</p>
+          </div>
         </motion.div>
       </div>
     </section>

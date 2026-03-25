@@ -3,23 +3,25 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * A2F BRAND PALETTE
+ * Navy Background: #09112B
+ * Teal Primary: #22708B
+ * Deep Blue Secondary: #103659
+ * Orange Accent: #F86110
+ * Pink: #Ad5793
+ * Purple: #845EC8
+ */
+
 @theme inline {
-  /* A2F Brand Typography */
   --font-sans: var(--font-dm-sans), system-ui, sans-serif;
   --font-serif: var(--font-dm-serif), Georgia, serif;
   --font-mono: 'Geist Mono', monospace;
 
-  /* A2F Brand Colors - New Palette */
-  /* Background: #09112B — deep navy (premium, depth) */
-  /* Primary: #22708B — teal (strategic, modern) */
-  /* Secondary: #103659 — deep blue (trust) */
-  /* Accent Orange: #F86110 — energy, CTAs */
-  /* Accent Pink: #Ad5793 — creative, highlights */
-  /* Accent Purple: #845EC8 — innovation, features */
-  
+  /* Core Semantic Tokens */
   --color-background: #09112B;
   --color-foreground: #FFFFFF;
-  --color-card: #0f1a2e;
+  --color-card: #0d1729;
   --color-card-foreground: #FFFFFF;
   --color-popover: #0d1624;
   --color-popover-foreground: #FFFFFF;
@@ -27,17 +29,17 @@
   --color-primary-foreground: #FFFFFF;
   --color-secondary: #103659;
   --color-secondary-foreground: #FFFFFF;
-  --color-muted: #1a2d42;
-  --color-muted-foreground: #94a8b8;
+  --color-muted: #162236;
+  --color-muted-foreground: #8fa3b8;
   --color-accent: #F86110;
   --color-accent-foreground: #FFFFFF;
   --color-destructive: #ef4444;
   --color-destructive-foreground: #FFFFFF;
-  --color-border: #1e3a52;
-  --color-input: #1a2d42;
+  --color-border: #1c3148;
+  --color-input: #162236;
   --color-ring: #22708B;
   
-  /* Vibrant Accent Colors */
+  /* Brand Accent Colors - simple names for utility classes */
   --color-orange: #F86110;
   --color-pink: #Ad5793;
   --color-purple: #845EC8;
@@ -61,7 +63,7 @@
   --color-sidebar-primary-foreground: #FFFFFF;
   --color-sidebar-accent: #F86110;
   --color-sidebar-accent-foreground: #FFFFFF;
-  --color-sidebar-border: #1e3a52;
+  --color-sidebar-border: #1c3148;
   --color-sidebar-ring: #22708B;
 }
 
@@ -80,17 +82,16 @@
   }
 }
 
-/* Glassmorphism utility classes */
 @layer utilities {
   .glass {
-    background: rgba(15, 26, 46, 0.75);
+    background: rgba(13, 23, 41, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(34, 112, 139, 0.14);
+    border: 1px solid rgba(34, 112, 139, 0.15);
   }
 
   .glass-card {
-    background: rgba(15, 26, 46, 0.65);
+    background: rgba(13, 23, 41, 0.7);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(34, 112, 139, 0.12);
@@ -99,13 +100,12 @@
   }
 
   .glass-header {
-    background: rgba(9, 17, 43, 0.92);
+    background: rgba(9, 17, 43, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(34, 112, 139, 0.1);
   }
 
-  /* Gradient text — primary to orange accent */
   .text-gradient {
     background: linear-gradient(135deg, #22708B 0%, #F86110 100%);
     -webkit-background-clip: text;
@@ -113,17 +113,15 @@
     background-clip: text;
   }
   
-  /* Gradient text — orange highlight */
-  .text-gradient-orange {
+  .text-gradient-warm {
     background: linear-gradient(135deg, #F86110 0%, #Ad5793 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
-  /* Gradient text — purple/pink creative */
-  .text-gradient-creative {
-    background: linear-gradient(135deg, #845EC8 0%, #Ad5793 100%);
+  .text-gradient-cool {
+    background: linear-gradient(135deg, #845EC8 0%, #22708B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -137,35 +135,17 @@
   }
 
   .shadow-glow {
-    box-shadow:
-      0 0 20px rgba(34, 112, 139, 0.15),
-      0 0 40px rgba(34, 112, 139, 0.08);
+    box-shadow: 0 0 20px rgba(34, 112, 139, 0.2), 0 0 40px rgba(34, 112, 139, 0.1);
   }
   
-  .shadow-glow-orange {
-    box-shadow:
-      0 0 20px rgba(248, 97, 16, 0.2),
-      0 0 40px rgba(248, 97, 16, 0.1);
-  }
-  
-  .shadow-glow-purple {
-    box-shadow:
-      0 0 20px rgba(132, 94, 200, 0.2),
-      0 0 40px rgba(132, 94, 200, 0.1);
+  .shadow-glow-accent {
+    box-shadow: 0 0 20px rgba(248, 97, 16, 0.25), 0 0 40px rgba(248, 97, 16, 0.12);
   }
 
-  /* Section divider — orange to pink */
   .section-divider {
     width: 3rem;
     height: 3px;
     background: linear-gradient(90deg, #F86110, #Ad5793);
     border-radius: 9999px;
-  }
-
-  /* Smooth transitions for interactive elements */
-  .transition-smooth {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 500ms;
   }
 }

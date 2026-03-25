@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "O que sao projetos incentivados?",
-    answer: "Sao iniciativas aprovadas pelo governo federal que permitem que empresas e individuos direcionem parte do imposto para acoes que o Estado nao consegue alcançar sozinho — ampliando o impacto social de forma direta, transparente e legal.",
+    answer: "Sao iniciativas aprovadas pelo governo federal que permitem que empresas e individuos direcionem parte do imposto para acoes que o Estado nao consegue alcancar sozinho — ampliando o impacto social de forma direta, transparente e legal.",
   },
 ]
 
@@ -37,7 +37,7 @@ export function FAQ() {
     <section id="faq" className="py-24 sm:py-32 relative" ref={ref}>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-purple/4 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -48,7 +48,7 @@ export function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-widest uppercase text-purple font-sans font-semibold mb-4">Duvidas Comuns</p>
+          <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Duvidas Comuns</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Perguntas Frequentes
           </h2>
@@ -74,7 +74,7 @@ export function FAQ() {
                   value={`item-${index}`}
                   className="glass-card rounded-xl border-0 px-6 shadow-3d overflow-hidden"
                 >
-                  <AccordionTrigger className="font-serif text-left text-lg font-normal text-foreground hover:text-orange transition-colors py-6 hover:no-underline">
+                  <AccordionTrigger className="font-serif text-left text-lg font-normal text-foreground hover:text-accent transition-colors py-6 hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-sm text-muted-foreground pb-6 leading-relaxed">

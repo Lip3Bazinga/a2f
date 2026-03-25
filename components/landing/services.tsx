@@ -16,37 +16,31 @@ const services = [
     icon: Landmark,
     title: "Projetos Federais",
     description: "Conectamos empresas e individuos a projetos aprovados pelo governo federal, apresentando oportunidades estrategicas de patrocinio com deducao fiscal e retorno de imagem.",
-    color: "orange",
   },
   {
     icon: Building2,
     title: "Projetos Regionais",
     description: "Oferecemos projetos aprovados por governos estaduais e municipais, que permitem contribuicoes por meio de renuncia fiscal, de forma simples, segura e com previsibilidade.",
-    color: "purple",
   },
   {
     icon: Handshake,
     title: "Consultoria Empresarial",
     description: "Assessoramos empresas de todos os segmentos na busca de parceiros do terceiro setor que executam projetos por meio de recursos de incentivos fiscais.",
-    color: "pink",
   },
   {
     icon: Network,
     title: "Rede de Relacionamento",
     description: "Nosso diferencial esta em nossa rede de relacionamento nacional, que possibilita selecionar projetos alinhados aos valores e metas de cada patrocinador.",
-    color: "teal",
   },
   {
     icon: Presentation,
     title: "Palestras e Treinamentos",
     description: "Realizamos palestras, treinamentos e consultorias, mostrando na pratica como funcionam as contribuicoes incentivadas e como empresas podem se beneficiar imediatamente.",
-    color: "orange",
   },
   {
     icon: ClipboardCheck,
     title: "Acompanhamento Completo",
     description: "Acompanhamos todo o processo de execucao e prestacao de contas, assegurando tranquilidade total ao patrocinador.",
-    color: "purple",
   },
 ]
 
@@ -63,8 +57,8 @@ export function Services() {
     <section id="servicos" className="py-24 sm:py-32 relative" ref={ref}>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-orange/4 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-purple/4 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -75,7 +69,7 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-widest uppercase text-orange font-sans font-semibold mb-4">O que fazemos</p>
+          <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">O que fazemos</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Servicos
           </h2>
@@ -93,10 +87,10 @@ export function Services() {
               animate={isInView ? "animate" : "initial"}
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className={`glass-card rounded-2xl p-6 lg:p-8 shadow-3d group hover:shadow-glow${service.color === "orange" ? "-orange" : service.color === "purple" ? "-purple" : ""} hover:border-${service.color}/30 transition-all duration-500 ease-out`}
+              className="glass-card rounded-2xl p-6 lg:p-8 shadow-3d group hover:shadow-glow-accent hover:border-accent/30 transition-all duration-500 ease-out"
             >
-              <div className={`inline-flex p-4 rounded-xl bg-${service.color}/10 mb-6 group-hover:bg-${service.color}/20 transition-colors duration-300`}>
-                <service.icon className={`w-7 h-7 text-${service.color}`} />
+              <div className="inline-flex p-4 rounded-xl bg-accent/10 mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                <service.icon className="w-7 h-7 text-accent" />
               </div>
               <h3 className="font-serif text-lg font-normal text-foreground mb-3">
                 {service.title}
