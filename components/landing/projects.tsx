@@ -308,9 +308,9 @@ export function Projects() {
           className="relative"
         >
           <div className="text-center mb-10">
-            <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-3">Quem Confia na A2F</p>
+            <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-3">Unidos pela Causa</p>
             <h4 className="font-serif text-2xl sm:text-3xl font-normal text-foreground">
-              Parceiros Renomados
+              Parceiros pelo Impacto Social
             </h4>
           </div>
 
@@ -354,7 +354,7 @@ export function Projects() {
 
           {/* Bottom Text */}
           <p className="text-muted-foreground text-center mt-6 leading-relaxed text-sm sm:text-base max-w-2xl mx-auto">
-            Trabalhamos com instituicoes renomadas, garantindo credibilidade, transparencia e impacto ampliado em todos os projetos.
+            Organizacoes e instituicoes comprometidas com a transformacao social, unidas pelo proposito de gerar impacto positivo na sociedade.
           </p>
         </motion.div>
       </div>
