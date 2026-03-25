@@ -34,7 +34,7 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand wordmark — DM Serif Display */}
+          {/* Brand wordmark */}
           <a
             href="#"
             className="font-serif text-2xl text-gradient hover:opacity-80 transition-opacity duration-300 tracking-tight"
@@ -42,7 +42,7 @@ export function Header() {
             A2F
           </a>
 
-          {/* Desktop Navigation — DM Sans body font */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link, index) => (
               <motion.a
@@ -51,7 +51,7 @@ export function Header() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08, duration: 0.4 }}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wide"
+                className="text-sm font-medium text-muted-foreground hover:text-orange transition-colors duration-300 tracking-wide"
               >
                 {link.label}
               </motion.a>
@@ -61,7 +61,7 @@ export function Header() {
           {/* CTA button */}
           <a
             href="#contato"
-            className="hidden md:inline-flex items-center px-5 py-2 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all duration-300 shadow-glow"
+            className="hidden md:inline-flex items-center px-5 py-2 rounded-xl bg-orange text-white text-sm font-semibold hover:brightness-110 transition-all duration-300 shadow-glow-orange"
           >
             Fale Conosco
           </a>
@@ -69,7 +69,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-300"
+            className="md:hidden p-2 text-foreground hover:text-orange transition-colors duration-300"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -92,7 +92,7 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 py-2.5 border-b border-border/50 last:border-0"
+                    className="text-sm font-medium text-muted-foreground hover:text-orange transition-colors duration-300 py-2.5 border-b border-border/50 last:border-0"
                   >
                     {link.label}
                   </a>
@@ -100,7 +100,7 @@ export function Header() {
                 <a
                   href="#contato"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-3 w-full text-center px-5 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all duration-300"
+                  className="mt-3 w-full text-center px-5 py-3 rounded-xl bg-orange text-white text-sm font-semibold hover:brightness-110 transition-all duration-300"
                 >
                   Fale Conosco
                 </a>

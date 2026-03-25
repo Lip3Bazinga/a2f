@@ -27,7 +27,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-widest uppercase text-primary font-sans font-semibold mb-4">Nossa Historia</p>
+          <p className="text-xs tracking-widest uppercase text-orange font-sans font-semibold mb-4">Nossa Historia</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Quem Somos
           </h2>
@@ -61,11 +61,11 @@ export function About() {
               animate={isInView ? "animate" : "initial"}
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="glass-card rounded-2xl p-6 shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out"
+              className="glass-card rounded-2xl p-6 shadow-3d hover:shadow-glow-orange hover:border-orange/30 transition-all duration-500 ease-out"
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-primary/10 flex-shrink-0">
-                  <Target className="w-6 h-6 text-primary" />
+                <div className="p-3 rounded-xl bg-orange/10 flex-shrink-0">
+                  <Target className="w-6 h-6 text-orange" />
                 </div>
                 <div>
                   <h3 className="font-serif text-xl font-normal text-foreground mb-2">
@@ -83,11 +83,11 @@ export function About() {
               animate={isInView ? "animate" : "initial"}
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="glass-card rounded-2xl p-6 shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out"
+              className="glass-card rounded-2xl p-6 shadow-3d hover:shadow-glow-purple hover:border-purple/30 transition-all duration-500 ease-out"
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-primary/10 flex-shrink-0">
-                  <Shield className="w-6 h-6 text-primary" />
+                <div className="p-3 rounded-xl bg-purple/10 flex-shrink-0">
+                  <Shield className="w-6 h-6 text-purple" />
                 </div>
                 <div>
                   <h3 className="font-serif text-xl font-normal text-foreground mb-2">
@@ -111,16 +111,16 @@ export function About() {
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16"
         >
           {[
-            { icon: Target, title: "Missao", desc: "Impulsionar o esporte e a cultura no Brasil" },
-            { icon: Users, title: "Conexao", desc: "Marcas, pessoas e projetos transformadores" },
-            { icon: Shield, title: "Confianca", desc: "Seguranca juridica e transparencia total" },
+            { icon: Target, title: "Missao", desc: "Impulsionar o esporte e a cultura no Brasil", color: "orange" },
+            { icon: Users, title: "Conexao", desc: "Marcas, pessoas e projetos transformadores", color: "pink" },
+            { icon: Shield, title: "Confianca", desc: "Seguranca juridica e transparencia total", color: "purple" },
           ].map((item) => (
             <div
               key={item.title}
-              className="glass-card rounded-xl p-6 text-center shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out group"
+              className={`glass-card rounded-xl p-6 text-center shadow-3d hover:shadow-glow${item.color === "orange" ? "-orange" : item.color === "purple" ? "-purple" : ""} hover:border-${item.color}/30 transition-all duration-500 ease-out group`}
             >
-              <div className="inline-flex p-4 rounded-xl bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                <item.icon className="w-7 h-7 text-primary" />
+              <div className={`inline-flex p-4 rounded-xl bg-${item.color}/10 mb-4 group-hover:bg-${item.color}/20 transition-colors duration-300`}>
+                <item.icon className={`w-7 h-7 text-${item.color}`} />
               </div>
               <h4 className="font-serif text-lg font-normal text-foreground mb-2">{item.title}</h4>
               <p className="text-sm text-muted-foreground">{item.desc}</p>

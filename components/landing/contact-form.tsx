@@ -34,7 +34,7 @@ export function ContactForm() {
   const handleBack = () => { if (currentStep > 1) setCurrentStep(currentStep - 1) }
   const handleSubmit = (e: React.FormEvent) => { e.preventDefault() }
 
-  const inputClass = "pl-10 bg-muted border-border h-12 text-foreground placeholder:text-muted-foreground focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl text-sm"
+  const inputClass = "pl-10 bg-muted border-border h-12 text-foreground placeholder:text-muted-foreground focus:border-orange focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl text-sm"
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -104,7 +104,7 @@ export function ContactForm() {
               value={formData.mensagem}
               onChange={handleInputChange}
               placeholder="Escreva sua mensagem aqui..."
-              className="bg-muted border-border min-h-[160px] text-foreground placeholder:text-muted-foreground focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 resize-none rounded-xl text-sm"
+              className="bg-muted border-border min-h-[160px] text-foreground placeholder:text-muted-foreground focus:border-orange focus-visible:ring-0 focus-visible:ring-offset-0 resize-none rounded-xl text-sm"
             />
           </div>
         )
@@ -125,10 +125,10 @@ export function ContactForm() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-widest uppercase text-primary font-sans font-semibold mb-4">Fale com Nossa Equipe</p>
+          <p className="text-xs tracking-widest uppercase text-orange font-sans font-semibold mb-4">Fale com Nossa Equipe</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6">
             Torne-se um{" "}
-            <span className="text-gradient italic">Patrocinador Oficial</span>
+            <span className="text-gradient-orange italic">Patrocinador Oficial</span>
           </h2>
           <div className="section-divider mx-auto mb-6" />
           <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
@@ -157,16 +157,16 @@ export function ContactForm() {
               <div className="space-y-5">
                 <a
                   href="mailto:contato@a2f.com.br"
-                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors duration-300 group"
+                  className="flex items-center gap-4 text-muted-foreground hover:text-orange transition-colors duration-300 group"
                 >
-                  <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
-                    <Mail className="w-5 h-5 text-primary" />
+                  <div className="p-3 rounded-xl bg-orange/10 group-hover:bg-orange/20 transition-colors duration-300 flex-shrink-0">
+                    <Mail className="w-5 h-5 text-orange" />
                   </div>
                   <span className="text-sm">contato@a2f.com.br</span>
                 </a>
                 <div className="flex items-center gap-4 text-muted-foreground">
-                  <div className="p-3 rounded-xl bg-primary/10 flex-shrink-0">
-                    <Phone className="w-5 h-5 text-primary" />
+                  <div className="p-3 rounded-xl bg-purple/10 flex-shrink-0">
+                    <Phone className="w-5 h-5 text-purple" />
                   </div>
                   <span className="text-sm">(XX) XXXXX-XXXX</span>
                 </div>
@@ -174,10 +174,10 @@ export function ContactForm() {
                   href="https://www.a2f.com.br"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors duration-300 group"
+                  className="flex items-center gap-4 text-muted-foreground hover:text-pink transition-colors duration-300 group"
                 >
-                  <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
-                    <Globe className="w-5 h-5 text-primary" />
+                  <div className="p-3 rounded-xl bg-pink/10 group-hover:bg-pink/20 transition-colors duration-300 flex-shrink-0">
+                    <Globe className="w-5 h-5 text-pink" />
                   </div>
                   <span className="text-sm">www.a2f.com.br</span>
                 </a>
@@ -207,16 +207,16 @@ export function ContactForm() {
                         onClick={() => setCurrentStep(step.id)}
                         className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
                           currentStep === step.id
-                            ? "bg-primary/20 border-2 border-primary text-primary"
+                            ? "bg-orange/20 border-2 border-orange text-orange"
                             : currentStep > step.id
-                            ? "bg-primary/10 border border-primary/30 text-primary"
+                            ? "bg-orange/10 border border-orange/30 text-orange"
                             : "bg-muted border border-border text-muted-foreground"
                         }`}
                       >
                         <step.icon className="w-4 h-4" />
                       </button>
                       <span className={`text-xs hidden sm:block font-sans tracking-wide ${
-                        currentStep === step.id ? "text-primary" : "text-muted-foreground"
+                        currentStep === step.id ? "text-orange" : "text-muted-foreground"
                       }`}>
                         {step.label}
                       </span>
@@ -226,7 +226,7 @@ export function ContactForm() {
                 {/* Progress bar */}
                 <div className="mt-5 h-0.5 bg-border rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-primary transition-all duration-500 ease-out rounded-full"
+                    className="h-full bg-orange transition-all duration-500 ease-out rounded-full"
                     style={{ width: `${((currentStep - 1) / 3) * 100}%` }}
                   />
                 </div>
@@ -252,7 +252,7 @@ export function ContactForm() {
                 <Button
                   type={currentStep === 4 ? "submit" : "button"}
                   onClick={currentStep < 4 ? handleNext : undefined}
-                  className="flex-1 h-12 bg-primary hover:brightness-110 text-primary-foreground font-semibold rounded-xl transition-all duration-300 text-sm"
+                  className="flex-1 h-12 bg-orange hover:brightness-110 text-white font-semibold rounded-xl transition-all duration-300 text-sm shadow-glow-orange"
                 >
                   {currentStep === 4 ? "Enviar" : "Continuar"}
                   <ArrowRight className="w-4 h-4 ml-2" />

@@ -8,26 +8,26 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/8 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple/8 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary/4 rounded-full blur-3xl" />
       </div>
 
-      {/* Subtle floating shapes — brand movement pillar */}
+      {/* Subtle floating shapes */}
       <motion.div
         animate={{ y: [0, -18, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-1/5 w-20 h-20 glass-card rounded-2xl opacity-20"
+        className="absolute top-1/4 right-1/5 w-20 h-20 glass-card rounded-2xl opacity-20 border-orange/20"
       />
       <motion.div
         animate={{ y: [0, 16, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/3 left-1/6 w-14 h-14 glass-card rounded-xl opacity-20"
+        className="absolute bottom-1/3 left-1/6 w-14 h-14 glass-card rounded-xl opacity-20 border-purple/20"
       />
       <motion.div
         animate={{ y: [0, -12, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 left-1/4 w-10 h-10 glass-card rounded-lg opacity-15"
+        className="absolute top-1/3 left-1/4 w-10 h-10 glass-card rounded-lg opacity-15 border-pink/20"
       />
 
       {/* Content */}
@@ -55,7 +55,7 @@ export function Hero() {
           className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-foreground mb-6 text-balance leading-snug"
         >
           Transformando Incentivo Fiscal em
-          <span className="text-primary italic"> Impacto Social</span>
+          <span className="text-orange italic"> Impacto Social</span>
         </motion.h1>
 
         <motion.p
@@ -76,13 +76,13 @@ export function Hero() {
         >
           <a
             href="#quem-somos"
-            className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-xl shadow-glow transition-all duration-300 hover:shadow-lg hover:brightness-110 text-sm tracking-wide"
+            className="px-8 py-3.5 bg-orange text-white font-semibold rounded-xl shadow-glow-orange transition-all duration-300 hover:shadow-lg hover:brightness-110 text-sm tracking-wide"
           >
             Conheca a A2F
           </a>
           <a
             href="#servicos"
-            className="px-8 py-3.5 glass-card font-semibold rounded-xl transition-all duration-300 hover:border-primary/30 hover:shadow-glow text-sm tracking-wide"
+            className="px-8 py-3.5 glass-card font-semibold rounded-xl transition-all duration-300 hover:border-orange/30 hover:shadow-glow text-sm tracking-wide"
           >
             Nossos Servicos
           </a>
@@ -100,7 +100,7 @@ export function Hero() {
           href="#quem-somos"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2.5, repeat: Infinity }}
-          className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors duration-300"
+          className="flex flex-col items-center text-muted-foreground hover:text-orange transition-colors duration-300"
         >
           <span className="text-xs tracking-widest uppercase mb-2">Saiba mais</span>
           <ArrowDown size={16} />

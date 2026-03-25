@@ -30,8 +30,8 @@ export function SocialImpact() {
   return (
     <section ref={ref} className="relative py-20 sm:py-28 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="absolute top-20 right-10 w-48 h-48 bg-primary/4 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-64 h-64 bg-secondary/4 rounded-full blur-3xl" />
+      <div className="absolute top-20 right-10 w-48 h-48 bg-orange/4 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-64 h-64 bg-purple/4 rounded-full blur-3xl" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -45,12 +45,12 @@ export function SocialImpact() {
             className="space-y-7"
           >
             <div>
-              <p className="text-xs tracking-widest uppercase text-primary font-sans font-semibold mb-4">
+              <p className="text-xs tracking-widest uppercase text-orange font-sans font-semibold mb-4">
                 Impacto Social & Fiscal
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-2">
                 Lei de Incentivo ao Esporte bate{' '}
-                <span className="text-primary italic">RECORDE</span>{' '}
+                <span className="text-orange italic">RECORDE</span>{' '}
                 de projetos apresentados
               </h2>
               <div className="section-divider mt-6" />
@@ -70,13 +70,13 @@ export function SocialImpact() {
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.06 }}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-foreground leading-relaxed">{benefit}</span>
                 </motion.div>
               ))}
             </div>
 
-            {/* Badges — no emojis, icon + label only */}
+            {/* Badges */}
             <div className="flex flex-wrap gap-3 pt-2">
               {badges.map((badge, index) => (
                 <motion.div
@@ -84,9 +84,9 @@ export function SocialImpact() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3, delay: 0.65 + index * 0.06 }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/20"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full glass-card border-orange/20"
                 >
-                  <badge.icon className="w-3.5 h-3.5 text-primary" />
+                  <badge.icon className="w-3.5 h-3.5 text-orange" />
                   <span className="text-xs font-medium text-foreground tracking-wide">{badge.label}</span>
                 </motion.div>
               ))}
@@ -119,15 +119,15 @@ export function SocialImpact() {
             >
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
-                  <p className="font-serif text-2xl font-normal text-primary">500+</p>
+                  <p className="font-serif text-2xl font-normal text-orange">500+</p>
                   <p className="text-xs text-muted-foreground tracking-wide">Projetos</p>
                 </div>
                 <div className="text-center border-x border-border">
-                  <p className="font-serif text-2xl font-normal text-primary">100M+</p>
+                  <p className="font-serif text-2xl font-normal text-purple">100M+</p>
                   <p className="text-xs text-muted-foreground tracking-wide">Impacto</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-serif text-2xl font-normal text-primary">8+</p>
+                  <p className="font-serif text-2xl font-normal text-pink">8+</p>
                   <p className="text-xs text-muted-foreground tracking-wide">Anos</p>
                 </div>
               </div>

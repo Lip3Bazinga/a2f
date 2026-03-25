@@ -41,7 +41,7 @@ export function Footer() {
     <footer className="pt-20 pb-10 relative" ref={ref}>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-primary/3 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-orange/3 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -68,28 +68,28 @@ export function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors duration-300 border border-primary/15"
+                className="p-2.5 rounded-xl bg-orange/10 hover:bg-orange/20 transition-colors duration-300 border border-orange/15"
                 aria-label="Facebook A2F"
               >
-                <Facebook className="w-4 h-4 text-primary" />
+                <Facebook className="w-4 h-4 text-orange" />
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors duration-300 border border-primary/15"
+                className="p-2.5 rounded-xl bg-pink/10 hover:bg-pink/20 transition-colors duration-300 border border-pink/15"
                 aria-label="Instagram A2F"
               >
-                <Instagram className="w-4 h-4 text-primary" />
+                <Instagram className="w-4 h-4 text-pink" />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors duration-300 border border-primary/15"
+                className="p-2.5 rounded-xl bg-purple/10 hover:bg-purple/20 transition-colors duration-300 border border-purple/15"
                 aria-label="LinkedIn A2F"
               >
-                <Linkedin className="w-4 h-4 text-primary" />
+                <Linkedin className="w-4 h-4 text-purple" />
               </a>
             </div>
           </motion.div>
@@ -101,13 +101,13 @@ export function Footer() {
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-xs tracking-widest uppercase text-primary font-semibold mb-5">Navegacao</h4>
+            <h4 className="text-xs tracking-widest uppercase text-orange font-semibold mb-5">Navegacao</h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1 group"
+                    className="text-sm text-muted-foreground hover:text-orange transition-colors duration-300 flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
@@ -124,13 +124,13 @@ export function Footer() {
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="text-xs tracking-widest uppercase text-primary font-semibold mb-5">Servicos</h4>
+            <h4 className="text-xs tracking-widest uppercase text-purple font-semibold mb-5">Servicos</h4>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1 group"
+                    className="text-sm text-muted-foreground hover:text-purple transition-colors duration-300 flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
@@ -147,23 +147,23 @@ export function Footer() {
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h4 className="text-xs tracking-widest uppercase text-primary font-semibold mb-5">Contato</h4>
+            <h4 className="text-xs tracking-widest uppercase text-pink font-semibold mb-5">Contato</h4>
             <ul className="space-y-4 mb-6">
               <li>
                 <a
                   href="mailto:contato@a2f.com.br"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm group"
+                  className="flex items-center gap-3 text-muted-foreground hover:text-orange transition-colors duration-300 text-sm group"
                 >
-                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
-                    <Mail className="w-3.5 h-3.5 text-primary" />
+                  <div className="p-2 rounded-lg bg-orange/10 group-hover:bg-orange/20 transition-colors duration-300 flex-shrink-0">
+                    <Mail className="w-3.5 h-3.5 text-orange" />
                   </div>
                   contato@a2f.com.br
                 </a>
               </li>
               <li>
                 <div className="flex items-center gap-3 text-muted-foreground text-sm">
-                  <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0">
-                    <Phone className="w-3.5 h-3.5 text-primary" />
+                  <div className="p-2 rounded-lg bg-purple/10 flex-shrink-0">
+                    <Phone className="w-3.5 h-3.5 text-purple" />
                   </div>
                   +55 (XX) XXXX-XXXX
                 </div>
@@ -173,18 +173,18 @@ export function Footer() {
                   href="https://www.a2f.com.br"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm group"
+                  className="flex items-center gap-3 text-muted-foreground hover:text-pink transition-colors duration-300 text-sm group"
                 >
-                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
-                    <Globe className="w-3.5 h-3.5 text-primary" />
+                  <div className="p-2 rounded-lg bg-pink/10 group-hover:bg-pink/20 transition-colors duration-300 flex-shrink-0">
+                    <Globe className="w-3.5 h-3.5 text-pink" />
                   </div>
                   www.a2f.com.br
                 </a>
               </li>
               <li>
                 <div className="flex items-center gap-3 text-muted-foreground text-sm">
-                  <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0">
-                    <MapPin className="w-3.5 h-3.5 text-primary" />
+                  <div className="p-2 rounded-lg bg-teal/10 flex-shrink-0">
+                    <MapPin className="w-3.5 h-3.5 text-teal" />
                   </div>
                   Brasil
                 </div>
@@ -196,7 +196,7 @@ export function Footer() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="block text-xs text-muted-foreground hover:text-primary transition-colors duration-300"
+                  className="block text-xs text-muted-foreground hover:text-orange transition-colors duration-300"
                 >
                   {link.label}
                 </Link>
