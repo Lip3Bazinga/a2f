@@ -19,7 +19,7 @@ const reachCards = [
     id: "alcance-internacional",
     icon: Globe,
     title: "Alcance Internacional",
-    description: "Torneio chancelado pela Federacao Internacional de Tenis (ITF) e pela Confederacao Brasileira de Tenis (CBT), com cobertura midiatica nacional e internacional.",
+    description: "Torneio chancelado pela Federação Internacional de Tênis (ITF) e pela Confederação Brasileira de Tênis (CBT), com cobertura midiática nacional e internacional.",
     size: "large",
     color: "primary",
   },
@@ -27,15 +27,15 @@ const reachCards = [
     id: "tenistas",
     icon: Users,
     title: "+64 Tenistas",
-    description: "Atletas profissionais de alto nivel competindo nas quadras de saibro.",
+    description: "Atletas profissionais de alto nível competindo nas quadras de saibro.",
     size: "small",
     color: "accent",
   },
   {
     id: "exposicao-marca",
     icon: ImageIcon,
-    title: "Exposicao de Marca",
-    description: "Logo estampado nas quadras, uniformes, placares e toda comunicacao visual.",
+    title: "Exposição de Marca",
+    description: "Logo estampado nas quadras, uniformes, placares e toda comunicação visual.",
     size: "small",
     color: "primary",
   },
@@ -43,15 +43,15 @@ const reachCards = [
     id: "espectadores",
     icon: UsersRound,
     title: "+5.000 Espectadores",
-    description: "Publico qualificado e engajado durante os dias de competicao.",
+    description: "Público qualificado e engajado durante os dias de competição.",
     size: "medium",
     color: "accent",
   },
   {
     id: "midia-espontanea",
     icon: TrendingUp,
-    title: "Midia Espontanea",
-    description: "Cobertura em portais esportivos, redes sociais e transmissao ao vivo gerando imenso valor de midia.",
+    title: "Mídia Espontânea",
+    description: "Cobertura em portais esportivos, redes sociais e transmissão ao vivo gerando imenso valor de mídia.",
     size: "medium",
     color: "primary",
   },
@@ -75,7 +75,7 @@ const reachCards = [
     id: "lei-incentivo",
     icon: Receipt,
     title: "Lei de Incentivo",
-    description: "Invista via Lei de Incentivo ao Esporte e deduza ate 1% do IR. Patrocinio sem custo real.",
+    description: "Invista via Lei de Incentivo ao Esporte e deduza até 1% do IR. Patrocínio sem custo real.",
     size: "small",
     color: "accent",
   },
@@ -137,10 +137,10 @@ export function Alcance() {
             <span className="text-foreground">A </span>
             <span className="text-gradient-warm">Oportunidade</span>
             <br />
-            <span className="text-foreground">de Patrocinio</span>
+            <span className="text-foreground">de Patrocínio</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-2xl leading-relaxed">
-            Multiplas atracoes e propriedades para exposicao da sua marca em um torneio internacional chancelado pela ITF e CBT, voltado para tenistas femininas.
+            Múltiplas atrações e propriedades para exposição da sua marca em um torneio internacional chancelado pela ITF e CBT, voltado para tenistas femininas.
           </p>
         </motion.div>
 

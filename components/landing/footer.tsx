@@ -12,7 +12,7 @@ const fadeInUp = {
 
 const navLinks = [
   { label: "Quem Somos", href: "#quem-somos" },
-  { label: "Servicos", href: "#servicos" },
+  { label: "Serviços", href: "#servicos" },
   { label: "Projetos", href: "#projetos" },
   { label: "Planos", href: "#planos" },
   { label: "FAQ", href: "#faq" },
@@ -28,7 +28,7 @@ const serviceLinks = [
 ]
 
 const legalLinks = [
-  { label: "Politica de Privacidade", href: "#" },
+  { label: "Política de Privacidade", href: "#" },
   { label: "Termos de Uso", href: "#" },
   { label: "Cookies", href: "#" },
 ]
@@ -101,7 +101,7 @@ export function Footer() {
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-xs tracking-widest uppercase text-accent font-semibold mb-5">Navegacao</h4>
+            <h4 className="text-xs tracking-widest uppercase text-accent font-semibold mb-5">Navegação</h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.label}>
@@ -124,7 +124,7 @@ export function Footer() {
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="text-xs tracking-widest uppercase text-primary font-semibold mb-5">Servicos</h4>
+            <h4 className="text-xs tracking-widest uppercase text-primary font-semibold mb-5">Serviços</h4>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.label}>

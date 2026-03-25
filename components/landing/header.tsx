@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react"
 
 const navLinks = [
   { href: "#quem-somos", label: "Quem Somos" },
-  { href: "#servicos", label: "Servicos" },
+  { href: "#servicos", label: "Serviços" },
   { href: "#projetos", label: "Projetos" },
   { href: "#planos", label: "Planos" },
   { href: "#faq", label: "FAQ" },
@@ -69,7 +69,7 @@ export function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 text-foreground hover:text-accent transition-colors duration-300"
-            aria-label="Toggle menu"
+            aria-label="Alternar menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

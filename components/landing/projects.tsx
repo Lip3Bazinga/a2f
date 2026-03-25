@@ -20,12 +20,12 @@ const projectCategories = [
     icon: Film,
     title: "Audiovisual Nacional",
     shortTitle: "Nacional",
-    description: "Projetos audiovisuais brasileiros que valorizam a cultura e a producao nacional, conectando marcas a conteudos de alta qualidade e impacto social.",
+    description: "Projetos audiovisuais brasileiros que valorizam a cultura e a produção nacional, conectando marcas a conteúdos de alta qualidade e impacto social.",
     highlights: [
-      "Filmes e documentarios nacionais",
-      "Series e programas de TV",
-      "Producoes independentes",
-      "Conteudo para streaming"
+      "Filmes e documentários nacionais",
+      "Séries e programas de TV",
+      "Produções independentes",
+      "Conteúdo para streaming"
     ],
     stats: { projects: "50+", reach: "10M+", partners: "25+" },
   },
@@ -34,12 +34,12 @@ const projectCategories = [
     icon: Globe,
     title: "Audiovisual Estrangeiro",
     shortTitle: "Internacional",
-    description: "Co-producoes internacionais e projetos estrangeiros filmados no Brasil, oferecendo visibilidade global para sua marca.",
+    description: "Coproduções internacionais e projetos estrangeiros filmados no Brasil, oferecendo visibilidade global para sua marca.",
     highlights: [
-      "Co-producoes internacionais",
+      "Coproduções internacionais",
       "Filmagens no Brasil",
       "Parcerias globais",
-      "Distribuicao mundial"
+      "Distribuição mundial"
     ],
     stats: { projects: "30+", reach: "50M+", partners: "15+" },
   },
@@ -48,12 +48,12 @@ const projectCategories = [
     icon: Trophy,
     title: "Esportivo",
     shortTitle: "Esportivo",
-    description: "Eventos e projetos esportivos que promovem saude, bem-estar e engajamento comunitario atraves do esporte.",
+    description: "Eventos e projetos esportivos que promovem saúde, bem-estar e engajamento comunitário através do esporte.",
     highlights: [
-      "Torneios de tenis",
+      "Torneios de tênis",
       "Corridas de rua",
       "Eventos de ciclismo",
-      "Competicoes de e-sports"
+      "Competições de e-sports"
     ],
     stats: { projects: "80+", reach: "5M+", partners: "40+" },
   },
@@ -62,10 +62,10 @@ const projectCategories = [
     icon: Music,
     title: "Musical",
     shortTitle: "Musical",
-    description: "Shows, festivais e projetos musicais que conectam artistas, publico e marcas em experiencias memoraveis.",
+    description: "Shows, festivais e projetos musicais que conectam artistas, público e marcas em experiências memoráveis.",
     highlights: [
       "Shows e concertos",
-      "Festivais de musica",
+      "Festivais de música",
       "Projetos culturais",
       "Eventos corporativos"
     ],
@@ -76,25 +76,25 @@ const projectCategories = [
     icon: GraduationCap,
     title: "Educacional",
     shortTitle: "Educacional",
-    description: "Projetos educacionais que transformam vidas atraves do conhecimento, capacitacao e desenvolvimento social.",
+    description: "Projetos educacionais que transformam vidas através do conhecimento, capacitação e desenvolvimento social.",
     highlights: [
-      "Programas de capacitacao",
+      "Programas de capacitação",
       "Workshops e cursos",
       "Projetos sociais",
-      "Inclusao digital"
+      "Inclusão digital"
     ],
     stats: { projects: "40+", reach: "2M+", partners: "20+" },
   },
 ]
 
 const partners = [
-  { name: "Esperanca do Amanha", url: "https://esperancadoamanha.com.br/", logo: "/images/partners/esperanca.png" },
+  { name: "Esperança do Amanhã", url: "https://esperancadoamanha.com.br/", logo: "/images/partners/esperanca.png" },
   { name: "ACJAM", url: "https://acjam.com.br/", logo: "/images/partners/acjam.png" },
   { name: "Instituto Sempre Amigos", url: "https://www.institutosempreamigos.com.br/", logo: "/images/partners/sempre-amigos.png" },
   { name: "Love Brand Makers", url: "https://lovebrandmakers.com.br", logo: "/images/partners/lovebrand.png" },
   { name: "ITF Tennis", url: "https://www.itftennis.com/", logo: "/images/partners/itf.png" },
   { name: "CBT", url: "https://www.cbtenis.com.br/", logo: "/images/partners/cbt.png" },
-  { name: "Ministerio do Esporte", url: "https://www.gov.br/esporte/", logo: "/images/partners/esporte.png" },
+  { name: "Ministério do Esporte", url: "https://www.gov.br/esporte/", logo: "/images/partners/esporte.png" },
   { name: "ANCINE", url: "https://www.gov.br/ancine/", logo: "/images/partners/ancine.png" },
 ]
 
@@ -139,13 +139,13 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Curadoria Estrategica</p>
+          <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Curadoria Estratégica</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Projetos e Produtos
           </h2>
           <div className="section-divider mx-auto mb-6" />
           <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A A2F oferece acesso a uma curadoria de projetos esportivos e culturais certificados, alem da criacao de produtos exclusivos que geram posicionamento de marca e impacto social.
+            A A2F oferece acesso a uma curadoria de projetos esportivos e culturais certificados, além da criação de produtos exclusivos que geram posicionamento de marca e impacto social.
           </p>
         </motion.div>
 
@@ -220,7 +220,7 @@ export function Projects() {
                 <button
                   onClick={handleNext}
                   className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-                  aria-label="Proximo projeto"
+                  aria-label="Próximo projeto"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -354,7 +354,7 @@ export function Projects() {
 
           {/* Bottom Text */}
           <p className="text-muted-foreground text-center mt-6 leading-relaxed text-sm sm:text-base max-w-2xl mx-auto">
-            Organizacoes e instituicoes comprometidas com a transformacao social, unidas pelo proposito de gerar impacto positivo na sociedade.
+            Organizações e instituições comprometidas com a transformação social, unidas pelo propósito de gerar impacto positivo na sociedade.
           </p>
         </motion.div>
       </div>

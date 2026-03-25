@@ -67,7 +67,7 @@ export function Hero() {
           className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty leading-relaxed"
         >
           Conectamos empresas e pessoas a projetos de esporte e cultura,
-          criando pontes entre responsabilidade fiscal e transformacao social real.
+          criando pontes entre responsabilidade fiscal e transformação social real.
         </motion.p>
 
         {/* CTAs */}
@@ -81,13 +81,13 @@ export function Hero() {
             href="#quem-somos"
             className="px-8 py-3.5 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl shadow-glow-accent transition-all duration-300 hover:scale-[1.02] text-sm tracking-wide"
           >
-            Conheca a A2F
+            Conheça a A2F
           </a>
           <a
             href="#servicos"
             className="px-8 py-3.5 glass-card text-foreground font-semibold rounded-xl transition-all duration-300 hover:border-accent/30 text-sm tracking-wide"
           >
-            Nossos Servicos
+            Nossos Serviços
           </a>
         </motion.div>
       </div>

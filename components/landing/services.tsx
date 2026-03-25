@@ -15,12 +15,12 @@ const services = [
   {
     icon: Landmark,
     title: "Projetos Federais",
-    description: "Conectamos empresas e individuos a projetos aprovados pelo governo federal, apresentando oportunidades estrategicas de patrocinio com deducao fiscal e retorno de imagem.",
+    description: "Conectamos empresas e indivíduos a projetos aprovados pelo governo federal, apresentando oportunidades estratégicas de patrocínio com dedução fiscal e retorno de imagem.",
   },
   {
     icon: Building2,
     title: "Projetos Regionais",
-    description: "Oferecemos projetos aprovados por governos estaduais e municipais, que permitem contribuicoes por meio de renuncia fiscal, de forma simples, segura e com previsibilidade.",
+    description: "Oferecemos projetos aprovados por governos estaduais e municipais, que permitem contribuições por meio de renúncia fiscal, de forma simples, segura e com previsibilidade.",
   },
   {
     icon: Handshake,
@@ -30,17 +30,17 @@ const services = [
   {
     icon: Network,
     title: "Rede de Relacionamento",
-    description: "Nosso diferencial esta em nossa rede de relacionamento nacional, que possibilita selecionar projetos alinhados aos valores e metas de cada patrocinador.",
+    description: "Nosso diferencial está em nossa rede de relacionamento nacional, que possibilita selecionar projetos alinhados aos valores e metas de cada patrocinador.",
   },
   {
     icon: Presentation,
     title: "Palestras e Treinamentos",
-    description: "Realizamos palestras, treinamentos e consultorias, mostrando na pratica como funcionam as contribuicoes incentivadas e como empresas podem se beneficiar imediatamente.",
+    description: "Realizamos palestras, treinamentos e consultorias, mostrando na prática como funcionam as contribuições incentivadas e como empresas podem se beneficiar imediatamente.",
   },
   {
     icon: ClipboardCheck,
     title: "Acompanhamento Completo",
-    description: "Acompanhamos todo o processo de execucao e prestacao de contas, assegurando tranquilidade total ao patrocinador.",
+    description: "Acompanhamos todo o processo de execução e prestação de contas, assegurando tranquilidade total ao patrocinador.",
   },
 ]
 
@@ -71,11 +71,11 @@ export function Services() {
         >
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">O que fazemos</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
-            Servicos
+            Serviços
           </h2>
           <div className="section-divider mx-auto mb-6" />
           <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A A2F oferece solucoes completas para empresas e pessoas fisicas que desejam transformar parte do seu Imposto de Renda em impacto social, com curadoria estrategica e gestao completa.
+            A A2F oferece soluções completas para empresas e pessoas físicas que desejam transformar parte do seu Imposto de Renda em impacto social, com curadoria estratégica e gestão completa.
           </p>
         </motion.div>
 

@@ -13,18 +13,18 @@ export function SocialImpact() {
   const { ref, inView: isInView } = useInView({ once: true, margin: '-100px 0px' })
 
   const benefits = [
-    'Deducao de ate 1% do Imposto de Renda devido (Pessoa Juridica)',
-    'Exposicao em torneio internacional chancelado pela ITF',
-    'Associacao ao esporte feminino com impacto social real',
-    'Relatorio de resultados e visibilidade de midia pos-evento',
+    'Dedução de até 1% do Imposto de Renda devido (Pessoa Jurídica)',
+    'Exposição em torneio internacional chancelado pela ITF',
+    'Associação ao esporte feminino com impacto social real',
+    'Relatório de resultados e visibilidade de mídia pós-evento',
     'Acesso ao projeto aprovado na Lei de Incentivo ao Esporte',
-    '8 anos de historia e credibilidade no esporte brasileiro',
+    '8 anos de história e credibilidade no esporte brasileiro',
   ]
 
   const badges = [
-    { label: 'Ministerio do Esporte', icon: Award },
+    { label: 'Ministério do Esporte', icon: Award },
     { label: 'Governo Federal', icon: Globe },
-    { label: 'Lei n 11.438/2006', icon: Scale },
+    { label: 'Lei nº 11.438/2006', icon: Scale },
   ]
 
   return (
@@ -57,7 +57,7 @@ export function SocialImpact() {
             </div>
 
             <p className="text-base text-muted-foreground leading-relaxed">
-              Ao apoiar o torneio, sua empresa investe no desenvolvimento esportivo de criancas e jovens, associando sua marca a inclusao, saude e esporte de alto nivel — com beneficio fiscal real.
+              Ao apoiar o torneio, sua empresa investe no desenvolvimento esportivo de crianças e jovens, associando sua marca à inclusão, saúde e esporte de alto nível — com benefício fiscal real.
             </p>
 
             {/* Benefits List */}
@@ -104,7 +104,7 @@ export function SocialImpact() {
             <div className="relative aspect-square sm:h-[520px] rounded-2xl overflow-hidden glass-card shadow-3d">
               <img
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/banner_lei_de_incentivo_ao_esporte-lwlMhMrdawPnh06igdCVuoiO1tXaeh.jpeg"
-                alt="Lei de Incentivo ao Esporte — criancas e jovens praticando tenis"
+                alt="Lei de Incentivo ao Esporte — crianças e jovens praticando tênis"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />

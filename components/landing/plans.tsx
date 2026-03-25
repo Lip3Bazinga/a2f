@@ -35,7 +35,7 @@ export function Plans() {
           </h2>
           <div className="section-divider mx-auto mb-6" />
           <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Empresas tributadas pelo Lucro Real podem destinar parte do Imposto de Renda devido diretamente para projetos incentivados — transformando obrigacao fiscal em impacto positivo e visibilidade de marca.
+            Empresas tributadas pelo Lucro Real podem destinar parte do Imposto de Renda devido diretamente para projetos incentivados — transformando obrigação fiscal em impacto positivo e visibilidade de marca.
           </p>
         </motion.div>
 
@@ -66,7 +66,7 @@ export function Plans() {
             </div>
           </motion.div>
 
-          {/* Pessoas Fisicas */}
+          {/* Pessoas Físicas */}
           <motion.div
             initial="initial"
             animate={isInView ? "animate" : "initial"}
@@ -78,7 +78,7 @@ export function Plans() {
               <div className="p-3 rounded-xl bg-primary/10">
                 <User className="w-7 h-7 text-primary" />
               </div>
-              <h4 className="font-serif text-2xl font-normal text-foreground">Pessoas Fisicas</h4>
+              <h4 className="font-serif text-2xl font-normal text-foreground">Pessoas Físicas</h4>
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
@@ -113,7 +113,7 @@ export function Plans() {
             </div>
             <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
               <span className="font-serif text-4xl font-normal text-primary min-w-[4rem]">7%</span>
-              <span className="text-sm text-muted-foreground">para pessoas fisicas</span>
+              <span className="text-sm text-muted-foreground">para pessoas físicas</span>
             </div>
           </div>
         </motion.div>
@@ -131,7 +131,7 @@ export function Plans() {
             <span className="text-sm font-medium text-foreground">Projetos Personalizados</span>
           </div>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Tambem desenvolvemos projetos regionais e personalizados, ideais para posicionamento de marca, ativacao institucional e fortalecimento de imagem corporativa.
+            Também desenvolvemos projetos regionais e personalizados, ideais para posicionamento de marca, ativação institucional e fortalecimento de imagem corporativa.
           </p>
         </motion.div>
       </div>

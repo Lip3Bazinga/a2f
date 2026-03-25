@@ -17,12 +17,12 @@ const founders = [
     role: "Diretor Esportivo",
     image: "/images/adriano.jpg",
     shortBio: "Um dos maiores nomes do esporte nacional",
-    fullBio: "Com a lideranca de Adriano Ferreira, um dos maiores nomes do esporte nacional, trazemos a vivencia, credibilidade e disciplina do ambiente esportivo para dentro do processo de captacao. Sua trajetoria como atleta de alto rendimento e sua visao estrategica de mercado permitem criar conexoes autenticas entre marcas e projetos esportivos.",
+    fullBio: "Com a liderança de Adriano Ferreira, um dos maiores nomes do esporte nacional, trazemos a vivência, credibilidade e disciplina do ambiente esportivo para dentro do processo de captação. Sua trajetória como atleta de alto rendimento e sua visão estratégica de mercado permitem criar conexões autênticas entre marcas e projetos esportivos.",
     highlights: [
       "Ex-atleta profissional de alto rendimento",
-      "Mais de 20 anos de experiencia no esporte",
-      "Conexoes com os principais clubes e federacoes",
-      "Visao estrategica de patrocinio esportivo"
+      "Mais de 20 anos de experiência no esporte",
+      "Conexões com os principais clubes e federações",
+      "Visão estratégica de patrocínio esportivo"
     ],
     icon: Trophy,
     color: "accent"
@@ -30,15 +30,15 @@ const founders = [
   {
     id: "abner",
     name: "Abner H. Ferreira",
-    role: "Diretor Tributario",
+    role: "Diretor Tributário",
     image: "/images/abner.jpg",
-    shortBio: "Especialista tributario com carreira em multinacionais",
-    fullBio: "Especialista tributario com solida carreira em grandes multinacionais, Abner leva a A2F a profundidade tecnica necessaria para garantir seguranca juridica, conformidade e excelencia na formalizacao de patrocinios incentivados. Sua expertise em legislacao fiscal permite maximizar os beneficios para empresas e pessoas fisicas.",
+    shortBio: "Especialista tributário com carreira em multinacionais",
+    fullBio: "Especialista tributário com sólida carreira em grandes multinacionais, Abner leva à A2F a profundidade técnica necessária para garantir segurança jurídica, conformidade e excelência na formalização de patrocínios incentivados. Sua expertise em legislação fiscal permite maximizar os benefícios para empresas e pessoas físicas.",
     highlights: [
-      "Especialista em legislacao de incentivos fiscais",
+      "Especialista em legislação de incentivos fiscais",
       "Carreira em Big Four e multinacionais",
-      "Expertise em compliance tributario",
-      "Seguranca juridica em todas as operacoes"
+      "Expertise em compliance tributário",
+      "Segurança jurídica em todas as operações"
     ],
     icon: Briefcase,
     color: "primary"
@@ -65,13 +65,13 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Nossa Historia</p>
+          <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Nossa História</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Quem Somos
           </h2>
           <div className="section-divider mx-auto mb-8" />
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            A A2F nasceu com a missao de impulsionar o esporte e a cultura no Brasil, conectando marcas, pessoas e projetos que transformam vidas atraves de incentivos fiscais estrategicos.
+            A A2F nasceu com a missão de impulsionar o esporte e a cultura no Brasil, conectando marcas, pessoas e projetos que transformam vidas através de incentivos fiscais estratégicos.
           </p>
         </motion.div>
 
@@ -206,7 +206,7 @@ export function About() {
             Somos especialistas em criar pontes eficientes entre empresas e iniciativas sociais, oferecendo caminhos 
             <span className="text-accent font-medium"> simples</span>, 
             <span className="text-primary font-medium"> seguros</span> e 
-            <span className="text-foreground font-medium"> altamente vantajosos</span> para utilizar incentivos fiscais de forma estrategica.
+            <span className="text-foreground font-medium"> altamente vantajosos</span> para utilizar incentivos fiscais de forma estratégica.
           </p>
         </motion.div>
 
@@ -222,7 +222,7 @@ export function About() {
             <div className="inline-flex p-4 rounded-xl bg-accent/10 mb-4 group-hover:bg-accent/20 transition-colors duration-300">
               <Target className="w-7 h-7 text-accent" />
             </div>
-            <h4 className="font-serif text-lg font-normal text-foreground mb-2">Missao</h4>
+            <h4 className="font-serif text-lg font-normal text-foreground mb-2">Missão</h4>
             <p className="text-sm text-muted-foreground">Impulsionar o esporte e a cultura no Brasil</p>
           </div>
           
@@ -230,7 +230,7 @@ export function About() {
             <div className="inline-flex p-4 rounded-xl bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors duration-300">
               <Users className="w-7 h-7 text-primary" />
             </div>
-            <h4 className="font-serif text-lg font-normal text-foreground mb-2">Conexao</h4>
+            <h4 className="font-serif text-lg font-normal text-foreground mb-2">Conexão</h4>
             <p className="text-sm text-muted-foreground">Marcas, pessoas e projetos transformadores</p>
           </div>
           
@@ -238,8 +238,8 @@ export function About() {
             <div className="inline-flex p-4 rounded-xl bg-secondary/30 mb-4 group-hover:bg-secondary/50 transition-colors duration-300">
               <Lightbulb className="w-7 h-7 text-foreground" />
             </div>
-            <h4 className="font-serif text-lg font-normal text-foreground mb-2">Confianca</h4>
-            <p className="text-sm text-muted-foreground">Seguranca juridica e transparencia total</p>
+            <h4 className="font-serif text-lg font-normal text-foreground mb-2">Confiança</h4>
+            <p className="text-sm text-muted-foreground">Segurança jurídica e transparência total</p>
           </div>
         </motion.div>
       </div>

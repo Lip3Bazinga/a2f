@@ -80,7 +80,7 @@ export function ContactForm() {
         return (
           <div className="space-y-4">
             <div>
-              <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">E-Mail</label>
+              <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">E-mail</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="seu@email.com" className={inputClass} />
@@ -132,7 +132,7 @@ export function ContactForm() {
           </h2>
           <div className="section-divider mx-auto mb-6" />
           <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Preencha o formulario ou entre em contato diretamente com nossa equipe comercial para receber o dossie completo de patrocinio e as cotas disponiveis.
+            Preencha o formulário ou entre em contato diretamente com nossa equipe comercial para receber o dossiê completo de patrocínio e as cotas disponíveis.
           </p>
         </motion.div>
 

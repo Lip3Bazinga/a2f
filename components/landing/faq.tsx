@@ -12,15 +12,15 @@ import {
 const faqs = [
   {
     question: "Quem pode contribuir?",
-    answer: "Empresas tributadas pelo Lucro Real; Pessoas fisicas pagadoras de Imposto de Renda.",
+    answer: "Empresas tributadas pelo Lucro Real e pessoas físicas pagadoras de Imposto de Renda.",
   },
   {
-    question: "Como fazer o patrocinio ou contribuicao?",
-    answer: "Apos escolher o projeto, o processo e simples e rapido: Basta realizar o deposito ou transferencia para a conta oficial do projeto no Banco do Brasil. Esse comprovante servira como base legal para a deducao do Imposto de Renda.",
+    question: "Como fazer o patrocínio ou contribuição?",
+    answer: "Após escolher o projeto, o processo é simples e rápido: basta realizar o depósito ou transferência para a conta oficial do projeto no Banco do Brasil. Esse comprovante servirá como base legal para a dedução do Imposto de Renda.",
   },
   {
-    question: "O que sao projetos incentivados?",
-    answer: "Sao iniciativas aprovadas pelo governo federal que permitem que empresas e individuos direcionem parte do imposto para acoes que o Estado nao consegue alcancar sozinho — ampliando o impacto social de forma direta, transparente e legal.",
+    question: "O que são projetos incentivados?",
+    answer: "São iniciativas aprovadas pelo governo federal que permitem que empresas e indivíduos direcionem parte do imposto para ações que o Estado não consegue alcançar sozinho — ampliando o impacto social de forma direta, transparente e legal.",
   },
 ]
 
@@ -48,7 +48,7 @@ export function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Duvidas Comuns</p>
+          <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Dúvidas Comuns</p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Perguntas Frequentes
           </h2>
