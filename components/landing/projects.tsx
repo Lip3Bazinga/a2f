@@ -8,7 +8,6 @@ import {
   Trophy,
   Music,
   GraduationCap,
-  ExternalLink,
   ChevronLeft,
   ChevronRight,
   Play
@@ -89,10 +88,14 @@ const projectCategories = [
 ]
 
 const partners = [
-  { name: "Esperanca do Amanha", url: "https://esperancadoamanha.com.br/" },
-  { name: "ACJAM", url: "https://acjam.com.br/" },
-  { name: "Instituto Sempre Amigos", url: "https://www.institutosempreamigos.com.br/" },
-  { name: "Love Brand Makers", url: "https://lovebrandmakers.com.br" },
+  { name: "Esperanca do Amanha", url: "https://esperancadoamanha.com.br/", logo: "/images/partners/esperanca.png" },
+  { name: "ACJAM", url: "https://acjam.com.br/", logo: "/images/partners/acjam.png" },
+  { name: "Instituto Sempre Amigos", url: "https://www.institutosempreamigos.com.br/", logo: "/images/partners/sempre-amigos.png" },
+  { name: "Love Brand Makers", url: "https://lovebrandmakers.com.br", logo: "/images/partners/lovebrand.png" },
+  { name: "ITF Tennis", url: "https://www.itftennis.com/", logo: "/images/partners/itf.png" },
+  { name: "CBT", url: "https://www.cbtenis.com.br/", logo: "/images/partners/cbt.png" },
+  { name: "Ministerio do Esporte", url: "https://www.gov.br/esporte/", logo: "/images/partners/esporte.png" },
+  { name: "ANCINE", url: "https://www.gov.br/ancine/", logo: "/images/partners/ancine.png" },
 ]
 
 const fadeInUp = {
@@ -279,7 +282,7 @@ export function Projects() {
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="flex justify-center gap-2 mt-8 mb-12"
+          className="flex justify-center gap-2 mt-8 mb-16"
         >
           {projectCategories.map((_, index) => (
             <button
@@ -296,43 +299,83 @@ export function Projects() {
           ))}
         </motion.div>
 
-        {/* Partners Section */}
+        {/* Partners Logo Slider */}
         <motion.div
           initial="initial"
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="glass-card rounded-2xl p-8 lg:p-12 shadow-3d"
+          className="relative"
         >
-          <h4 className="font-serif text-xl font-normal text-foreground mb-6 text-center">
-            Parceiros Renomados
-          </h4>
-          <p className="text-muted-foreground text-center mb-8 leading-relaxed">
-            Trabalhamos com parceiros renomados, garantindo credibilidade e impacto ampliado.
-          </p>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {partners.map((partner) => (
-              <a
-                key={partner.name}
-                href={partner.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 p-4 rounded-xl bg-secondary/50 hover:bg-accent/15 hover:border-accent/30 border border-transparent transition-all duration-300 ease-out group"
-              >
-                <span className="font-medium text-foreground group-hover:text-accent transition-colors duration-300">
-                  {partner.name}
-                </span>
-                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
-              </a>
-            ))}
+          <div className="text-center mb-10">
+            <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-3">Quem Confia na A2F</p>
+            <h4 className="font-serif text-2xl sm:text-3xl font-normal text-foreground">
+              Parceiros Renomados
+            </h4>
           </div>
 
-          <p className="text-muted-foreground text-center mt-8 leading-relaxed">
-            Criamos experiencias que fortalecem marcas, aproximam comunidades e geram resultados duradouros.
+          {/* Slider Container */}
+          <div className="relative overflow-hidden py-8">
+            {/* Gradient Masks */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
+            
+            {/* Infinite Scroll Track */}
+            <div className="flex animate-scroll">
+              {/* First set of logos */}
+              {[...partners, ...partners].map((partner, index) => (
+                <a
+                  key={`${partner.name}-${index}`}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 mx-4 sm:mx-8 group"
+                >
+                  <div className="relative w-32 h-20 sm:w-44 sm:h-24 flex items-center justify-center glass-card rounded-xl px-4 py-3 transition-all duration-500 ease-out hover:scale-105 hover:shadow-glow-accent hover:border-accent/40">
+                    {/* Placeholder for logo - shows partner name stylized */}
+                    <div className="flex flex-col items-center justify-center gap-1">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                        <span className="text-lg sm:text-xl font-bold text-accent">
+                          {partner.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
+                        </span>
+                      </div>
+                      <span className="text-[10px] sm:text-xs text-muted-foreground group-hover:text-accent transition-colors duration-300 text-center leading-tight max-w-full truncate">
+                        {partner.name}
+                      </span>
+                    </div>
+                    
+                    {/* Hover Glow Effect */}
+                    <div className="absolute inset-0 rounded-xl bg-accent/0 group-hover:bg-accent/5 transition-all duration-500" />
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom Text */}
+          <p className="text-muted-foreground text-center mt-6 leading-relaxed text-sm sm:text-base max-w-2xl mx-auto">
+            Trabalhamos com instituicoes renomadas, garantindo credibilidade, transparencia e impacto ampliado em todos os projetos.
           </p>
         </motion.div>
       </div>
+
+      {/* CSS Animation for Infinite Scroll */}
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   )
 }
