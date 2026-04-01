@@ -4,13 +4,13 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * A2F BRAND PALETTE
- * Navy Background: #09112B
- * Teal Primary: #22708B
- * Deep Blue Secondary: #103659
- * Orange Accent: #F86110
- * Pink: #Ad5793
- * Purple: #845EC8
+ * A2F BRAND PALETTE - DEFINITIVE
+ * Primary Teal/Blue: #1B7FA6
+ * Purple/Violet: #8B3F9E
+ * Orange: #E8610A
+ * Dark Navy (text): #1A1F3C
+ * White: #FFFFFF
+ * Light Gray (background): #F8F9FA
  */
 
 @theme inline {
@@ -18,53 +18,52 @@
   --font-serif: var(--font-dm-serif), Georgia, serif;
   --font-mono: 'Geist Mono', monospace;
 
-  /* Core Semantic Tokens */
-  --color-background: #09112B;
+  /* Core Semantic Tokens - Brand Accurate */
+  --color-background: #1A1F3C;
   --color-foreground: #FFFFFF;
-  --color-card: #0d1729;
+  --color-card: #242C50;
   --color-card-foreground: #FFFFFF;
-  --color-popover: #0d1624;
+  --color-popover: #1F2642;
   --color-popover-foreground: #FFFFFF;
-  --color-primary: #22708B;
+  --color-primary: #1B7FA6;
   --color-primary-foreground: #FFFFFF;
-  --color-secondary: #103659;
+  --color-secondary: #2A5F7E;
   --color-secondary-foreground: #FFFFFF;
-  --color-muted: #162236;
-  --color-muted-foreground: #8fa3b8;
-  --color-accent: #F86110;
+  --color-muted: #3A4A70;
+  --color-muted-foreground: #A8B5D1;
+  --color-accent: #E8610A;
   --color-accent-foreground: #FFFFFF;
   --color-destructive: #ef4444;
   --color-destructive-foreground: #FFFFFF;
-  --color-border: #1c3148;
-  --color-input: #162236;
-  --color-ring: #22708B;
+  --color-border: #2F4056;
+  --color-input: #2A3447;
+  --color-ring: #1B7FA6;
   
-  /* Brand Accent Colors - simple names for utility classes */
-  --color-orange: #F86110;
-  --color-pink: #Ad5793;
-  --color-purple: #845EC8;
-  --color-teal: #22708B;
+  /* Brand Accent Colors */
+  --color-orange: #E8610A;
+  --color-purple: #8B3F9E;
+  --color-teal: #1B7FA6;
   
   /* Charts */
-  --color-chart-1: #22708B;
-  --color-chart-2: #F86110;
-  --color-chart-3: #Ad5793;
-  --color-chart-4: #845EC8;
-  --color-chart-5: #103659;
+  --color-chart-1: #1B7FA6;
+  --color-chart-2: #E8610A;
+  --color-chart-3: #8B3F9E;
+  --color-chart-4: #2A5F7E;
+  --color-chart-5: #A8B5D1;
   
   --radius-sm: 0.5rem;
   --radius-md: 0.625rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
   
-  --color-sidebar: #0d1624;
+  --color-sidebar: #1F2642;
   --color-sidebar-foreground: #FFFFFF;
-  --color-sidebar-primary: #22708B;
+  --color-sidebar-primary: #1B7FA6;
   --color-sidebar-primary-foreground: #FFFFFF;
-  --color-sidebar-accent: #F86110;
+  --color-sidebar-accent: #E8610A;
   --color-sidebar-accent-foreground: #FFFFFF;
-  --color-sidebar-border: #1c3148;
-  --color-sidebar-ring: #22708B;
+  --color-sidebar-border: #2F4056;
+  --color-sidebar-ring: #1B7FA6;
 }
 
 @layer base {
@@ -84,44 +83,44 @@
 
 @layer utilities {
   .glass {
-    background: rgba(13, 23, 41, 0.8);
+    background: rgba(26, 31, 60, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(34, 112, 139, 0.15);
+    border: 1px solid rgba(27, 127, 166, 0.15);
   }
 
   .glass-card {
-    background: rgba(13, 23, 41, 0.7);
+    background: rgba(36, 44, 80, 0.7);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(34, 112, 139, 0.12);
+    border: 1px solid rgba(27, 127, 166, 0.12);
     will-change: box-shadow, border-color;
     transform: translateZ(0);
   }
 
   .glass-header {
-    background: rgba(9, 17, 43, 0.95);
+    background: rgba(26, 31, 60, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(34, 112, 139, 0.1);
+    border-bottom: 1px solid rgba(27, 127, 166, 0.1);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #22708B 0%, #F86110 100%);
+    background: linear-gradient(135deg, #1B7FA6 0%, #E8610A 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .text-gradient-warm {
-    background: linear-gradient(135deg, #F86110 0%, #Ad5793 100%);
+    background: linear-gradient(135deg, #E8610A 0%, #8B3F9E 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .text-gradient-cool {
-    background: linear-gradient(135deg, #845EC8 0%, #22708B 100%);
+    background: linear-gradient(135deg, #8B3F9E 0%, #1B7FA6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -135,17 +134,17 @@
   }
 
   .shadow-glow {
-    box-shadow: 0 0 20px rgba(34, 112, 139, 0.2), 0 0 40px rgba(34, 112, 139, 0.1);
+    box-shadow: 0 0 20px rgba(27, 127, 166, 0.2), 0 0 40px rgba(27, 127, 166, 0.1);
   }
   
   .shadow-glow-accent {
-    box-shadow: 0 0 20px rgba(248, 97, 16, 0.25), 0 0 40px rgba(248, 97, 16, 0.12);
+    box-shadow: 0 0 20px rgba(232, 97, 10, 0.25), 0 0 40px rgba(232, 97, 10, 0.12);
   }
 
   .section-divider {
     width: 3rem;
     height: 3px;
-    background: linear-gradient(90deg, #F86110, #Ad5793);
+    background: linear-gradient(90deg, #E8610A, #8B3F9E);
     border-radius: 9999px;
   }
 }
