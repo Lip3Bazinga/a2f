@@ -6,25 +6,19 @@ import { Logo } from "./logo"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/8 rounded-full blur-3xl" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Decorative Arc Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Top right arc */}
+        <div className="absolute -top-64 -right-64 w-[600px] h-[600px] rounded-full border-[80px] border-primary/5" />
+        {/* Bottom left arc */}
+        <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] rounded-full border-[60px] border-purple/5" />
+        {/* Center decoration */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border-[100px] border-accent/3" />
       </div>
 
-      {/* Floating decorative elements */}
-      <motion.div
-        animate={{ y: [0, -18, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-1/5 w-20 h-20 glass-card rounded-2xl opacity-30"
-      />
-      <motion.div
-        animate={{ y: [0, 16, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/3 left-1/6 w-14 h-14 glass-card rounded-xl opacity-25"
-      />
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-background to-background" />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -33,10 +27,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border mb-8"
         >
           <Sparkles className="w-4 h-4 text-accent" />
-          <span className="text-sm text-muted-foreground">Incentivo Fiscal Inteligente</span>
+          <span className="text-sm text-foreground/70">Incentivo Fiscal Inteligente</span>
         </motion.div>
 
         {/* Brand Logo - Stacked version, prominent display */}
@@ -48,7 +42,7 @@ export function Hero() {
         >
           <Logo 
             variant="stacked" 
-            color="white" 
+            color="color" 
             linkTo={undefined}
             showText={false}
             className="scale-150"
@@ -105,13 +99,13 @@ export function Hero() {
         >
           <a
             href="#quem-somos"
-            className="px-8 py-3.5 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl shadow-glow-accent transition-all duration-300 hover:scale-[1.02] text-sm tracking-wide"
+            className="px-8 py-3.5 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl shadow-sm hover:shadow-glow-accent transition-all duration-300 hover:scale-[1.02] text-sm tracking-wide"
           >
             Conheça a A2F
           </a>
           <a
             href="#servicos"
-            className="px-8 py-3.5 glass-card text-foreground font-semibold rounded-xl transition-all duration-300 hover:border-accent/30 text-sm tracking-wide"
+            className="px-8 py-3.5 bg-background border border-border text-foreground font-semibold rounded-xl transition-all duration-300 hover:border-primary/50 hover:bg-secondary text-sm tracking-wide"
           >
             Nossos Serviços
           </a>
@@ -129,7 +123,7 @@ export function Hero() {
           href="#quem-somos"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2.5, repeat: Infinity }}
-          className="flex flex-col items-center text-muted-foreground hover:text-accent transition-colors duration-300"
+          className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors duration-300"
         >
           <span className="text-xs tracking-widest uppercase mb-2">Saiba mais</span>
           <ArrowDown size={16} />

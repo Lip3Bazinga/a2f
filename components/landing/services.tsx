@@ -54,12 +54,9 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="servicos" className="py-24 sm:py-32 relative" ref={ref}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-      </div>
+    <section id="servicos" className="py-24 sm:py-32 relative bg-background" ref={ref}>
+      {/* Decorative arcs */}
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full border-[50px] border-accent/5 translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -87,7 +84,7 @@ export function Services() {
               animate={isInView ? "animate" : "initial"}
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="glass-card rounded-2xl p-6 lg:p-8 shadow-3d group hover:shadow-glow-accent hover:border-accent/30 transition-all duration-500 ease-out"
+              className="card-light rounded-2xl p-6 lg:p-8 group hover:shadow-glow-accent transition-all duration-500 ease-out"
             >
               <div className="inline-flex p-4 rounded-xl bg-accent/10 mb-6 group-hover:bg-accent/20 transition-colors duration-300">
                 <service.icon className="w-7 h-7 text-accent" />

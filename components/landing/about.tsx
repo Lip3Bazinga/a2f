@@ -51,12 +51,11 @@ export function About() {
   const [activeFounder, setActiveFounder] = useState<string | null>(null)
 
   return (
-    <section id="quem-somos" className="py-24 sm:py-32 relative" ref={ref}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="quem-somos" className="py-24 sm:py-32 relative section-gray" ref={ref}>
+      {/* Decorative arc */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full border-[60px] border-primary/5 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial="initial"
@@ -89,21 +88,17 @@ export function About() {
               onMouseLeave={() => setActiveFounder(null)}
             >
               <div className={cn(
-                "glass-card rounded-2xl overflow-hidden shadow-3d transition-all duration-500 ease-out",
-                activeFounder === founder.id 
-                  ? founder.color === "accent" 
-                    ? "shadow-glow-accent border-accent/40" 
-                    : "shadow-glow border-primary/40"
-                  : "hover:border-border/50"
+                "card-light rounded-2xl overflow-hidden transition-all duration-500 ease-out",
+                activeFounder === founder.id && (founder.color === "accent" ? "shadow-glow-accent" : "shadow-glow")
               )}>
                 {/* Image Section */}
-                <div className="relative h-64 sm:h-72 overflow-hidden bg-secondary/30">
+                <div className="relative h-64 sm:h-72 overflow-hidden bg-secondary">
                   {/* Placeholder for image - replace with actual images */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/50 via-card to-secondary/50" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary/80 to-secondary" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className={cn(
                       "p-8 rounded-full transition-all duration-500",
-                      founder.color === "accent" ? "bg-accent/20" : "bg-primary/20"
+                      founder.color === "accent" ? "bg-accent/10" : "bg-primary/10"
                     )}>
                       <founder.icon className={cn(
                         "w-20 h-20 transition-transform duration-500 group-hover:scale-110",
@@ -113,14 +108,14 @@ export function About() {
                   </div>
                   
                   {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                   
                   {/* Role badge */}
                   <div className={cn(
                     "absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium",
                     founder.color === "accent" 
-                      ? "bg-accent/20 text-accent" 
-                      : "bg-primary/20 text-primary"
+                      ? "bg-accent/10 text-accent" 
+                      : "bg-primary/10 text-primary"
                   )}>
                     {founder.role}
                   </div>
@@ -200,7 +195,7 @@ export function About() {
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="glass-card rounded-2xl p-8 sm:p-10 text-center mb-16 shadow-3d"
+          className="card-light rounded-2xl p-8 sm:p-10 text-center mb-16"
         >
           <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
             Somos especialistas em criar pontes eficientes entre empresas e iniciativas sociais, oferecendo caminhos 
@@ -218,7 +213,7 @@ export function About() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-6"
         >
-          <div className="glass-card rounded-xl p-6 text-center shadow-3d hover:shadow-glow-accent hover:border-accent/30 transition-all duration-500 ease-out group">
+          <div className="card-light rounded-xl p-6 text-center group hover:shadow-glow-accent transition-all duration-500 ease-out">
             <div className="inline-flex p-4 rounded-xl bg-accent/10 mb-4 group-hover:bg-accent/20 transition-colors duration-300">
               <Target className="w-7 h-7 text-accent" />
             </div>
@@ -226,7 +221,7 @@ export function About() {
             <p className="text-sm text-muted-foreground">Impulsionar o esporte e a cultura no Brasil</p>
           </div>
           
-          <div className="glass-card rounded-xl p-6 text-center shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out group">
+          <div className="card-light rounded-xl p-6 text-center group hover:shadow-glow transition-all duration-500 ease-out">
             <div className="inline-flex p-4 rounded-xl bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors duration-300">
               <Users className="w-7 h-7 text-primary" />
             </div>
@@ -234,9 +229,9 @@ export function About() {
             <p className="text-sm text-muted-foreground">Marcas, pessoas e projetos transformadores</p>
           </div>
           
-          <div className="glass-card rounded-xl p-6 text-center shadow-3d hover:shadow-glow hover:border-secondary/50 transition-all duration-500 ease-out group">
-            <div className="inline-flex p-4 rounded-xl bg-secondary/30 mb-4 group-hover:bg-secondary/50 transition-colors duration-300">
-              <Lightbulb className="w-7 h-7 text-foreground" />
+          <div className="card-light rounded-xl p-6 text-center group hover:shadow-soft transition-all duration-500 ease-out">
+            <div className="inline-flex p-4 rounded-xl bg-purple/10 mb-4 group-hover:bg-purple/20 transition-colors duration-300">
+              <Lightbulb className="w-7 h-7 text-purple" />
             </div>
             <h4 className="font-serif text-lg font-normal text-foreground mb-2">Confiança</h4>
             <p className="text-sm text-muted-foreground">Segurança jurídica e transparência total</p>

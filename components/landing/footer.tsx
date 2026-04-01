@@ -39,11 +39,9 @@ export function Footer() {
   const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
-    <footer className="pt-20 pb-10 relative" ref={ref}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-accent/3 to-transparent" />
-      </div>
+    <footer className="pt-20 pb-10 relative section-navy" ref={ref}>
+      {/* Decorative arc */}
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full border-[40px] border-white/5 translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Grid */}
@@ -57,15 +55,15 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-1"
           >
-            {/* Logo - Horizontal version */}
+            {/* Logo - Horizontal version, white for dark section */}
             <div className="mb-6">
               <Logo 
                 variant="horizontal" 
-                color="color" 
+                color="white" 
                 linkTo="/"
               />
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+            <p className="text-sm text-white/70 leading-relaxed mb-6">
               Transformando incentivo fiscal em impacto social. Conectamos empresas a projetos culturais, esportivos e sociais aprovados nas leis de incentivo brasileiras.
             </p>
             <div className="flex gap-3">
@@ -73,28 +71,28 @@ export function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-accent/10 hover:bg-accent/20 transition-colors duration-300 border border-accent/15"
+                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition-colors duration-300"
                 aria-label="Facebook A2F"
               >
-                <Facebook className="w-4 h-4 text-accent" />
+                <Facebook className="w-4 h-4 text-white" />
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-accent/10 hover:bg-accent/20 transition-colors duration-300 border border-accent/15"
+                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition-colors duration-300"
                 aria-label="Instagram A2F"
               >
-                <Instagram className="w-4 h-4 text-accent" />
+                <Instagram className="w-4 h-4 text-white" />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors duration-300 border border-primary/15"
+                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition-colors duration-300"
                 aria-label="LinkedIn A2F"
               >
-                <Linkedin className="w-4 h-4 text-primary" />
+                <Linkedin className="w-4 h-4 text-white" />
               </a>
             </div>
           </motion.div>
@@ -112,7 +110,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-accent transition-colors duration-300 flex items-center gap-1 group"
+                    className="text-sm text-white/70 hover:text-accent transition-colors duration-300 flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
@@ -135,7 +133,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1 group"
+                    className="text-sm text-white/70 hover:text-primary transition-colors duration-300 flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
@@ -157,17 +155,17 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:contato@a2f.com.br"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors duration-300 text-sm group"
+                  className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors duration-300 text-sm group"
                 >
-                  <div className="p-2 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300 flex-shrink-0">
+                  <div className="p-2 rounded-lg bg-white/10 group-hover:bg-accent/20 transition-colors duration-300 flex-shrink-0">
                     <Mail className="w-3.5 h-3.5 text-accent" />
                   </div>
                   contato@a2f.com.br
                 </a>
               </li>
               <li>
-                <div className="flex items-center gap-3 text-muted-foreground text-sm">
-                  <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0">
+                <div className="flex items-center gap-3 text-white/70 text-sm">
+                  <div className="p-2 rounded-lg bg-white/10 flex-shrink-0">
                     <Phone className="w-3.5 h-3.5 text-primary" />
                   </div>
                   +55 (XX) XXXX-XXXX
@@ -178,30 +176,30 @@ export function Footer() {
                   href="https://www.a2f.com.br"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm group"
+                  className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors duration-300 text-sm group"
                 >
-                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
+                  <div className="p-2 rounded-lg bg-white/10 group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
                     <Globe className="w-3.5 h-3.5 text-primary" />
                   </div>
                   www.a2f.com.br
                 </a>
               </li>
               <li>
-                <div className="flex items-center gap-3 text-muted-foreground text-sm">
-                  <div className="p-2 rounded-lg bg-secondary/30 flex-shrink-0">
-                    <MapPin className="w-3.5 h-3.5 text-foreground" />
+                <div className="flex items-center gap-3 text-white/70 text-sm">
+                  <div className="p-2 rounded-lg bg-white/10 flex-shrink-0">
+                    <MapPin className="w-3.5 h-3.5 text-white" />
                   </div>
                   Brasil
                 </div>
               </li>
             </ul>
             {/* Legal links */}
-            <div className="space-y-2 pt-4 border-t border-border">
+            <div className="space-y-2 pt-4 border-t border-white/10">
               {legalLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="block text-xs text-muted-foreground hover:text-accent transition-colors duration-300"
+                  className="block text-xs text-white/50 hover:text-accent transition-colors duration-300"
                 >
                   {link.label}
                 </Link>
@@ -216,12 +214,12 @@ export function Footer() {
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3"
+          className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3"
         >
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-white/50">
             {new Date().getFullYear()} A2F Incentive. Todos os direitos reservados.
           </p>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-white/50">
             Empresa registrada e em conformidade com as leis de incentivo fiscal brasileiras.
           </p>
         </motion.div>

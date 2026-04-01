@@ -34,11 +34,9 @@ export function FAQ() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="faq" className="py-24 sm:py-32 relative" ref={ref}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-      </div>
+    <section id="faq" className="py-24 sm:py-32 relative section-gray" ref={ref}>
+      {/* Decorative arc */}
+      <div className="absolute top-0 left-0 w-[300px] h-[300px] rounded-full border-[50px] border-primary/5 -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -72,7 +70,7 @@ export function FAQ() {
               >
                 <AccordionItem
                   value={`item-${index}`}
-                  className="glass-card rounded-xl border-0 px-6 shadow-3d overflow-hidden"
+                  className="card-light rounded-xl border-0 px-6 overflow-hidden"
                 >
                   <AccordionTrigger className="font-serif text-left text-lg font-normal text-foreground hover:text-accent transition-colors py-6 hover:no-underline">
                     {faq.question}

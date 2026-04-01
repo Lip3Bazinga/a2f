@@ -14,12 +14,9 @@ export function Plans() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="planos" className="py-24 sm:py-32 relative" ref={ref}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-      </div>
+    <section id="planos" className="py-24 sm:py-32 relative section-gray" ref={ref}>
+      {/* Decorative arc */}
+      <div className="absolute top-0 right-0 w-[350px] h-[350px] rounded-full border-[50px] border-primary/5 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -46,7 +43,7 @@ export function Plans() {
             animate={isInView ? "animate" : "initial"}
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card rounded-2xl p-8 shadow-3d hover:shadow-glow-accent hover:border-accent/30 transition-all duration-500 ease-out"
+            className="card-light rounded-2xl p-8 hover:shadow-glow-accent transition-all duration-500 ease-out"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="p-3 rounded-xl bg-accent/10">
@@ -55,11 +52,11 @@ export function Plans() {
               <h4 className="font-serif text-2xl font-normal text-foreground">Empresas</h4>
             </div>
             <div className="space-y-3">
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-secondary">
                 <span className="font-serif text-4xl font-normal text-accent min-w-[4rem]">4%</span>
                 <span className="text-sm text-muted-foreground">do IR para projetos da Lei Rouanet</span>
               </div>
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-secondary">
                 <span className="font-serif text-4xl font-normal text-accent min-w-[4rem]">2%</span>
                 <span className="text-sm text-muted-foreground">para projetos da Lei de Incentivo ao Esporte (LIE)</span>
               </div>
@@ -72,7 +69,7 @@ export function Plans() {
             animate={isInView ? "animate" : "initial"}
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="glass-card rounded-2xl p-8 shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out"
+            className="card-light rounded-2xl p-8 hover:shadow-glow transition-all duration-500 ease-out"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="p-3 rounded-xl bg-primary/10">
@@ -81,7 +78,7 @@ export function Plans() {
               <h4 className="font-serif text-2xl font-normal text-foreground">Pessoas Físicas</h4>
             </div>
             <div className="space-y-3">
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-secondary">
                 <span className="font-serif text-4xl font-normal text-primary min-w-[4rem]">6%</span>
                 <span className="text-sm text-muted-foreground">do IR devido em ambos os mecanismos (Lei Rouanet e LIE)</span>
               </div>
@@ -95,11 +92,11 @@ export function Plans() {
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="glass-card rounded-2xl p-8 shadow-3d mb-8"
+          className="card-light rounded-2xl p-8 mb-8"
         >
           <div className="flex items-center gap-4 mb-6">
-            <div className="p-3 rounded-xl bg-secondary/50">
-              <Calendar className="w-7 h-7 text-foreground" />
+            <div className="p-3 rounded-xl bg-purple/10">
+              <Calendar className="w-7 h-7 text-purple" />
             </div>
             <div>
               <h4 className="font-serif text-xl font-normal text-foreground">A partir de 2028</h4>
@@ -107,11 +104,11 @@ export function Plans() {
             </div>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
+            <div className="flex items-center gap-4 p-4 rounded-xl bg-secondary">
               <span className="font-serif text-4xl font-normal text-accent min-w-[4rem]">3%</span>
               <span className="text-sm text-muted-foreground">para empresas</span>
             </div>
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
+            <div className="flex items-center gap-4 p-4 rounded-xl bg-secondary">
               <span className="font-serif text-4xl font-normal text-primary min-w-[4rem]">7%</span>
               <span className="text-sm text-muted-foreground">para pessoas físicas</span>
             </div>
@@ -126,7 +123,7 @@ export function Plans() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-3 glass-card rounded-full px-6 py-3 mb-4 border-accent/20">
+          <div className="inline-flex items-center gap-3 bg-background border border-border rounded-full px-6 py-3 mb-4">
             <Sparkles className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-foreground">Projetos Personalizados</span>
           </div>

@@ -34,7 +34,7 @@ export function ContactForm() {
   const handleBack = () => { if (currentStep > 1) setCurrentStep(currentStep - 1) }
   const handleSubmit = (e: React.FormEvent) => { e.preventDefault() }
 
-  const inputClass = "pl-10 bg-muted border-border h-12 text-foreground placeholder:text-muted-foreground focus:border-accent focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl text-sm"
+  const inputClass = "pl-10 bg-secondary border-border h-12 text-foreground placeholder:text-muted-foreground focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl text-sm"
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -104,7 +104,7 @@ export function ContactForm() {
               value={formData.mensagem}
               onChange={handleInputChange}
               placeholder="Escreva sua mensagem aqui..."
-              className="bg-muted border-border min-h-[160px] text-foreground placeholder:text-muted-foreground focus:border-accent focus-visible:ring-0 focus-visible:ring-offset-0 resize-none rounded-xl text-sm"
+              className="bg-secondary border-border min-h-[160px] text-foreground placeholder:text-muted-foreground focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 resize-none rounded-xl text-sm"
             />
           </div>
         )
@@ -112,9 +112,9 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contato" className="py-24 sm:py-32 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent" />
+    <section id="contato" className="py-24 sm:py-32 relative overflow-hidden bg-background">
+      {/* Decorative arc */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full border-[60px] border-accent/5 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         {/* Section heading */}
@@ -149,7 +149,7 @@ export function ContactForm() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
               viewport={{ once: true }}
-              className="glass-card rounded-2xl p-8 shadow-3d"
+              className="card-light rounded-2xl p-8"
             >
               <h3 className="font-serif text-2xl font-normal text-foreground mb-6">
                 Fale Conosco
@@ -191,7 +191,7 @@ export function ContactForm() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="glass-card rounded-2xl p-8 shadow-3d"
+            className="card-light rounded-2xl p-8"
           >
             <form onSubmit={handleSubmit}>
               {/* Step Indicator */}
@@ -210,7 +210,7 @@ export function ContactForm() {
                             ? "bg-accent/20 border-2 border-accent text-accent"
                             : currentStep > step.id
                             ? "bg-accent/10 border border-accent/30 text-accent"
-                            : "bg-muted border border-border text-muted-foreground"
+                            : "bg-secondary border border-border text-muted-foreground"
                         }`}
                       >
                         <step.icon className="w-4 h-4" />
@@ -244,7 +244,7 @@ export function ContactForm() {
                     type="button"
                     variant="outline"
                     onClick={handleBack}
-                    className="flex-1 h-12 border-border bg-transparent hover:bg-muted/50 text-foreground rounded-xl text-sm"
+                    className="flex-1 h-12 border-border bg-transparent hover:bg-secondary text-foreground rounded-xl text-sm"
                   >
                     Voltar
                   </Button>
@@ -252,7 +252,7 @@ export function ContactForm() {
                 <Button
                   type={currentStep === 4 ? "submit" : "button"}
                   onClick={currentStep < 4 ? handleNext : undefined}
-                  className="flex-1 h-12 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl transition-all duration-300 text-sm shadow-glow-accent"
+                  className="flex-1 h-12 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl transition-all duration-300 text-sm"
                 >
                   {currentStep === 4 ? "Enviar" : "Continuar"}
                   <ArrowRight className="w-4 h-4 ml-2" />
