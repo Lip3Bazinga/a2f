@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { ArrowDown, Sparkles } from "lucide-react"
+import { Logo } from "./logo"
 
 export function Hero() {
   return (
@@ -38,21 +39,46 @@ export function Hero() {
           <span className="text-sm text-muted-foreground">Incentivo Fiscal Inteligente</span>
         </motion.div>
 
-        {/* Brand Logo */}
-        <motion.h2
+        {/* Brand Logo - Stacked version, prominent display */}
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1, duration: 0.7 }}
-          className="font-serif text-7xl sm:text-8xl lg:text-9xl font-normal mb-6 text-gradient tracking-tight"
+          className="flex justify-center mb-8"
+        >
+          <Logo 
+            variant="stacked" 
+            color="white" 
+            linkTo={undefined}
+            showText={false}
+            className="scale-150"
+          />
+        </motion.div>
+
+        {/* Brand Name */}
+        <motion.h2
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          className="font-serif text-7xl sm:text-8xl lg:text-9xl font-normal mb-2 text-gradient tracking-tight"
         >
           A2F
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="text-sm uppercase tracking-[0.3em] text-accent mb-8 font-medium"
+        >
+          Incentivos
+        </motion.p>
 
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
           className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-foreground mb-6 text-balance leading-snug"
         >
           Transformando Incentivo Fiscal em{" "}

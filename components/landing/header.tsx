@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import Image from "next/image"
+import { Logo } from "./logo"
 
 const navLinks = [
   { href: "#quem-somos", label: "Quem Somos" },
@@ -34,17 +34,12 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Logo */}
-          <a
-            href="#"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300"
-          >
-            {/* Logo placeholder - replace with actual logo */}
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-              <span className="font-serif text-lg font-bold text-white">A</span>
-            </div>
-            <span className="font-serif text-xl font-semibold text-gradient hidden sm:inline">A2F</span>
-          </a>
+          {/* Brand Logo - Horizontal version */}
+          <Logo 
+            variant="horizontal" 
+            color={isScrolled ? "color" : "white"} 
+            linkTo="/"
+          />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">

@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Globe } from "lucide-react"
 import Link from "next/link"
+import { Logo } from "./logo"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -56,10 +57,14 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-1"
           >
-            <h3 className="font-serif text-4xl font-normal text-gradient mb-4 tracking-tight">A2F</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-2">
-              <span className="text-foreground font-medium">A2F Incentive</span>
-            </p>
+            {/* Logo - Horizontal version */}
+            <div className="mb-6">
+              <Logo 
+                variant="horizontal" 
+                color="color" 
+                linkTo="/"
+              />
+            </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
               Transformando incentivo fiscal em impacto social. Conectamos empresas a projetos culturais, esportivos e sociais aprovados nas leis de incentivo brasileiras.
             </p>
