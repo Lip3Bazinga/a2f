@@ -1,8 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
-
 /*
  * A2F BRAND PALETTE - LIGHT THEME
  * Primary Teal/Blue: #1B7FA6
@@ -74,11 +72,14 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-  }
   html {
     scroll-behavior: smooth;
+    background: #FFFFFF;
+  }
+  body {
+    background-color: #FFFFFF !important;
+    color: #1A1F3C;
+    @apply font-sans antialiased;
   }
   h1, h2, h3 {
     @apply font-serif;

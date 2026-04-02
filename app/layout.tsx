@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${dmSans.variable} ${dmSerifDisplay.variable} font-sans antialiased`}>
+      <body className={`${dmSans.variable} ${dmSerifDisplay.variable} font-sans antialiased bg-white text-[#1A1F3C]`}>
         {children}
       </body>
     </html>
