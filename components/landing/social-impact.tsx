@@ -13,12 +13,12 @@ export function SocialImpact() {
   const { ref, inView: isInView } = useInView({ once: true, margin: '-100px 0px' })
 
   const benefits = [
-    'Dedução de até 1% do Imposto de Renda devido (Pessoa Jurídica)',
-    'Exposição em torneio internacional chancelado pela ITF',
+    'Dedução de até 2% do Imposto de Renda devido (Pessoa Jurídica)',
+    'Dedução de até 7% do Imposto de Renda devido (Pessoa Física)',
+    'Dedução de até 3% do seu ICMS',
     'Associação ao esporte feminino com impacto social real',
     'Relatório de resultados e visibilidade de mídia pós-evento',
     'Acesso ao projeto aprovado na Lei de Incentivo ao Esporte',
-    '8 anos de história e credibilidade no esporte brasileiro',
   ]
 
   const badges = [
@@ -56,7 +56,7 @@ export function SocialImpact() {
             </div>
 
             <p className="text-base text-muted-foreground leading-relaxed">
-              Ao apoiar o torneio, sua empresa investe no desenvolvimento esportivo de crianças e jovens, associando sua marca à inclusão, saúde e esporte de alto nível — com benefício fiscal real.
+              Ao apoiar projetos como este, sua empresa investe no desenvolvimento esportivo de crianças e jovens, associando sua marca à inclusão, saúde e esporte de alto nível – com benefício fiscal real.
             </p>
 
             {/* Benefits List */}
