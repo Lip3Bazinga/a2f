@@ -1,115 +1,239 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { ArrowDown, Sparkles } from "lucide-react"
+import { useState, useEffect, useCallback, useRef } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronLeft, ChevronRight, ArrowDown } from "lucide-react"
 import { Logo } from "./logo"
 
-export function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Decorative Arc Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Top right arc */}
-        <div className="absolute -top-64 -right-64 w-[600px] h-[600px] rounded-full border-[80px] border-primary/5" />
-        {/* Bottom left arc */}
-        <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] rounded-full border-[60px] border-purple/5" />
-        {/* Center decoration */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border-[100px] border-accent/3" />
-      </div>
+const slides = [
+  {
+    id: 1,
+    headline: "CONECTANDO CAUSA E PROPÓSITO",
+    theme: "Atleta / Natação",
+    bgColor: "from-primary/90 via-primary/70 to-navy/90",
+    image: "/images/hero/slide-1.jpg"
+  },
+  {
+    id: 2,
+    headline: "A CULTURA É NOSSO ESPORTE",
+    theme: "Artes Marciais / Evento Cultural",
+    bgColor: "from-purple/90 via-purple/70 to-navy/90",
+    image: "/images/hero/slide-2.jpg"
+  },
+  {
+    id: 3,
+    headline: "A RUA TAMBÉM É NOSSA CULTURA",
+    theme: "Dança Urbana / Street Culture",
+    bgColor: "from-accent/90 via-accent/70 to-navy/90",
+    image: "/images/hero/slide-3.jpg"
+  },
+  {
+    id: 4,
+    headline: "IMPACTO DE VERDADE ACONTECE QUANDO PROPÓSITO ENCONTRA AÇÃO",
+    theme: "Músicos / Instrumentos",
+    bgColor: "from-navy/95 via-primary/70 to-purple/90",
+    image: "/images/hero/slide-4.jpg"
+  }
+]
 
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-background to-background" />
+export function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [isMounted, setIsMounted] = useState(false)
+  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Track mount state
+  useEffect(() => {
+    setIsMounted(true)
+    return () => {
+      setIsMounted(false)
+      if (resumeTimeoutRef.current) {
+        clearTimeout(resumeTimeoutRef.current)
+      }
+    }
+  }, [])
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length)
+  }, [])
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+  }, [])
+
+  const pauseAutoPlay = useCallback(() => {
+    setIsAutoPlaying(false)
+    // Clear any existing resume timeout
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current)
+    }
+    // Resume auto-play after 10 seconds
+    resumeTimeoutRef.current = setTimeout(() => {
+      if (isMounted) {
+        setIsAutoPlaying(true)
+      }
+    }, 10000)
+  }, [isMounted])
+
+  const goToSlide = useCallback((index: number) => {
+    setCurrentSlide(index)
+    pauseAutoPlay()
+  }, [pauseAutoPlay])
+
+  const handlePrev = useCallback(() => {
+    prevSlide()
+    pauseAutoPlay()
+  }, [prevSlide, pauseAutoPlay])
+
+  const handleNext = useCallback(() => {
+    nextSlide()
+    pauseAutoPlay()
+  }, [nextSlide, pauseAutoPlay])
+
+  // Auto-advance every 5 seconds
+  useEffect(() => {
+    if (!isAutoPlaying || !isMounted) return
+    const interval = setInterval(nextSlide, 5000)
+    return () => clearInterval(interval)
+  }, [isAutoPlaying, isMounted, nextSlide])
+
+  return (
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Slides */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentSlide}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          {/* Background with gradient overlay */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].bgColor}`}>
+            {/* Pattern overlay for visual interest */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 w-2/3 h-1/2 bg-gradient-to-t from-black/30 to-transparent" />
+            </div>
+            
+            {/* Decorative arc elements from brand */}
+            <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full border-[60px] border-white/10" />
+            <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full border-[80px] border-white/5" />
+            <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full border-[40px] border-white/5" />
+          </div>
+
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/40" />
+        </motion.div>
+      </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Badge */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border mb-8"
-        >
-          <Sparkles className="w-4 h-4 text-accent" />
-          <span className="text-sm text-foreground/70">Incentivo Fiscal Inteligente</span>
-        </motion.div>
-
-        {/* Brand Logo - Stacked version, prominent display */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1, duration: 0.7 }}
-          className="flex justify-center mb-8"
+          className="mb-8"
         >
           <Logo 
             variant="stacked" 
-            color="color" 
+            color="white" 
             linkTo={undefined}
-            showText={false}
-            className="scale-150"
+            showText={true}
+            className="scale-125 sm:scale-150"
           />
         </motion.div>
 
-        {/* Brand Name */}
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          className="font-serif text-7xl sm:text-8xl lg:text-9xl font-normal mb-2 text-gradient tracking-tight"
-        >
-          A2F
-        </motion.h2>
+        {/* Headline with animation */}
+        <AnimatePresence mode="wait">
+          <motion.h1
+            key={`headline-${currentSlide}`}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center max-w-5xl mx-auto uppercase tracking-wide leading-tight text-balance px-4"
+          >
+            {slides[currentSlide].headline}
+          </motion.h1>
+        </AnimatePresence>
 
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="text-sm uppercase tracking-[0.3em] text-accent mb-8 font-medium"
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="mt-8 text-white/80 text-base sm:text-lg max-w-2xl text-center"
         >
-          Incentivos
-        </motion.p>
-
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-foreground mb-6 text-balance leading-snug"
-        >
-          Transformando Incentivo Fiscal em{" "}
-          <span className="text-gradient-warm">Impacto Social</span>
-        </motion.h1>
-
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty leading-relaxed"
-        >
-          Conectamos empresas e pessoas a projetos de esporte e cultura,
-          criando pontes entre responsabilidade fiscal e transformação social real.
+          Transformando Incentivo Fiscal em Impacto Social Real
         </motion.p>
 
         {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="mt-10 flex flex-col sm:flex-row gap-4"
         >
           <a
             href="#quem-somos"
-            className="px-8 py-3.5 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl shadow-sm hover:shadow-glow-accent transition-all duration-300 hover:scale-[1.02] text-sm tracking-wide"
+            className="px-8 py-3.5 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] text-sm tracking-wide"
           >
             Conheça a A2F
           </a>
           <a
             href="#servicos"
-            className="px-8 py-3.5 bg-background border border-border text-foreground font-semibold rounded-xl transition-all duration-300 hover:border-primary/50 hover:bg-secondary text-sm tracking-wide"
+            className="px-8 py-3.5 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/20 hover:border-white/50 text-sm tracking-wide"
           >
             Nossos Serviços
           </a>
         </motion.div>
+      </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={handlePrev}
+        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300 group"
+        aria-label="Slide anterior"
+      >
+        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
+      </button>
+      
+      <button
+        onClick={handleNext}
+        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300 group"
+        aria-label="Próximo slide"
+      >
+        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
+      </button>
+
+      {/* Navigation Dots */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              currentSlide === index 
+                ? "w-8 bg-white" 
+                : "bg-white/40 hover:bg-white/60"
+            }`}
+            aria-label={`Ir para slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Progress bar */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 w-48 h-0.5 bg-white/20 rounded-full overflow-hidden">
+        <motion.div
+          key={`progress-${currentSlide}`}
+          initial={{ width: "0%" }}
+          animate={{ width: isAutoPlaying ? "100%" : "0%" }}
+          transition={{ duration: 5, ease: "linear" }}
+          className="h-full bg-white/80"
+        />
       </div>
 
       {/* Scroll Indicator */}
@@ -117,16 +241,16 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
       >
         <motion.a
           href="#quem-somos"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
-          className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors duration-300"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="flex flex-col items-center text-white/70 hover:text-white transition-colors duration-300"
         >
-          <span className="text-xs tracking-widest uppercase mb-2">Saiba mais</span>
-          <ArrowDown size={16} />
+          <span className="text-xs tracking-widest uppercase mb-1">Saiba mais</span>
+          <ArrowDown size={14} />
         </motion.a>
       </motion.div>
     </section>
