@@ -20,12 +20,12 @@ const services = [
   {
     icon: Building2,
     title: "Projetos Regionais",
-    description: "Oferecemos projetos aprovados por governos estaduais e municipais, que permitem contribuições por meio de renúncia fiscal, de forma simples, segura e com previsibilidade.",
+    description: "Oferecemos projetos aprovados por governos estaduais e municipais, que permitem contribuições por meio de renúncia fiscal, de forma simples, segura e com previsibilidade para o contribuinte.",
   },
   {
     icon: Handshake,
     title: "Consultoria Empresarial",
-    description: "Assessoramos empresas de todos os segmentos na busca de parceiros do terceiro setor que executam projetos por meio de recursos de incentivos fiscais.",
+    description: "Estamos à disposição de empresas brasileiras de todos os segmentos, para ajudá-las na busca de parceiros do terceiro setor, que executam projetos e eventos por meio de recursos de incentivos fiscais.",
   },
   {
     icon: Network,
@@ -35,7 +35,7 @@ const services = [
   {
     icon: Presentation,
     title: "Palestras e Treinamentos",
-    description: "Realizamos palestras, treinamentos e consultorias, mostrando na prática como funcionam as contribuições incentivadas e como empresas podem se beneficiar imediatamente.",
+    description: "Realizamos palestras, treinamentos e consultorias, mostrando na prática como funcionam as contribuições incentivadas e como empresas podem se beneficiar imediatamente desse mecanismo.",
   },
   {
     icon: ClipboardCheck,
@@ -54,31 +54,54 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="servicos" className="py-24 sm:py-32 relative" ref={ref}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-      </div>
+    <section id="servicos" className="py-24 sm:py-32 relative bg-background" ref={ref}>
+      {/* Decorative arcs */}
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full border-[50px] border-accent/5 translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <motion.div
           initial="initial"
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">O que fazemos</p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Serviços
           </h2>
-          <div className="section-divider mx-auto mb-6" />
-          <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A A2F oferece soluções completas para empresas e pessoas físicas que desejam transformar parte do seu Imposto de Renda em impacto social, com curadoria estratégica e gestão completa.
+          <div className="section-divider mx-auto mb-8" />
+        </motion.div>
+
+        {/* Positioning Statement */}
+        <motion.div
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          variants={fadeInUp}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-12 p-6 sm:p-8 rounded-2xl bg-primary/5 border border-primary/10"
+        >
+          <p className="text-xs tracking-widest uppercase text-primary font-sans font-semibold mb-3">Posicionamento</p>
+          <p className="text-base sm:text-lg text-foreground leading-relaxed">
+            A A2F se posiciona como uma <strong className="text-primary">consultoria estratégica especializada em leis de incentivo</strong>, que conecta empresas a projetos de alto impacto por meio de curadoria e gestão completa. Não é apenas uma intermediadora — é uma <strong className="text-accent">parceira estratégica de posicionamento de marca</strong> através de investimento incentivado.
           </p>
         </motion.div>
 
+        {/* Services Description */}
+        <motion.div
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          variants={fadeInUp}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-16 max-w-4xl mx-auto"
+        >
+          <p className="text-base text-muted-foreground leading-relaxed mb-4">
+            A A2F oferece soluções completas para empresas e pessoas físicas que desejam transformar parte do seu Imposto de Renda ou impostos estaduais e municipais em impacto social. Atuamos com projetos esportivos, culturais e iniciativas personalizadas de marketing e visibilidade institucional.
+          </p>
+        </motion.div>
+
+        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <motion.div
@@ -86,13 +109,13 @@ export function Services() {
               initial="initial"
               animate={isInView ? "animate" : "initial"}
               variants={fadeInUp}
-              transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="glass-card rounded-2xl p-6 lg:p-8 shadow-3d group hover:shadow-glow-accent hover:border-accent/30 transition-all duration-500 ease-out"
+              transition={{ duration: 0.6, delay: 0.1 * (index + 3) }}
+              className="card-light rounded-2xl p-6 lg:p-8 group hover:shadow-glow-accent transition-all duration-500 ease-out"
             >
               <div className="inline-flex p-4 rounded-xl bg-accent/10 mb-6 group-hover:bg-accent/20 transition-colors duration-300">
                 <service.icon className="w-7 h-7 text-accent" />
               </div>
-              <h3 className="font-serif text-lg font-normal text-foreground mb-3">
+              <h3 className="font-display text-lg font-normal text-foreground mb-3">
                 {service.title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">

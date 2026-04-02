@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Building2, User, Calendar, Sparkles } from "lucide-react"
+import { Building2, MapPin, Landmark, ExternalLink, AlertCircle, Sparkles } from "lucide-react"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -14,14 +14,12 @@ export function Plans() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="planos" className="py-24 sm:py-32 relative" ref={ref}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-      </div>
+    <section id="planos" className="py-24 sm:py-32 relative bg-white" ref={ref}>
+      {/* Decorative arc */}
+      <div className="absolute top-0 right-0 w-[350px] h-[350px] rounded-full border-[50px] border-primary/5 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <motion.div
           initial="initial"
           animate={isInView ? "animate" : "initial"}
@@ -30,90 +28,268 @@ export function Plans() {
           className="text-center mb-16"
         >
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Incentivos Fiscais</p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
-            Planos de Incentivo
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-foreground">
+            Mecanismo de Financiamento a Cultura,<br />
+            <span className="text-gradient">Esporte e Desenvolvimento Social</span>
           </h2>
-          <div className="section-divider mx-auto mb-6" />
-          <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Empresas tributadas pelo Lucro Real podem destinar parte do Imposto de Renda devido diretamente para projetos incentivados — transformando obrigação fiscal em impacto positivo e visibilidade de marca.
-          </p>
+          <div className="section-divider mx-auto mb-8" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          {/* Empresas */}
-          <motion.div
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            variants={fadeInUp}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card rounded-2xl p-8 shadow-3d hover:shadow-glow-accent hover:border-accent/30 transition-all duration-500 ease-out"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 rounded-xl bg-accent/10">
-                <Building2 className="w-7 h-7 text-accent" />
-              </div>
-              <h4 className="font-serif text-2xl font-normal text-foreground">Empresas</h4>
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
-                <span className="font-serif text-4xl font-normal text-accent min-w-[4rem]">4%</span>
-                <span className="text-sm text-muted-foreground">do IR para projetos da Lei Rouanet</span>
-              </div>
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
-                <span className="font-serif text-4xl font-normal text-accent min-w-[4rem]">2%</span>
-                <span className="text-sm text-muted-foreground">para projetos da Lei de Incentivo ao Esporte (LIE)</span>
-              </div>
-            </div>
-          </motion.div>
+        {/* Three Branches Diagram */}
+        <motion.div
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          variants={fadeInUp}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="grid md:grid-cols-3 gap-6 mb-16"
+        >
+          <div className="card-light rounded-2xl p-6 text-center border-t-4 border-accent hover:shadow-glow-accent transition-all duration-500">
+            <Landmark className="w-10 h-10 text-accent mx-auto mb-4" />
+            <h3 className="font-display text-xl font-normal text-foreground mb-2">Leis Federais</h3>
+            <p className="text-sm text-muted-foreground">Imposto de Renda</p>
+          </div>
+          <div className="card-light rounded-2xl p-6 text-center border-t-4 border-primary hover:shadow-glow transition-all duration-500">
+            <MapPin className="w-10 h-10 text-primary mx-auto mb-4" />
+            <h3 className="font-display text-xl font-normal text-foreground mb-2">Leis Estaduais – SP</h3>
+            <p className="text-sm text-muted-foreground">ICMS</p>
+          </div>
+          <div className="card-light rounded-2xl p-6 text-center border-t-4 border-purple hover:shadow-glow-purple transition-all duration-500">
+            <Building2 className="w-10 h-10 text-purple mx-auto mb-4" />
+            <h3 className="font-display text-xl font-normal text-foreground mb-2">Leis Municipais</h3>
+            <p className="text-sm text-muted-foreground">ISS e/ou IPTU</p>
+          </div>
+        </motion.div>
 
-          {/* Pessoas Físicas */}
-          <motion.div
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            variants={fadeInUp}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="glass-card rounded-2xl p-8 shadow-3d hover:shadow-glow hover:border-primary/30 transition-all duration-500 ease-out"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 rounded-xl bg-primary/10">
-                <User className="w-7 h-7 text-primary" />
-              </div>
-              <h4 className="font-serif text-2xl font-normal text-foreground">Pessoas Físicas</h4>
+        {/* ÂMBITO FEDERAL */}
+        <motion.div
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          variants={fadeInUp}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-2 rounded-lg bg-accent/10">
+              <Landmark className="w-6 h-6 text-accent" />
             </div>
-            <div className="space-y-3">
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
-                <span className="font-serif text-4xl font-normal text-primary min-w-[4rem]">6%</span>
-                <span className="text-sm text-muted-foreground">do IR devido em ambos os mecanismos (Lei Rouanet e LIE)</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+            <h3 className="font-display text-2xl font-normal text-foreground">Âmbito Federal</h3>
+          </div>
 
-        {/* Future Changes */}
+          <div className="grid lg:grid-cols-3 gap-6 mb-6">
+            {/* Lei Rouanet */}
+            <div className="card-light rounded-2xl p-6 hover:shadow-glow-accent transition-all duration-500">
+              <div className="flex items-center gap-2 text-xs text-accent font-semibold uppercase tracking-wider mb-3">
+                <span>Federal</span>
+                <span className="text-muted-foreground">|</span>
+                <span>Imposto de Renda</span>
+              </div>
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
+                Lei Federal de Incentivo à Cultura
+                <span className="block text-sm text-muted-foreground font-sans mt-1">Lei Rouanet – 8.313/91</span>
+              </h4>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                  <span>Pessoa Jurídica (lucro real)</span>
+                  <span className="font-display text-xl text-accent">até 4%</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                  <span>Pessoa Física (modelo completo)</span>
+                  <span className="font-display text-xl text-accent">até 7%</span>
+                </div>
+                <p><strong>Quando destinar:</strong> até o último dia útil do ano</p>
+                <p><strong>Como:</strong> depósito/transferência para conta do projeto</p>
+              </div>
+            </div>
+
+            {/* Lei Incentivo ao Esporte */}
+            <div className="card-light rounded-2xl p-6 hover:shadow-glow-accent transition-all duration-500">
+              <div className="flex items-center gap-2 text-xs text-accent font-semibold uppercase tracking-wider mb-3">
+                <span>Federal</span>
+                <span className="text-muted-foreground">|</span>
+                <span>Imposto de Renda</span>
+              </div>
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
+                Lei Federal de Incentivo ao Esporte
+              </h4>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                  <span>Pessoa Jurídica (lucro real)</span>
+                  <span className="font-display text-xl text-accent">até 2%</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                  <span>Pessoa Física (modelo completo)</span>
+                  <span className="font-display text-xl text-accent">até 7%</span>
+                </div>
+                <p><strong>Quando destinar:</strong> até o último dia útil do ano</p>
+                <p><strong>Como:</strong> depósito/transferência para conta do projeto</p>
+                <div className="p-3 bg-accent/5 rounded-lg border border-accent/20 text-xs">
+                  <strong>Obs.:</strong> As leis não são concorrentes — empresa pode aportar até 6% do IR (4% cultura + 2% esporte)
+                </div>
+              </div>
+            </div>
+
+            {/* FUMCAD */}
+            <div className="card-light rounded-2xl p-6 hover:shadow-glow-accent transition-all duration-500">
+              <div className="flex items-center gap-2 text-xs text-accent font-semibold uppercase tracking-wider mb-3">
+                <span>Federal</span>
+                <span className="text-muted-foreground">|</span>
+                <span>Imposto de Renda</span>
+              </div>
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
+                Fundo Municipal da Criança e do Adolescente
+                <span className="block text-sm text-muted-foreground font-sans mt-1">Lei 9.069/90</span>
+              </h4>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                  <span>Pessoa Jurídica</span>
+                  <span className="font-display text-xl text-accent">até 1%</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                  <span>Pessoa Física</span>
+                  <span className="font-display text-xl text-accent">até 6%</span>
+                </div>
+                <p className="text-xs">ou 3% no ato da declaração</p>
+                <p><strong>Quando destinar:</strong> até o último dia útil bancário do ano</p>
+                <p><strong>Como:</strong> depósito na conta do Fundo do Município</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Callout - Total IR */}
+          <div className="bg-gradient-to-r from-accent to-primary rounded-2xl p-6 text-white text-center">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <AlertCircle className="w-6 h-6" />
+              <span className="font-display text-3xl font-normal">Total de benefícios no IR: até 10%</span>
+            </div>
+            <p className="text-sm text-white/80">Combine diferentes mecanismos para maximizar seu impacto social</p>
+          </div>
+
+          {/* Links */}
+          <div className="flex flex-wrap justify-center gap-4 mt-6">
+            <a 
+              href="https://www.gov.br/esporte" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full text-sm text-foreground hover:bg-accent hover:text-white transition-colors duration-300"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Ministério do Esporte
+            </a>
+            <a 
+              href="https://www.gov.br/cultura/pt-br/assuntos/lei-rouanet" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full text-sm text-foreground hover:bg-accent hover:text-white transition-colors duration-300"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Lei Rouanet
+            </a>
+          </div>
+        </motion.div>
+
+        {/* ÂMBITO ESTADUAL */}
+        <motion.div
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          variants={fadeInUp}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-2 rounded-lg bg-primary/10">
+              <MapPin className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="font-display text-2xl font-normal text-foreground">Âmbito Estadual – São Paulo</h3>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 mb-6">
+            {/* ProAC */}
+            <div className="card-light rounded-2xl p-6 hover:shadow-glow transition-all duration-500">
+              <div className="flex items-center gap-2 text-xs text-primary font-semibold uppercase tracking-wider mb-3">
+                <span>Estadual SP</span>
+                <span className="text-muted-foreground">|</span>
+                <span>ICMS</span>
+              </div>
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
+                ProAC – Programa de Ação Cultural
+                <span className="block text-sm text-muted-foreground font-sans mt-1">Lei nº 12.268/2006</span>
+              </h4>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                  <span>Pessoas Jurídicas</span>
+                  <span className="font-display text-xl text-primary">até 3% ICMS</span>
+                </div>
+                <p><strong>Dedução:</strong> 100% (sem contrapartida)</p>
+                <p><strong>Credenciamento:</strong> pfe.fazenda.sp.gov.br</p>
+                <p className="text-xs">Sistema aponta limite individual do contribuinte mensalmente</p>
+              </div>
+            </div>
+
+            {/* LPIE */}
+            <div className="card-light rounded-2xl p-6 hover:shadow-glow transition-all duration-500">
+              <div className="flex items-center gap-2 text-xs text-primary font-semibold uppercase tracking-wider mb-3">
+                <span>Estadual SP</span>
+                <span className="text-muted-foreground">|</span>
+                <span>ICMS</span>
+              </div>
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
+                LPIE – Lei Paulista de Incentivo ao Esporte
+                <span className="block text-sm text-muted-foreground font-sans mt-1">Decreto 55.636 de 26/03/2010</span>
+              </h4>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                  <span>Pessoas Jurídicas</span>
+                  <span className="font-display text-xl text-primary">até 3% ICMS</span>
+                </div>
+                <p><strong>Dedução:</strong> 100% (sem contrapartida)</p>
+                <p><strong>Credenciamento:</strong> pfe.fazenda.sp.gov.br</p>
+                <div className="p-3 bg-primary/5 rounded-lg border border-primary/20 text-xs">
+                  <strong>ProAC + LPIE são cumulativos</strong> — empresa pode usar até 6% do ICMS
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ÂMBITO MUNICIPAL */}
         <motion.div
           initial="initial"
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="glass-card rounded-2xl p-8 shadow-3d mb-8"
+          className="mb-16"
         >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="p-3 rounded-xl bg-secondary/50">
-              <Calendar className="w-7 h-7 text-foreground" />
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-2 rounded-lg bg-purple/10">
+              <Building2 className="w-6 h-6 text-purple" />
             </div>
-            <div>
-              <h4 className="font-serif text-xl font-normal text-foreground">A partir de 2028</h4>
-              <p className="text-sm text-muted-foreground">Novos limites da LIE</p>
-            </div>
+            <h3 className="font-display text-2xl font-normal text-foreground">Âmbito Municipal</h3>
           </div>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
-              <span className="font-serif text-4xl font-normal text-accent min-w-[4rem]">3%</span>
-              <span className="text-sm text-muted-foreground">para empresas</span>
-            </div>
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40">
-              <span className="font-serif text-4xl font-normal text-primary min-w-[4rem]">7%</span>
-              <span className="text-sm text-muted-foreground">para pessoas físicas</span>
+
+          <div className="max-w-2xl">
+            <div className="card-light rounded-2xl p-6 hover:shadow-glow-purple transition-all duration-500">
+              <div className="flex items-center gap-2 text-xs text-purple font-semibold uppercase tracking-wider mb-3">
+                <span>Municipal</span>
+                <span className="text-muted-foreground">|</span>
+                <span>IPTU e ISS</span>
+              </div>
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
+                Lei de Incentivo Fiscal (LIF)
+                <span className="block text-sm text-muted-foreground font-sans mt-1">Varia por Município</span>
+              </h4>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                  <span>Pessoa Jurídica</span>
+                  <span className="font-display text-xl text-purple">até 100%*</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                  <span>Pessoa Física</span>
+                  <span className="font-display text-xl text-purple">até 100%*</span>
+                </div>
+                <p className="text-xs">*do IPTU e/ou ISS devidos, acrescido de contrapartida financeira de 20% sobre o valor destinado</p>
+                <p><strong>Quando destinar:</strong> mensalmente ou em parcela única</p>
+                <p><strong>Como:</strong> depósito na conta da LIF</p>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -126,7 +302,7 @@ export function Plans() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-3 glass-card rounded-full px-6 py-3 mb-4 border-accent/20">
+          <div className="inline-flex items-center gap-3 bg-secondary rounded-full px-6 py-3 mb-4">
             <Sparkles className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-foreground">Projetos Personalizados</span>
           </div>

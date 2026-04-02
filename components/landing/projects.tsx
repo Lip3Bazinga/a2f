@@ -123,13 +123,9 @@ export function Projects() {
   }
 
   return (
-    <section id="projetos" className="py-24 sm:py-32 relative" ref={ref}>
-      {/* Background Effect */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
-      </div>
+    <section id="projetos" className="py-24 sm:py-32 relative section-gray" ref={ref}>
+      {/* Decorative arc */}
+      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] rounded-full border-[50px] border-purple/5 translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -140,7 +136,7 @@ export function Projects() {
           className="text-center mb-16"
         >
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Curadoria Estratégica</p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Projetos e Produtos
           </h2>
           <div className="section-divider mx-auto mb-6" />
@@ -165,8 +161,8 @@ export function Projects() {
                 className={cn(
                   "flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300 ease-out",
                   activeCategory === index
-                    ? "bg-accent text-accent-foreground shadow-glow-accent"
-                    : "glass-card text-muted-foreground hover:text-foreground hover:border-accent/30"
+                    ? "bg-accent text-accent-foreground shadow-sm"
+                    : "bg-background border border-border text-muted-foreground hover:text-foreground hover:border-primary/50"
                 )}
               >
                 <category.icon className="w-5 h-5" />
@@ -183,7 +179,7 @@ export function Projects() {
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="glass-card rounded-2xl overflow-hidden shadow-3d pb-0"
+          className="card-light rounded-2xl overflow-hidden pb-0"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -195,8 +191,8 @@ export function Projects() {
               className="grid lg:grid-cols-2 gap-0"
             >
               {/* Image Section */}
-              <div className="relative h-64 sm:h-80 lg:h-auto lg:min-h-[400px] bg-secondary/30 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20" />
+              <div className="relative h-64 sm:h-80 lg:h-auto lg:min-h-[400px] bg-secondary overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <div className="inline-flex p-6 rounded-2xl bg-accent/10 mb-4">
@@ -212,14 +208,14 @@ export function Projects() {
                 {/* Navigation Arrows on Image */}
                 <button
                   onClick={handlePrevious}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
                   aria-label="Projeto anterior"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
                   aria-label="Próximo projeto"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -232,7 +228,7 @@ export function Projects() {
                   <div className="p-2 rounded-lg bg-accent/10">
                     <currentProject.icon className="w-6 h-6 text-accent" />
                   </div>
-                  <h4 className="font-serif text-2xl sm:text-3xl font-normal text-foreground">
+                  <h4 className="font-display text-2xl sm:text-3xl font-normal text-foreground">
                     {currentProject.title}
                   </h4>
                 </div>
@@ -257,7 +253,7 @@ export function Projects() {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-4 p-4 rounded-xl bg-secondary/30">
+                <div className="grid grid-cols-3 gap-4 p-4 rounded-xl bg-secondary">
                   <div className="text-center">
                     <p className="text-2xl font-bold text-accent">{currentProject.stats.projects}</p>
                     <p className="text-xs text-muted-foreground uppercase tracking-wider">Projetos</p>
@@ -309,7 +305,7 @@ export function Projects() {
         >
           <div className="text-center mb-10">
             <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-3">Unidos pela Causa</p>
-            <h4 className="font-serif text-2xl sm:text-3xl font-normal text-foreground">
+            <h4 className="font-display text-2xl sm:text-3xl font-normal text-foreground">
               Parceiros pelo Impacto Social
             </h4>
           </div>
@@ -317,8 +313,8 @@ export function Projects() {
           {/* Slider Container */}
           <div className="relative overflow-hidden py-8">
             {/* Gradient Masks */}
-            <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-gray-bg via-gray-bg/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-gray-bg via-gray-bg/80 to-transparent z-10 pointer-events-none" />
             
             {/* Infinite Scroll Track */}
             <div className="flex animate-scroll">
@@ -331,10 +327,10 @@ export function Projects() {
                   rel="noopener noreferrer"
                   className="flex-shrink-0 mx-4 sm:mx-8 group"
                 >
-                  <div className="relative w-32 h-20 sm:w-44 sm:h-24 flex items-center justify-center glass-card rounded-xl px-4 py-3 transition-all duration-500 ease-out hover:scale-105 hover:shadow-glow-accent hover:border-accent/40">
+                  <div className="relative w-32 h-20 sm:w-44 sm:h-24 flex items-center justify-center card-light rounded-xl px-4 py-3 transition-all duration-500 ease-out hover:scale-105 hover:shadow-glow-accent">
                     {/* Placeholder for logo - shows partner name stylized */}
                     <div className="flex flex-col items-center justify-center gap-1">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
                         <span className="text-lg sm:text-xl font-bold text-accent">
                           {partner.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
                         </span>
@@ -343,9 +339,6 @@ export function Projects() {
                         {partner.name}
                       </span>
                     </div>
-                    
-                    {/* Hover Glow Effect */}
-                    <div className="absolute inset-0 rounded-xl bg-accent/0 group-hover:bg-accent/5 transition-all duration-500" />
                   </div>
                 </a>
               ))}

@@ -13,12 +13,12 @@ export function SocialImpact() {
   const { ref, inView: isInView } = useInView({ once: true, margin: '-100px 0px' })
 
   const benefits = [
-    'Dedução de até 1% do Imposto de Renda devido (Pessoa Jurídica)',
-    'Exposição em torneio internacional chancelado pela ITF',
+    'Dedução de até 2% do Imposto de Renda devido (Pessoa Jurídica)',
+    'Dedução de até 7% do Imposto de Renda devido (Pessoa Física)',
+    'Dedução de até 3% do seu ICMS',
     'Associação ao esporte feminino com impacto social real',
     'Relatório de resultados e visibilidade de mídia pós-evento',
     'Acesso ao projeto aprovado na Lei de Incentivo ao Esporte',
-    '8 anos de história e credibilidade no esporte brasileiro',
   ]
 
   const badges = [
@@ -28,10 +28,9 @@ export function SocialImpact() {
   ]
 
   return (
-    <section ref={ref} className="relative py-20 sm:py-28 overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="absolute top-20 right-10 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+    <section ref={ref} className="relative py-20 sm:py-28 overflow-hidden bg-background">
+      {/* Decorative arc */}
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border-[60px] border-purple/5 translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -48,7 +47,7 @@ export function SocialImpact() {
               <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">
                 Impacto Social & Fiscal
               </p>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-2">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-2">
                 Lei de Incentivo ao Esporte bate{' '}
                 <span className="text-gradient-warm italic">RECORDE</span>{' '}
                 de projetos apresentados
@@ -57,7 +56,7 @@ export function SocialImpact() {
             </div>
 
             <p className="text-base text-muted-foreground leading-relaxed">
-              Ao apoiar o torneio, sua empresa investe no desenvolvimento esportivo de crianças e jovens, associando sua marca à inclusão, saúde e esporte de alto nível — com benefício fiscal real.
+              Ao apoiar projetos como este, sua empresa investe no desenvolvimento esportivo de crianças e jovens, associando sua marca à inclusão, saúde e esporte de alto nível – com benefício fiscal real.
             </p>
 
             {/* Benefits List */}
@@ -84,7 +83,7 @@ export function SocialImpact() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3, delay: 0.65 + index * 0.06 }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full glass-card border-accent/20"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border"
                 >
                   <badge.icon className="w-3.5 h-3.5 text-accent" />
                   <span className="text-xs font-medium text-foreground tracking-wide">{badge.label}</span>
@@ -101,13 +100,13 @@ export function SocialImpact() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative aspect-square sm:h-[520px] rounded-2xl overflow-hidden glass-card shadow-3d">
+            <div className="relative aspect-square sm:h-[520px] rounded-2xl overflow-hidden card-light">
               <img
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/banner_lei_de_incentivo_ao_esporte-lwlMhMrdawPnh06igdCVuoiO1tXaeh.jpeg"
                 alt="Lei de Incentivo ao Esporte — crianças e jovens praticando tênis"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
             </div>
 
             {/* Stats overlay */}
@@ -115,19 +114,19 @@ export function SocialImpact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="absolute -bottom-6 left-6 right-6 glass-card rounded-xl p-5 shadow-3d"
+              className="absolute -bottom-6 left-6 right-6 card-light rounded-xl p-5 shadow-soft"
             >
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
-                  <p className="font-serif text-2xl font-normal text-accent">500+</p>
+                  <p className="font-display text-2xl font-normal text-accent">500+</p>
                   <p className="text-xs text-muted-foreground tracking-wide">Projetos</p>
                 </div>
                 <div className="text-center border-x border-border">
-                  <p className="font-serif text-2xl font-normal text-primary">100M+</p>
+                  <p className="font-display text-2xl font-normal text-primary">100M+</p>
                   <p className="text-xs text-muted-foreground tracking-wide">Impacto</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-serif text-2xl font-normal text-foreground">8+</p>
+                  <p className="font-display text-2xl font-normal text-purple">8+</p>
                   <p className="text-xs text-muted-foreground tracking-wide">Anos</p>
                 </div>
               </div>

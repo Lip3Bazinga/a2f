@@ -96,7 +96,7 @@ export function Alcance() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const getCardStyles = (size: string, color: string) => {
-    const baseStyles = "glass-card rounded-2xl p-6 transition-all duration-500 ease-out hover:shadow-glow-accent group cursor-pointer border border-transparent hover:border-accent/30"
+    const baseStyles = "card-light rounded-2xl p-6 transition-all duration-500 ease-out group cursor-pointer"
     
     const sizeStyles = {
       large: "lg:col-span-2 lg:row-span-2",
@@ -114,12 +114,9 @@ export function Alcance() {
   }
 
   return (
-    <section id="alcance" className="py-24 sm:py-32 relative" ref={ref}>
-      {/* Background Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      </div>
+    <section id="alcance" className="py-24 sm:py-32 relative bg-background" ref={ref}>
+      {/* Decorative arcs */}
+      <div className="absolute top-0 left-0 w-[300px] h-[300px] rounded-full border-[50px] border-accent/5 -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -133,7 +130,7 @@ export function Alcance() {
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">
             Por que Patrocinar?
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6">
             <span className="text-foreground">A </span>
             <span className="text-gradient-warm">Oportunidade</span>
             <br />
@@ -152,7 +149,7 @@ export function Alcance() {
             animate={isInView ? "animate" : "initial"}
             variants={scaleIn}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className={getCardStyles("large", "primary")}
+            className={cn(getCardStyles("large", "primary"), "hover:shadow-glow")}
           >
             <div className={cn(
               "inline-flex p-3 rounded-xl mb-6 transition-all duration-300",
@@ -160,7 +157,7 @@ export function Alcance() {
             )}>
               <Globe className="w-6 h-6" />
             </div>
-            <h3 className="font-serif text-2xl lg:text-3xl font-normal text-foreground mb-4">
+            <h3 className="font-display text-2xl lg:text-3xl font-normal text-foreground mb-4">
               {reachCards[0].title}
             </h3>
             <p className="text-muted-foreground leading-relaxed text-base lg:text-lg">
@@ -179,7 +176,7 @@ export function Alcance() {
                 animate={isInView ? "animate" : "initial"}
                 variants={scaleIn}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className={getCardStyles(card.size, card.color)}
+                className={cn(getCardStyles(card.size, card.color), card.color === "accent" ? "hover:shadow-glow-accent" : "hover:shadow-glow")}
               >
                 <div className={cn(
                   "inline-flex p-3 rounded-xl mb-4 transition-all duration-300",
@@ -205,7 +202,7 @@ export function Alcance() {
               animate={isInView ? "animate" : "initial"}
               variants={scaleIn}
               transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-              className={getCardStyles(card.size, card.color)}
+              className={cn(getCardStyles(card.size, card.color), card.color === "accent" ? "hover:shadow-glow-accent" : "hover:shadow-glow")}
             >
               <div className={cn(
                 "inline-flex p-3 rounded-xl mb-4 transition-all duration-300",
@@ -230,7 +227,7 @@ export function Alcance() {
               animate={isInView ? "animate" : "initial"}
               variants={scaleIn}
               transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-              className={getCardStyles(card.size, card.color)}
+              className={cn(getCardStyles(card.size, card.color), card.color === "accent" ? "hover:shadow-glow-accent" : "hover:shadow-glow")}
             >
               <div className={cn(
                 "inline-flex p-3 rounded-xl mb-4 transition-all duration-300",
