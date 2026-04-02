@@ -76,11 +76,15 @@
     scroll-behavior: smooth;
     background: #FFFFFF;
     overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
   }
   body {
     background-color: #FFFFFF !important;
     color: #1A1F3C;
     overflow-x: hidden;
+    overflow-y: visible;
+    min-height: 100%;
     @apply font-sans antialiased;
   }
   h1, h2, h3 {
