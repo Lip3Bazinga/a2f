@@ -55,11 +55,12 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-1"
           >
-            {/* Logo - Horizontal version, white for dark section */}
+            {/* Logo - Horizontal version, white for dark section, ~36px */}
             <div className="mb-6">
               <Logo 
                 variant="horizontal" 
                 color="white" 
+                size="sm"
                 linkTo="/"
               />
             </div>

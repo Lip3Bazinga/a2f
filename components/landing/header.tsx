@@ -34,12 +34,25 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Logo - Horizontal version */}
-          <Logo 
-            variant="horizontal" 
-            color="color"
-            linkTo="/"
-          />
+          {/* Brand Logo - Horizontal version, ~40px desktop, ~32px mobile */}
+          <div className="flex">
+            <div className="hidden sm:block">
+              <Logo 
+                variant="horizontal" 
+                color="color"
+                size="md"
+                linkTo="/"
+              />
+            </div>
+            <div className="sm:hidden">
+              <Logo 
+                variant="horizontal" 
+                color="color"
+                size="sm"
+                linkTo="/"
+              />
+            </div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">

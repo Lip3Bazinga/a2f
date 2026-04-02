@@ -38,44 +38,59 @@ const slides = [
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-  const [isMounted, setIsMounted] = useState(false)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false) // Start false, enable after mount
+  const isMountedRef = useRef(false)
   const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const autoPlayIntervalRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Track mount state
+  // Track mount state with ref (not state to avoid re-renders)
   useEffect(() => {
-    setIsMounted(true)
+    isMountedRef.current = true
+    // Enable auto-play after mount
+    setIsAutoPlaying(true)
+    
     return () => {
-      setIsMounted(false)
+      isMountedRef.current = false
       if (resumeTimeoutRef.current) {
         clearTimeout(resumeTimeoutRef.current)
+      }
+      if (autoPlayIntervalRef.current) {
+        clearInterval(autoPlayIntervalRef.current)
       }
     }
   }, [])
 
   const nextSlide = useCallback(() => {
+    if (!isMountedRef.current) return
     setCurrentSlide((prev) => (prev + 1) % slides.length)
   }, [])
 
   const prevSlide = useCallback(() => {
+    if (!isMountedRef.current) return
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
   }, [])
 
   const pauseAutoPlay = useCallback(() => {
+    if (!isMountedRef.current) return
+    
     setIsAutoPlaying(false)
+    
     // Clear any existing resume timeout
     if (resumeTimeoutRef.current) {
       clearTimeout(resumeTimeoutRef.current)
+      resumeTimeoutRef.current = null
     }
+    
     // Resume auto-play after 10 seconds
     resumeTimeoutRef.current = setTimeout(() => {
-      if (isMounted) {
+      if (isMountedRef.current) {
         setIsAutoPlaying(true)
       }
     }, 10000)
-  }, [isMounted])
+  }, [])
 
   const goToSlide = useCallback((index: number) => {
+    if (!isMountedRef.current) return
     setCurrentSlide(index)
     pauseAutoPlay()
   }, [pauseAutoPlay])
@@ -92,10 +107,27 @@ export function Hero() {
 
   // Auto-advance every 5 seconds
   useEffect(() => {
-    if (!isAutoPlaying || !isMounted) return
-    const interval = setInterval(nextSlide, 5000)
-    return () => clearInterval(interval)
-  }, [isAutoPlaying, isMounted, nextSlide])
+    if (!isAutoPlaying) {
+      if (autoPlayIntervalRef.current) {
+        clearInterval(autoPlayIntervalRef.current)
+        autoPlayIntervalRef.current = null
+      }
+      return
+    }
+    
+    autoPlayIntervalRef.current = setInterval(() => {
+      if (isMountedRef.current) {
+        setCurrentSlide((prev) => (prev + 1) % slides.length)
+      }
+    }, 5000)
+    
+    return () => {
+      if (autoPlayIntervalRef.current) {
+        clearInterval(autoPlayIntervalRef.current)
+        autoPlayIntervalRef.current = null
+      }
+    }
+  }, [isAutoPlaying])
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -140,9 +172,9 @@ export function Hero() {
           <Logo 
             variant="stacked" 
             color="white" 
-            linkTo={undefined}
+            size="lg"
+            linkTo={null}
             showText={true}
-            className="scale-125 sm:scale-150"
           />
         </motion.div>
 
