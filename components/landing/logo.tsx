@@ -115,7 +115,7 @@ export function Logo({
           "flex flex-col leading-none",
           color === "white" ? "text-white" : "text-foreground"
         )}>
-          <span className={cn("font-serif font-semibold tracking-tight", config.text)}>
+          <span className={cn("font-bold tracking-tight", config.text)} style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}>
             A2F
           </span>
           <span className={cn(
@@ -134,7 +134,7 @@ export function Logo({
           "flex flex-col items-center leading-none",
           color === "white" ? "text-white" : "text-foreground"
         )}>
-          <span className={cn("font-serif font-semibold tracking-tight", config.text)}>
+          <span className={cn("font-bold tracking-tight", config.text)} style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}>
             A2F
           </span>
           <span className={cn(

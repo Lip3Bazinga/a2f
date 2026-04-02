@@ -130,7 +130,7 @@ export function About() {
           className="text-center mb-16"
         >
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Nossa História</p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-foreground">
             Quem <span className="text-gradient">Somos</span>
           </h2>
           <div className="section-divider mx-auto mb-8" />
@@ -166,7 +166,7 @@ export function About() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-20"
         >
-          <h3 className="font-serif text-2xl sm:text-3xl font-normal text-foreground text-center mb-10">
+          <h3 className="font-display text-2xl sm:text-3xl font-normal text-foreground text-center mb-10">
             Nossos Fundadores
           </h3>
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-3xl mx-auto">
@@ -194,7 +194,7 @@ export function About() {
 
                 {/* Content */}
                 <div className="p-6 text-center">
-                  <h4 className="font-serif text-xl sm:text-2xl font-normal text-foreground mb-1">
+                  <h4 className="font-display text-xl sm:text-2xl font-normal text-foreground mb-1">
                     {founder.name}
                   </h4>
                   <p className={cn(
@@ -245,7 +245,7 @@ export function About() {
                 transition={{ duration: 0.4 }}
                 className="text-center max-w-3xl mx-auto"
               >
-                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-foreground mb-6">
+                <h3 className="font-display text-2xl sm:text-3xl font-normal text-foreground mb-6">
                   Essência da <span className="text-primary">Marca</span>
                 </h3>
                 <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
@@ -266,7 +266,7 @@ export function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
               >
-                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-foreground text-center mb-10">
+                <h3 className="font-display text-2xl sm:text-3xl font-normal text-foreground text-center mb-10">
                   Pilares da <span className="text-primary">Marca</span>
                 </h3>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -286,7 +286,7 @@ export function About() {
                           pilar.color === "purple" ? "text-purple" : "text-primary"
                         )} />
                       </div>
-                      <h4 className="font-serif text-lg font-normal text-foreground mb-2">{pilar.title}</h4>
+                      <h4 className="font-display text-lg font-normal text-foreground mb-2">{pilar.title}</h4>
                       <p className="text-sm text-muted-foreground">{pilar.description}</p>
                     </div>
                   ))}
@@ -305,7 +305,7 @@ export function About() {
                 <div className="inline-flex p-6 rounded-2xl bg-accent/10 mb-8">
                   <Target className="w-12 h-12 text-accent" />
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-foreground mb-6">
+                <h3 className="font-display text-2xl sm:text-3xl font-normal text-foreground mb-6">
                   Nosso <span className="text-accent">Propósito</span>
                 </h3>
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
@@ -325,7 +325,7 @@ export function About() {
                 <div className="inline-flex p-6 rounded-2xl bg-primary/10 mb-8">
                   <Users className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-foreground mb-6">
+                <h3 className="font-display text-2xl sm:text-3xl font-normal text-foreground mb-6">
                   Nossa <span className="text-primary">Missão</span>
                 </h3>
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
@@ -345,7 +345,7 @@ export function About() {
                 <div className="inline-flex p-6 rounded-2xl bg-purple/10 mb-8">
                   <Eye className="w-12 h-12 text-purple" />
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-foreground mb-6">
+                <h3 className="font-display text-2xl sm:text-3xl font-normal text-foreground mb-6">
                   Nossa <span className="text-purple">Visão</span>
                 </h3>
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
@@ -361,7 +361,7 @@ export function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
               >
-                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-foreground text-center mb-10">
+                <h3 className="font-display text-2xl sm:text-3xl font-normal text-foreground text-center mb-10">
                   Nossos <span className="text-primary">Valores</span>
                 </h3>
                 <div className="space-y-4 max-w-2xl mx-auto">

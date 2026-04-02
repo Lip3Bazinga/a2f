@@ -28,7 +28,7 @@ export function Plans() {
           className="text-center mb-16"
         >
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Incentivos Fiscais</p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-foreground">
             Mecanismo de Financiamento a Cultura,<br />
             <span className="text-gradient">Esporte e Desenvolvimento Social</span>
           </h2>
@@ -45,17 +45,17 @@ export function Plans() {
         >
           <div className="card-light rounded-2xl p-6 text-center border-t-4 border-accent hover:shadow-glow-accent transition-all duration-500">
             <Landmark className="w-10 h-10 text-accent mx-auto mb-4" />
-            <h3 className="font-serif text-xl font-normal text-foreground mb-2">Leis Federais</h3>
+            <h3 className="font-display text-xl font-normal text-foreground mb-2">Leis Federais</h3>
             <p className="text-sm text-muted-foreground">Imposto de Renda</p>
           </div>
           <div className="card-light rounded-2xl p-6 text-center border-t-4 border-primary hover:shadow-glow transition-all duration-500">
             <MapPin className="w-10 h-10 text-primary mx-auto mb-4" />
-            <h3 className="font-serif text-xl font-normal text-foreground mb-2">Leis Estaduais – SP</h3>
+            <h3 className="font-display text-xl font-normal text-foreground mb-2">Leis Estaduais – SP</h3>
             <p className="text-sm text-muted-foreground">ICMS</p>
           </div>
           <div className="card-light rounded-2xl p-6 text-center border-t-4 border-purple hover:shadow-glow-purple transition-all duration-500">
             <Building2 className="w-10 h-10 text-purple mx-auto mb-4" />
-            <h3 className="font-serif text-xl font-normal text-foreground mb-2">Leis Municipais</h3>
+            <h3 className="font-display text-xl font-normal text-foreground mb-2">Leis Municipais</h3>
             <p className="text-sm text-muted-foreground">ISS e/ou IPTU</p>
           </div>
         </motion.div>
@@ -72,7 +72,7 @@ export function Plans() {
             <div className="p-2 rounded-lg bg-accent/10">
               <Landmark className="w-6 h-6 text-accent" />
             </div>
-            <h3 className="font-serif text-2xl font-normal text-foreground">Âmbito Federal</h3>
+            <h3 className="font-display text-2xl font-normal text-foreground">Âmbito Federal</h3>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6 mb-6">
@@ -83,18 +83,18 @@ export function Plans() {
                 <span className="text-muted-foreground">|</span>
                 <span>Imposto de Renda</span>
               </div>
-              <h4 className="font-serif text-lg font-normal text-foreground mb-4">
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
                 Lei Federal de Incentivo à Cultura
                 <span className="block text-sm text-muted-foreground font-sans mt-1">Lei Rouanet – 8.313/91</span>
               </h4>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
                   <span>Pessoa Jurídica (lucro real)</span>
-                  <span className="font-serif text-xl text-accent">até 4%</span>
+                  <span className="font-display text-xl text-accent">até 4%</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
                   <span>Pessoa Física (modelo completo)</span>
-                  <span className="font-serif text-xl text-accent">até 7%</span>
+                  <span className="font-display text-xl text-accent">até 7%</span>
                 </div>
                 <p><strong>Quando destinar:</strong> até o último dia útil do ano</p>
                 <p><strong>Como:</strong> depósito/transferência para conta do projeto</p>
@@ -108,17 +108,17 @@ export function Plans() {
                 <span className="text-muted-foreground">|</span>
                 <span>Imposto de Renda</span>
               </div>
-              <h4 className="font-serif text-lg font-normal text-foreground mb-4">
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
                 Lei Federal de Incentivo ao Esporte
               </h4>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
                   <span>Pessoa Jurídica (lucro real)</span>
-                  <span className="font-serif text-xl text-accent">até 2%</span>
+                  <span className="font-display text-xl text-accent">até 2%</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
                   <span>Pessoa Física (modelo completo)</span>
-                  <span className="font-serif text-xl text-accent">até 7%</span>
+                  <span className="font-display text-xl text-accent">até 7%</span>
                 </div>
                 <p><strong>Quando destinar:</strong> até o último dia útil do ano</p>
                 <p><strong>Como:</strong> depósito/transferência para conta do projeto</p>
@@ -135,18 +135,18 @@ export function Plans() {
                 <span className="text-muted-foreground">|</span>
                 <span>Imposto de Renda</span>
               </div>
-              <h4 className="font-serif text-lg font-normal text-foreground mb-4">
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
                 Fundo Municipal da Criança e do Adolescente
                 <span className="block text-sm text-muted-foreground font-sans mt-1">Lei 9.069/90</span>
               </h4>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
                   <span>Pessoa Jurídica</span>
-                  <span className="font-serif text-xl text-accent">até 1%</span>
+                  <span className="font-display text-xl text-accent">até 1%</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
                   <span>Pessoa Física</span>
-                  <span className="font-serif text-xl text-accent">até 6%</span>
+                  <span className="font-display text-xl text-accent">até 6%</span>
                 </div>
                 <p className="text-xs">ou 3% no ato da declaração</p>
                 <p><strong>Quando destinar:</strong> até o último dia útil bancário do ano</p>
@@ -159,7 +159,7 @@ export function Plans() {
           <div className="bg-gradient-to-r from-accent to-primary rounded-2xl p-6 text-white text-center">
             <div className="flex items-center justify-center gap-3 mb-2">
               <AlertCircle className="w-6 h-6" />
-              <span className="font-serif text-3xl font-normal">Total de benefícios no IR: até 10%</span>
+              <span className="font-display text-3xl font-normal">Total de benefícios no IR: até 10%</span>
             </div>
             <p className="text-sm text-white/80">Combine diferentes mecanismos para maximizar seu impacto social</p>
           </div>
@@ -199,7 +199,7 @@ export function Plans() {
             <div className="p-2 rounded-lg bg-primary/10">
               <MapPin className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="font-serif text-2xl font-normal text-foreground">Âmbito Estadual – São Paulo</h3>
+            <h3 className="font-display text-2xl font-normal text-foreground">Âmbito Estadual – São Paulo</h3>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-6 mb-6">
@@ -210,14 +210,14 @@ export function Plans() {
                 <span className="text-muted-foreground">|</span>
                 <span>ICMS</span>
               </div>
-              <h4 className="font-serif text-lg font-normal text-foreground mb-4">
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
                 ProAC – Programa de Ação Cultural
                 <span className="block text-sm text-muted-foreground font-sans mt-1">Lei nº 12.268/2006</span>
               </h4>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
                   <span>Pessoas Jurídicas</span>
-                  <span className="font-serif text-xl text-primary">até 3% ICMS</span>
+                  <span className="font-display text-xl text-primary">até 3% ICMS</span>
                 </div>
                 <p><strong>Dedução:</strong> 100% (sem contrapartida)</p>
                 <p><strong>Credenciamento:</strong> pfe.fazenda.sp.gov.br</p>
@@ -232,14 +232,14 @@ export function Plans() {
                 <span className="text-muted-foreground">|</span>
                 <span>ICMS</span>
               </div>
-              <h4 className="font-serif text-lg font-normal text-foreground mb-4">
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
                 LPIE – Lei Paulista de Incentivo ao Esporte
                 <span className="block text-sm text-muted-foreground font-sans mt-1">Decreto 55.636 de 26/03/2010</span>
               </h4>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
                   <span>Pessoas Jurídicas</span>
-                  <span className="font-serif text-xl text-primary">até 3% ICMS</span>
+                  <span className="font-display text-xl text-primary">até 3% ICMS</span>
                 </div>
                 <p><strong>Dedução:</strong> 100% (sem contrapartida)</p>
                 <p><strong>Credenciamento:</strong> pfe.fazenda.sp.gov.br</p>
@@ -263,7 +263,7 @@ export function Plans() {
             <div className="p-2 rounded-lg bg-purple/10">
               <Building2 className="w-6 h-6 text-purple" />
             </div>
-            <h3 className="font-serif text-2xl font-normal text-foreground">Âmbito Municipal</h3>
+            <h3 className="font-display text-2xl font-normal text-foreground">Âmbito Municipal</h3>
           </div>
 
           <div className="max-w-2xl">
@@ -273,18 +273,18 @@ export function Plans() {
                 <span className="text-muted-foreground">|</span>
                 <span>IPTU e ISS</span>
               </div>
-              <h4 className="font-serif text-lg font-normal text-foreground mb-4">
+              <h4 className="font-display text-lg font-normal text-foreground mb-4">
                 Lei de Incentivo Fiscal (LIF)
                 <span className="block text-sm text-muted-foreground font-sans mt-1">Varia por Município</span>
               </h4>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
                   <span>Pessoa Jurídica</span>
-                  <span className="font-serif text-xl text-purple">até 100%*</span>
+                  <span className="font-display text-xl text-purple">até 100%*</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
                   <span>Pessoa Física</span>
-                  <span className="font-serif text-xl text-purple">até 100%*</span>
+                  <span className="font-display text-xl text-purple">até 100%*</span>
                 </div>
                 <p className="text-xs">*do IPTU e/ou ISS devidos, acrescido de contrapartida financeira de 20% sobre o valor destinado</p>
                 <p><strong>Quando destinar:</strong> mensalmente ou em parcela única</p>

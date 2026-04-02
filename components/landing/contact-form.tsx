@@ -126,7 +126,7 @@ export function ContactForm() {
           className="text-center mb-16"
         >
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Fale com Nossa Equipe</p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6">
             Torne-se um{" "}
             <span className="text-gradient-warm italic">Patrocinador Oficial</span>
           </h2>
@@ -151,7 +151,7 @@ export function ContactForm() {
               viewport={{ once: true }}
               className="card-light rounded-2xl p-8"
             >
-              <h3 className="font-serif text-2xl font-normal text-foreground mb-6">
+              <h3 className="font-display text-2xl font-normal text-foreground mb-6">
                 Fale Conosco
               </h3>
               <div className="space-y-5">

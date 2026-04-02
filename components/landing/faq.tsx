@@ -81,7 +81,7 @@ export function FAQ() {
           className="text-center mb-16"
         >
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Dúvidas Comuns</p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Perguntas Frequentes
           </h2>
           <div className="section-divider mx-auto" />
@@ -95,7 +95,7 @@ export function FAQ() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-12"
         >
-          <h3 className="font-serif text-xl text-foreground mb-6 flex items-center gap-2">
+          <h3 className="font-display text-xl text-foreground mb-6 flex items-center gap-2">
             <Scale className="w-5 h-5 text-primary" />
             Leis de Incentivo Fiscal
           </h3>
@@ -113,7 +113,7 @@ export function FAQ() {
                   value={law.id}
                   className="card-light rounded-xl border-0 px-6 overflow-hidden"
                 >
-                  <AccordionTrigger className="font-serif text-left text-lg font-normal text-foreground hover:text-primary transition-colors py-6 hover:no-underline">
+                  <AccordionTrigger className="font-display text-left text-lg font-normal text-foreground hover:text-primary transition-colors py-6 hover:no-underline">
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-primary/10">
                         <law.icon className="w-5 h-5 text-primary" />
@@ -184,7 +184,7 @@ export function FAQ() {
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h3 className="font-serif text-xl text-foreground mb-6 flex items-center gap-2">
+          <h3 className="font-display text-xl text-foreground mb-6 flex items-center gap-2">
             <HelpCircle className="w-5 h-5 text-accent" />
             Dúvidas Gerais
           </h3>
@@ -202,7 +202,7 @@ export function FAQ() {
                   value={`general-${index}`}
                   className="card-light rounded-xl border-0 px-6 overflow-hidden"
                 >
-                  <AccordionTrigger className="font-serif text-left text-lg font-normal text-foreground hover:text-accent transition-colors py-6 hover:no-underline">
+                  <AccordionTrigger className="font-display text-left text-lg font-normal text-foreground hover:text-accent transition-colors py-6 hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-sm text-muted-foreground pb-6 leading-relaxed">

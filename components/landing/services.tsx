@@ -68,7 +68,7 @@ export function Services() {
           className="text-center mb-12"
         >
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">O que fazemos</p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Serviços
           </h2>
           <div className="section-divider mx-auto mb-8" />
@@ -115,7 +115,7 @@ export function Services() {
               <div className="inline-flex p-4 rounded-xl bg-accent/10 mb-6 group-hover:bg-accent/20 transition-colors duration-300">
                 <service.icon className="w-7 h-7 text-accent" />
               </div>
-              <h3 className="font-serif text-lg font-normal text-foreground mb-3">
+              <h3 className="font-display text-lg font-normal text-foreground mb-3">
                 {service.title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">

@@ -47,7 +47,7 @@ export function SocialImpact() {
               <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">
                 Impacto Social & Fiscal
               </p>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-2">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-2">
                 Lei de Incentivo ao Esporte bate{' '}
                 <span className="text-gradient-warm italic">RECORDE</span>{' '}
                 de projetos apresentados
@@ -118,15 +118,15 @@ export function SocialImpact() {
             >
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
-                  <p className="font-serif text-2xl font-normal text-accent">500+</p>
+                  <p className="font-display text-2xl font-normal text-accent">500+</p>
                   <p className="text-xs text-muted-foreground tracking-wide">Projetos</p>
                 </div>
                 <div className="text-center border-x border-border">
-                  <p className="font-serif text-2xl font-normal text-primary">100M+</p>
+                  <p className="font-display text-2xl font-normal text-primary">100M+</p>
                   <p className="text-xs text-muted-foreground tracking-wide">Impacto</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-serif text-2xl font-normal text-purple">8+</p>
+                  <p className="font-display text-2xl font-normal text-purple">8+</p>
                   <p className="text-xs text-muted-foreground tracking-wide">Anos</p>
                 </div>
               </div>

@@ -186,7 +186,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center max-w-5xl mx-auto uppercase tracking-wide leading-tight text-balance px-4"
+            className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center max-w-5xl mx-auto uppercase tracking-wide leading-tight text-balance px-4"
           >
             {slides[currentSlide].headline}
           </motion.h1>

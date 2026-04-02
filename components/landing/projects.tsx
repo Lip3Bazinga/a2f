@@ -136,7 +136,7 @@ export function Projects() {
           className="text-center mb-16"
         >
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">Curadoria Estratégica</p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-gradient">
             Projetos e Produtos
           </h2>
           <div className="section-divider mx-auto mb-6" />
@@ -228,7 +228,7 @@ export function Projects() {
                   <div className="p-2 rounded-lg bg-accent/10">
                     <currentProject.icon className="w-6 h-6 text-accent" />
                   </div>
-                  <h4 className="font-serif text-2xl sm:text-3xl font-normal text-foreground">
+                  <h4 className="font-display text-2xl sm:text-3xl font-normal text-foreground">
                     {currentProject.title}
                   </h4>
                 </div>
@@ -305,7 +305,7 @@ export function Projects() {
         >
           <div className="text-center mb-10">
             <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-3">Unidos pela Causa</p>
-            <h4 className="font-serif text-2xl sm:text-3xl font-normal text-foreground">
+            <h4 className="font-display text-2xl sm:text-3xl font-normal text-foreground">
               Parceiros pelo Impacto Social
             </h4>
           </div>

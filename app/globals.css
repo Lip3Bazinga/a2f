@@ -14,8 +14,8 @@
  */
 
 @theme inline {
-  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
-  --font-serif: var(--font-dm-serif), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-montserrat), system-ui, sans-serif;
   --font-mono: 'Geist Mono', monospace;
 
   /* Light Theme - Core Semantic Tokens */
@@ -54,9 +54,9 @@
   --color-chart-5: #5A6785;
   
   --radius-sm: 0.5rem;
-  --radius-md: 0.625rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
   
   --color-sidebar: #FFFFFF;
   --color-sidebar-foreground: #1A1F3C;
@@ -82,11 +82,17 @@
     @apply font-sans antialiased;
   }
   h1, h2, h3 {
-    @apply font-serif;
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    @apply font-semibold;
   }
 }
 
 @layer utilities {
+  /* Display font for headings */
+  .font-display {
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+  }
+  
   /* Light card style */
   .card-light {
     background: #FFFFFF;

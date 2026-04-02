@@ -130,7 +130,7 @@ export function Alcance() {
           <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-4">
             Por que Patrocinar?
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal mb-6">
             <span className="text-foreground">A </span>
             <span className="text-gradient-warm">Oportunidade</span>
             <br />
@@ -157,7 +157,7 @@ export function Alcance() {
             )}>
               <Globe className="w-6 h-6" />
             </div>
-            <h3 className="font-serif text-2xl lg:text-3xl font-normal text-foreground mb-4">
+            <h3 className="font-display text-2xl lg:text-3xl font-normal text-foreground mb-4">
               {reachCards[0].title}
             </h3>
             <p className="text-muted-foreground leading-relaxed text-base lg:text-lg">
