@@ -169,12 +169,11 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <Logo 
-            variant="stacked" 
-            color="white" 
+          <Logo
+            variant="stacked"
+            color="white"
             size="lg"
             linkTo={null}
-            showText={true}
           />
         </motion.div>
 

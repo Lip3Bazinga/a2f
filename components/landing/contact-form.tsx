@@ -112,7 +112,7 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contato" className="py-24 sm:py-32 relative overflow-hidden bg-background">
+    <section id="contato" className="py-16 sm:py-24 relative overflow-hidden bg-background">
       {/* Decorative arc */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full border-[60px] border-accent/5 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 

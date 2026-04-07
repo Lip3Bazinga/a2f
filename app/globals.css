@@ -75,13 +75,17 @@
   html, body {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
     background: #FFFFFF;
     color: #1A1F3C;
+  }
+  html {
+    scroll-behavior: smooth;
     overflow-x: hidden;
+    overflow-y: auto;
   }
   body {
     @apply font-sans antialiased;
+    max-width: 100vw;
   }
   h1, h2, h3 {
     font-family: var(--font-montserrat), system-ui, sans-serif;

@@ -39,7 +39,7 @@ export function Footer() {
   const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
-    <footer className="pt-20 pb-10 relative section-navy" ref={ref}>
+    <footer className="pt-12 pb-10 relative section-navy" ref={ref}>
       {/* Decorative arc */}
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full border-[40px] border-white/5 translate-y-1/2 translate-x-1/2 pointer-events-none" />
 

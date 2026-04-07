@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   description: 'A A2F conecta empresas e pessoas a projetos esportivos e culturais incentivados, transformando obrigação fiscal em impacto positivo e visibilidade social.',
   generator: 'v0.app',
   keywords: ['incentivo fiscal', 'lei rouanet', 'lei de incentivo ao esporte', 'patrocínio', 'esporte', 'cultura', 'imposto de renda'],
+  icons: {
+    icon: '/logo-icon-color.png',
+    apple: '/logo-icon-color.png',
+  },
 }
 
 export default function RootLayout({
