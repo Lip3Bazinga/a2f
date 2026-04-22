@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Image from 'next/image'
 import { CheckCircle2, Award, Globe, Scale } from 'lucide-react'
 
 const fadeInUp = {
@@ -101,10 +102,11 @@ export function SocialImpact() {
             className="relative"
           >
             <div className="relative aspect-square sm:h-[520px] rounded-2xl overflow-hidden card-light">
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/banner_lei_de_incentivo_ao_esporte-lwlMhMrdawPnh06igdCVuoiO1tXaeh.jpeg"
+              <Image
+                src="/images/Impacto_social_1.jpg"
                 alt="Lei de Incentivo ao Esporte — crianças e jovens praticando tênis"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
             </div>
@@ -114,7 +116,7 @@ export function SocialImpact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="absolute -bottom-6 left-6 right-6 card-light rounded-xl p-5 shadow-soft"
+              className="mt-5 card-light rounded-xl p-5 shadow-soft"
             >
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">

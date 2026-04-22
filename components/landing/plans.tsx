@@ -68,7 +68,7 @@ export function Plans() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-16"
         >
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center justify-center gap-3 mb-8">
             <div className="p-2 rounded-lg bg-accent/10">
               <Landmark className="w-6 h-6 text-accent" />
             </div>
@@ -166,18 +166,18 @@ export function Plans() {
 
           {/* Links */}
           <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <a 
-              href="https://www.gov.br/esporte" 
-              target="_blank" 
+            <a
+              href="https://www.gov.br/esporte"
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full text-sm text-foreground hover:bg-accent hover:text-white transition-colors duration-300"
             >
               <ExternalLink className="w-4 h-4" />
               Ministério do Esporte
             </a>
-            <a 
-              href="https://www.gov.br/cultura/pt-br/assuntos/lei-rouanet" 
-              target="_blank" 
+            <a
+              href="https://www.gov.br/cultura/pt-br/assuntos/lei-rouanet"
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full text-sm text-foreground hover:bg-accent hover:text-white transition-colors duration-300"
             >
@@ -195,7 +195,7 @@ export function Plans() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mb-16"
         >
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center justify-center gap-3 mb-8">
             <div className="p-2 rounded-lg bg-primary/10">
               <MapPin className="w-6 h-6 text-primary" />
             </div>
@@ -259,14 +259,14 @@ export function Plans() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-16"
         >
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center justify-center gap-3 mb-8">
             <div className="p-2 rounded-lg bg-purple/10">
               <Building2 className="w-6 h-6 text-purple" />
             </div>
             <h3 className="font-display text-2xl font-normal text-foreground">Âmbito Municipal</h3>
           </div>
 
-          <div className="max-w-2xl">
+          <div className="w-full ">
             <div className="card-light rounded-2xl p-6 hover:shadow-glow-purple transition-all duration-500">
               <div className="flex items-center gap-2 text-xs text-purple font-semibold uppercase tracking-wider mb-3">
                 <span>Municipal</span>

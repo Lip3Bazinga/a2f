@@ -2,7 +2,8 @@
 
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { useRef, useState } from "react"
-import { 
+import Image from "next/image"
+import {
   Film,
   Globe,
   Trophy,
@@ -28,21 +29,35 @@ const projectCategories = [
       "Conteúdo para streaming"
     ],
     stats: { projects: "50+", reach: "10M+", partners: "25+" },
-  },
-  {
-    id: "audiovisual-estrangeiro",
-    icon: Globe,
-    title: "Audiovisual Estrangeiro",
-    shortTitle: "Internacional",
-    description: "Coproduções internacionais e projetos estrangeiros filmados no Brasil, oferecendo visibilidade global para sua marca.",
-    highlights: [
-      "Coproduções internacionais",
-      "Filmagens no Brasil",
-      "Parcerias globais",
-      "Distribuição mundial"
+    images: [
+      "/images/Projeto_audiovisual_nacional_1.png",
+      "/images/Projeto_audiovisual_nacional_2.jpg",
+      "/images/Projeto_audiovisual_nacional_3.jpg",
+      "/images/Projeto_audiovisual_nacional_4.jpg",
+      "/images/Projeto_audiovisual_nacional_5.JPG",
     ],
-    stats: { projects: "30+", reach: "50M+", partners: "15+" },
   },
+  // {
+  //   id: "audiovisual-estrangeiro",
+  //   icon: Globe,
+  //   title: "Audiovisual Estrangeiro",
+  //   shortTitle: "Internacional",
+  //   description: "Coproduções internacionais e projetos estrangeiros filmados no Brasil, oferecendo visibilidade global para sua marca.",
+  //   highlights: [
+  //     "Coproduções internacionais",
+  //     "Filmagens no Brasil",
+  //     "Parcerias globais",
+  //     "Distribuição mundial"
+  //   ],
+  //   stats: { projects: "30+", reach: "50M+", partners: "15+" },
+  //   images: [
+  //     "/images/Projeto_cultural_1.png",
+  //     "/images/Projeto_cultural_2.jpg",
+  //     "/images/Projeto_cultural_3.jpg",
+  //     "/images/Projeto_cultural_4.jpg",
+  //     "/images/Projeto_cultural_5.jpg",
+  //   ],
+  // },
   {
     id: "esportivo",
     icon: Trophy,
@@ -56,21 +71,36 @@ const projectCategories = [
       "Competições de e-sports"
     ],
     stats: { projects: "80+", reach: "5M+", partners: "40+" },
-  },
-  {
-    id: "musical",
-    icon: Music,
-    title: "Musical",
-    shortTitle: "Musical",
-    description: "Shows, festivais e projetos musicais que conectam artistas, público e marcas em experiências memoráveis.",
-    highlights: [
-      "Shows e concertos",
-      "Festivais de música",
-      "Projetos culturais",
-      "Eventos corporativos"
+    images: [
+      "/images/Projeto_esportivo_1.png",
+      "/images/Projeto_esportivo_2.jpg",
+      "/images/Projeto_esportivo_3.jpg",
+      "/images/Projeto_esportivo_4.jpg",
+      "/images/Projeto_esportivo_5.png",
+      "/images/Projeto_esportivo_6.png",
     ],
-    stats: { projects: "60+", reach: "8M+", partners: "35+" },
   },
+  // {
+  //   id: "musical",
+  //   icon: Music,
+  //   title: "Musical",
+  //   shortTitle: "Musical",
+  //   description: "Shows, festivais e projetos musicais que conectam artistas, público e marcas em experiências memoráveis.",
+  //   highlights: [
+  //     "Shows e concertos",
+  //     "Festivais de música",
+  //     "Projetos culturais",
+  //     "Eventos corporativos"
+  //   ],
+  //   stats: { projects: "60+", reach: "8M+", partners: "35+" },
+  //   images: [
+  //     "/images/Projeto_cultural_1.png",
+  //     "/images/Projeto_cultural_2.jpg",
+  //     "/images/Projeto_cultural_3.jpg",
+  //     "/images/Projeto_cultural_4.jpg",
+  //     "/images/Projeto_cultural_5.jpg",
+  //   ],
+  // },
   {
     id: "educacional",
     icon: GraduationCap,
@@ -84,18 +114,21 @@ const projectCategories = [
       "Inclusão digital"
     ],
     stats: { projects: "40+", reach: "2M+", partners: "20+" },
+    images: [
+      "/images/Projeto_educacional_1.png",
+      "/images/Projeto_educacional_2.jpg",
+      "/images/Projeto_educacional_3.jpg",
+      "/images/Projeto_educacional_4.jpg",
+    ],
   },
 ]
 
 const partners = [
-  { name: "Esperança do Amanhã", url: "https://esperancadoamanha.com.br/", logo: "/images/partners/esperanca.png" },
-  { name: "ACJAM", url: "https://acjam.com.br/", logo: "/images/partners/acjam.png" },
-  { name: "Instituto Sempre Amigos", url: "https://www.institutosempreamigos.com.br/", logo: "/images/partners/sempre-amigos.png" },
-  { name: "Love Brand Makers", url: "https://lovebrandmakers.com.br", logo: "/images/partners/lovebrand.png" },
-  { name: "ITF Tennis", url: "https://www.itftennis.com/", logo: "/images/partners/itf.png" },
-  { name: "CBT", url: "https://www.cbtenis.com.br/", logo: "/images/partners/cbt.png" },
-  { name: "Ministério do Esporte", url: "https://www.gov.br/esporte/", logo: "/images/partners/esporte.png" },
-  { name: "ANCINE", url: "https://www.gov.br/ancine/", logo: "/images/partners/ancine.png" },
+  { name: "Esperança do Amanhã", url: "https://esperancadoamanha.com.br/", logo: "/images/Logo_parceiro_instituto_esperanca_do_amanha.jpg" },
+  { name: "ACJAM", url: "https://acjam.com.br/", logo: "/images/Logo_parceiro_ACJAM.jpg" },
+  { name: "Instituto Sempre Amigos", url: "https://www.institutosempreamigos.com.br/", logo: "/images/Logo_instituto_sempre_amigos.jpg" },
+  { name: "Love Brand Makers", url: "https://lovebrandmakers.com.br", logo: "/images/Logo_parceiro_love_brand_makers.jpg" },
+  { name: "Esporte Clube Pinheiros", url: "https://www.pinheiros.com.br/", logo: "/images/logo-esporte-clube-pinheiros.svg" },
 ]
 
 const fadeInUp = {
@@ -111,13 +144,13 @@ export function Projects() {
   const currentProject = projectCategories[activeCategory]
 
   const handlePrevious = () => {
-    setActiveCategory((prev) => 
+    setActiveCategory((prev) =>
       prev === 0 ? projectCategories.length - 1 : prev - 1
     )
   }
 
   const handleNext = () => {
-    setActiveCategory((prev) => 
+    setActiveCategory((prev) =>
       prev === projectCategories.length - 1 ? 0 : prev + 1
     )
   }
@@ -192,19 +225,13 @@ export function Projects() {
             >
               {/* Image Section */}
               <div className="relative h-64 sm:h-80 lg:h-auto lg:min-h-[400px] bg-secondary overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="inline-flex p-6 rounded-2xl bg-accent/10 mb-4">
-                      <currentProject.icon className="w-16 h-16 text-accent" />
-                    </div>
-                    <p className="text-muted-foreground text-sm">Imagem do projeto</p>
-                    <button className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent/20 text-accent hover:bg-accent/30 transition-colors duration-300">
-                      <Play className="w-4 h-4" />
-                      <span className="text-sm font-medium">Ver showcase</span>
-                    </button>
-                  </div>
-                </div>
+                <Image
+                  src={currentProject.images[0]}
+                  alt={currentProject.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20" />
                 {/* Navigation Arrows on Image */}
                 <button
                   onClick={handlePrevious}
@@ -315,7 +342,7 @@ export function Projects() {
             {/* Gradient Masks */}
             <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-gray-bg via-gray-bg/80 to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-gray-bg via-gray-bg/80 to-transparent z-10 pointer-events-none" />
-            
+
             {/* Infinite Scroll Track */}
             <div className="flex animate-scroll">
               {/* First set of logos */}
@@ -327,17 +354,14 @@ export function Projects() {
                   rel="noopener noreferrer"
                   className="flex-shrink-0 mx-4 sm:mx-8 group"
                 >
-                  <div className="relative w-32 h-20 sm:w-44 sm:h-24 flex items-center justify-center card-light rounded-xl px-4 py-3 transition-all duration-500 ease-out hover:scale-105 hover:shadow-glow-accent">
-                    {/* Placeholder for logo - shows partner name stylized */}
-                    <div className="flex flex-col items-center justify-center gap-1">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                        <span className="text-lg sm:text-xl font-bold text-accent">
-                          {partner.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
-                        </span>
-                      </div>
-                      <span className="text-[10px] sm:text-xs text-muted-foreground group-hover:text-accent transition-colors duration-300 text-center leading-tight max-w-full truncate">
-                        {partner.name}
-                      </span>
+                  <div className="relative w-52 h-30 sm:w-60 sm:h-33 flex items-center justify-center card-light rounded-xl transition-all duration-500 ease-out hover:scale-105 hover:shadow-glow-accent">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={partner.logo}
+                        alt={partner.name}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                   </div>
                 </a>

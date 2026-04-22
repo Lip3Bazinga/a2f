@@ -28,25 +28,24 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-        isScrolled ? "glass-header shadow-soft py-3" : "py-5 bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "glass-header  shadow-soft py-3" : "py-5 bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Logo - Horizontal version, ~40px desktop, ~32px mobile */}
           <div className="flex">
             <div className="hidden sm:block">
-              <Logo 
-                variant="horizontal" 
-                color="color"
+              <Logo
+                variant="horizontal"
+                color={isScrolled ? "color" : "white"}
                 size="md"
                 linkTo="/"
               />
             </div>
             <div className="sm:hidden">
-              <Logo 
-                variant="horizontal" 
+              <Logo
+                variant="horizontal"
                 color="color"
                 size="sm"
                 linkTo="/"
@@ -63,7 +62,10 @@ export function Header() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08, duration: 0.4 }}
-                className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-300 tracking-wide"
+                className={`text-md font-bold transition-colors duration-300 tracking-wide ${isScrolled
+                  ? "text-foreground/70 hover:text-primary"
+                  : "text-white/70 hover:text-white"
+                  }`}
               >
                 {link.label}
               </motion.a>
@@ -81,7 +83,8 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-300"
+            className={`md:hidden p-2 transition-colors duration-300 ${isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/70"
+              }`}
             aria-label="Alternar menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

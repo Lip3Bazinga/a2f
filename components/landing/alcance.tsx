@@ -2,14 +2,14 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { 
-  Globe, 
-  Users, 
-  Image as ImageIcon, 
-  UsersRound, 
-  TrendingUp, 
-  Flag, 
-  Heart, 
+import {
+  Globe,
+  Users,
+  Image as ImageIcon,
+  UsersRound,
+  TrendingUp,
+  Flag,
+  Heart,
   Receipt
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -75,7 +75,7 @@ const reachCards = [
     id: "lei-incentivo",
     icon: Receipt,
     title: "Lei de Incentivo",
-    description: "Invista via Lei de Incentivo ao Esporte e deduza até 1% do IR. Patrocínio sem custo real.",
+    description: "Invista via Leis de Incentivos e deduza até 1% do imposto de renda. Patrocínio sem custo real.",
     size: "small",
     color: "accent",
   },
@@ -97,7 +97,7 @@ export function Alcance() {
 
   const getCardStyles = (size: string, color: string) => {
     const baseStyles = "card-light rounded-2xl p-6 transition-all duration-500 ease-out group cursor-pointer"
-    
+
     const sizeStyles = {
       large: "lg:col-span-2 lg:row-span-2",
       medium: "lg:col-span-1 lg:row-span-1",
@@ -108,8 +108,8 @@ export function Alcance() {
   }
 
   const getIconStyles = (color: string) => {
-    return color === "accent" 
-      ? "bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground" 
+    return color === "accent"
+      ? "bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground"
       : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
   }
 

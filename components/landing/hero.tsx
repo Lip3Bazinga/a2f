@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, ArrowDown } from "lucide-react"
+import Image from "next/image"
 import { Logo } from "./logo"
 
 const slides = [
@@ -11,28 +12,43 @@ const slides = [
     headline: "CONECTANDO CAUSA E PROPÓSITO",
     theme: "Atleta / Natação",
     bgColor: "from-primary/90 via-primary/70 to-navy/90",
-    image: "/images/hero/slide-1.jpg"
+    image: "/images/Banner_principal_1.png"
   },
   {
     id: 2,
     headline: "A CULTURA É NOSSO ESPORTE",
     theme: "Artes Marciais / Evento Cultural",
     bgColor: "from-purple/90 via-purple/70 to-navy/90",
-    image: "/images/hero/slide-2.jpg"
+    image: "/images/Banner_principal_2.png"
   },
   {
     id: 3,
     headline: "A RUA TAMBÉM É NOSSA CULTURA",
     theme: "Dança Urbana / Street Culture",
     bgColor: "from-accent/90 via-accent/70 to-navy/90",
-    image: "/images/hero/slide-3.jpg"
+    image: "/images/Banner_principal_3.png"
   },
   {
     id: 4,
     headline: "IMPACTO DE VERDADE ACONTECE QUANDO PROPÓSITO ENCONTRA AÇÃO",
     theme: "Músicos / Instrumentos",
     bgColor: "from-navy/95 via-primary/70 to-purple/90",
-    image: "/images/hero/slide-4.jpg"
+    image: "/images/Banner_principal_4.png"
+  },
+  {
+    id: 5,
+    headline: "TRANSFORMANDO INCENTIVO FISCAL EM IMPACTO SOCIAL REAL",
+    theme: "Impacto Social",
+    bgColor: "from-primary/90 via-accent/70 to-purple/90",
+    image: "/images/Banner_principal_5.jpg",
+    diffStyle: true
+  },
+  {
+    id: 6,
+    headline: "ONDE PROPÓSITO ENCONTRA RESULTADO",
+    theme: "Resultado",
+    bgColor: "from-navy/90 via-purple/70 to-primary/90",
+    image: "/images/Banner_principal_6.jpg"
   }
 ]
 
@@ -48,7 +64,7 @@ export function Hero() {
     isMountedRef.current = true
     // Enable auto-play after mount
     setIsAutoPlaying(true)
-    
+
     return () => {
       isMountedRef.current = false
       if (resumeTimeoutRef.current) {
@@ -72,15 +88,15 @@ export function Hero() {
 
   const pauseAutoPlay = useCallback(() => {
     if (!isMountedRef.current) return
-    
+
     setIsAutoPlaying(false)
-    
+
     // Clear any existing resume timeout
     if (resumeTimeoutRef.current) {
       clearTimeout(resumeTimeoutRef.current)
       resumeTimeoutRef.current = null
     }
-    
+
     // Resume auto-play after 10 seconds
     resumeTimeoutRef.current = setTimeout(() => {
       if (isMountedRef.current) {
@@ -114,13 +130,13 @@ export function Hero() {
       }
       return
     }
-    
+
     autoPlayIntervalRef.current = setInterval(() => {
       if (isMountedRef.current) {
         setCurrentSlide((prev) => (prev + 1) % slides.length)
       }
     }, 5000)
-    
+
     return () => {
       if (autoPlayIntervalRef.current) {
         clearInterval(autoPlayIntervalRef.current)
@@ -141,19 +157,17 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          {/* Background with gradient overlay */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].bgColor}`}>
-            {/* Pattern overlay for visual interest */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 w-2/3 h-1/2 bg-gradient-to-t from-black/30 to-transparent" />
-            </div>
-            
-            {/* Decorative arc elements from brand */}
-            <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full border-[60px] border-white/10" />
-            <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full border-[80px] border-white/5" />
-            <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full border-[40px] border-white/5" />
-          </div>
+          {/* Background image */}
+          <Image
+            src={slides[currentSlide].image}
+            alt={slides[currentSlide].theme}
+            fill
+            className={slides[currentSlide].diffStyle ? "object-fill" : "object-cover"}
+            priority={currentSlide === 0}
+          />
+
+          {/* Gradient overlay */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].bgColor} opacity-60`} />
 
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-black/40" />
@@ -231,7 +245,7 @@ export function Hero() {
       >
         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
       </button>
-      
+
       <button
         onClick={handleNext}
         className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300 group"
@@ -246,11 +260,10 @@ export function Hero() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              currentSlide === index 
-                ? "w-8 bg-white" 
-                : "bg-white/40 hover:bg-white/60"
-            }`}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentSlide === index
+              ? "w-8 bg-white"
+              : "bg-white/40 hover:bg-white/60"
+              }`}
             aria-label={`Ir para slide ${index + 1}`}
           />
         ))}
