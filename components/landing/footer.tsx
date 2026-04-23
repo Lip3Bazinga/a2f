@@ -57,9 +57,9 @@ export function Footer() {
           >
             {/* Logo - Horizontal version, white for dark section, ~36px */}
             <div className="mb-6">
-              <Logo 
-                variant="horizontal" 
-                color="white" 
+              <Logo
+                variant="horizontal"
+                color="white"
                 size="sm"
                 linkTo="/"
               />

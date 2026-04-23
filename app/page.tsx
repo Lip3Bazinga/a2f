@@ -12,7 +12,7 @@ import { Footer } from "@/components/landing/footer"
 
 export default function Home() {
   return (
-    <main className="bg-white w-full">
+    <main className="bg-white w-full flex flex-col">
       <Header />
       <Hero />
       <About />

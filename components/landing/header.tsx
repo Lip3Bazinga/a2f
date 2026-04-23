@@ -28,8 +28,9 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "glass-header  shadow-soft py-3" : "py-5 bg-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        isScrolled ? "glass-header-scrolled shadow-soft py-3" : "glass-header-top py-5"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -46,7 +47,7 @@ export function Header() {
             <div className="sm:hidden">
               <Logo
                 variant="horizontal"
-                color="color"
+                color={isScrolled ? "color" : "white"}
                 size="sm"
                 linkTo="/"
               />
@@ -75,7 +76,11 @@ export function Header() {
           {/* CTA button */}
           <a
             href="#contato"
-            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-xl bg-accent text-accent-foreground text-sm font-semibold hover:bg-accent/90 transition-all duration-300 shadow-sm hover:shadow-glow-accent"
+            className={`hidden md:inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
+              isScrolled
+                ? "bg-accent text-accent-foreground hover:bg-accent/90 shadow-sm hover:shadow-glow-accent"
+                : "bg-white/15 text-white border border-white/30 hover:bg-white/25 hover:border-white/50 backdrop-blur-sm"
+            }`}
           >
             Fale Conosco
           </a>

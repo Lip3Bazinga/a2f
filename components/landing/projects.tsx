@@ -140,19 +140,31 @@ export function Projects() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [activeCategory, setActiveCategory] = useState(0)
+  const [activeImage, setActiveImage] = useState(0)
 
   const currentProject = projectCategories[activeCategory]
 
-  const handlePrevious = () => {
-    setActiveCategory((prev) =>
-      prev === 0 ? projectCategories.length - 1 : prev - 1
-    )
+  const handlePrevCategory = () => {
+    setActiveCategory((prev) => prev === 0 ? projectCategories.length - 1 : prev - 1)
+    setActiveImage(0)
   }
 
-  const handleNext = () => {
-    setActiveCategory((prev) =>
-      prev === projectCategories.length - 1 ? 0 : prev + 1
-    )
+  const handleNextCategory = () => {
+    setActiveCategory((prev) => prev === projectCategories.length - 1 ? 0 : prev + 1)
+    setActiveImage(0)
+  }
+
+  const handleSelectCategory = (index: number) => {
+    setActiveCategory(index)
+    setActiveImage(0)
+  }
+
+  const handlePrevImage = () => {
+    setActiveImage((prev) => prev === 0 ? currentProject.images.length - 1 : prev - 1)
+  }
+
+  const handleNextImage = () => {
+    setActiveImage((prev) => prev === currentProject.images.length - 1 ? 0 : prev + 1)
   }
 
   return (
@@ -190,12 +202,12 @@ export function Projects() {
             {projectCategories.map((category, index) => (
               <button
                 key={category.id}
-                onClick={() => setActiveCategory(index)}
+                onClick={() => handleSelectCategory(index)}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300 ease-out",
+                  "flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 ease-out active:scale-95",
                   activeCategory === index
                     ? "bg-accent text-accent-foreground shadow-sm"
-                    : "bg-background border border-border text-muted-foreground hover:text-foreground hover:border-primary/50"
+                    : "bg-background border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 hover:scale-[1.02]"
                 )}
               >
                 <category.icon className="w-5 h-5" />
@@ -223,30 +235,64 @@ export function Projects() {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="grid lg:grid-cols-2 gap-0"
             >
-              {/* Image Section */}
+              {/* Image Slider Section */}
               <div className="relative h-64 sm:h-80 lg:h-auto lg:min-h-[400px] bg-secondary overflow-hidden">
-                <Image
-                  src={currentProject.images[0]}
-                  alt={currentProject.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black/20" />
-                {/* Navigation Arrows on Image */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`${currentProject.id}-img-${activeImage}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={currentProject.images[activeImage]}
+                      alt={`${currentProject.title} — imagem ${activeImage + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/20" />
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Image counter */}
+                <div className="absolute top-3 right-3 z-10 bg-black/50 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full">
+                  {activeImage + 1} / {currentProject.images.length}
+                </div>
+
+                {/* Image navigation arrows */}
                 <button
-                  onClick={handlePrevious}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-                  aria-label="Projeto anterior"
+                  onClick={handlePrevImage}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground active:scale-90 transition-all duration-200"
+                  aria-label="Imagem anterior"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
-                  onClick={handleNext}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-                  aria-label="Próximo projeto"
+                  onClick={handleNextImage}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground active:scale-90 transition-all duration-200"
+                  aria-label="Próxima imagem"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
+
+                {/* Image dots */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-1.5">
+                  {currentProject.images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveImage(idx)}
+                      className={cn(
+                        "rounded-full transition-all duration-300 active:scale-90",
+                        activeImage === idx
+                          ? "w-5 h-1.5 bg-white"
+                          : "w-1.5 h-1.5 bg-white/50 hover:bg-white/80"
+                      )}
+                      aria-label={`Imagem ${idx + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
 
               {/* Content Section */}
@@ -299,27 +345,45 @@ export function Projects() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Pagination Dots */}
+        {/* Project Slider Controls */}
         <motion.div
           initial="initial"
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="flex justify-center gap-2 mt-8 mb-16"
+          className="flex items-center justify-center gap-4 mt-6 mb-16"
         >
-          {projectCategories.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveCategory(index)}
-              className={cn(
-                "w-2 h-2 rounded-full transition-all duration-300",
-                activeCategory === index
-                  ? "w-8 bg-accent"
-                  : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-              )}
-              aria-label={`Ir para projeto ${index + 1}`}
-            />
-          ))}
+          <button
+            onClick={handlePrevCategory}
+            className="p-2.5 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:scale-90 transition-all duration-200 shadow-sm"
+            aria-label="Projeto anterior"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          <div className="flex gap-2">
+            {projectCategories.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleSelectCategory(index)}
+                className={cn(
+                  "rounded-full transition-all duration-300 active:scale-90",
+                  activeCategory === index
+                    ? "w-8 h-2.5 bg-accent"
+                    : "w-2.5 h-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                )}
+                aria-label={`Ir para projeto ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={handleNextCategory}
+            className="p-2.5 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:scale-90 transition-all duration-200 shadow-sm"
+            aria-label="Próximo projeto"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </motion.div>
 
         {/* Partners Logo Slider */}
@@ -352,7 +416,7 @@ export function Projects() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-shrink-0 mx-4 sm:mx-8 group"
+                  className="flex-shrink-0 mx-4 sm:mx-8 group active:scale-95 transition-transform duration-150"
                 >
                   <div className="relative w-52 h-30 sm:w-60 sm:h-33 flex items-center justify-center card-light rounded-xl transition-all duration-500 ease-out hover:scale-105 hover:shadow-glow-accent">
                     <div className="relative w-full h-full">
