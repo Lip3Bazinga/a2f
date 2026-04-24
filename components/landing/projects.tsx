@@ -5,13 +5,12 @@ import { useRef, useState } from "react"
 import Image from "next/image"
 import {
   Film,
-  Globe,
   Trophy,
   Music,
   GraduationCap,
+  Palette,
   ChevronLeft,
   ChevronRight,
-  Play
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -37,27 +36,27 @@ const projectCategories = [
       "/images/Projeto_audiovisual_nacional_5.JPG",
     ],
   },
-  // {
-  //   id: "audiovisual-estrangeiro",
-  //   icon: Globe,
-  //   title: "Audiovisual Estrangeiro",
-  //   shortTitle: "Internacional",
-  //   description: "Coproduções internacionais e projetos estrangeiros filmados no Brasil, oferecendo visibilidade global para sua marca.",
-  //   highlights: [
-  //     "Coproduções internacionais",
-  //     "Filmagens no Brasil",
-  //     "Parcerias globais",
-  //     "Distribuição mundial"
-  //   ],
-  //   stats: { projects: "30+", reach: "50M+", partners: "15+" },
-  //   images: [
-  //     "/images/Projeto_cultural_1.png",
-  //     "/images/Projeto_cultural_2.jpg",
-  //     "/images/Projeto_cultural_3.jpg",
-  //     "/images/Projeto_cultural_4.jpg",
-  //     "/images/Projeto_cultural_5.jpg",
-  //   ],
-  // },
+  {
+    id: "cultural",
+    icon: Palette,
+    title: "Cultural",
+    shortTitle: "Cultural",
+    description: "Projetos culturais que preservam e difundem a identidade brasileira, conectando marcas a iniciativas de arte, música e expressão que geram impacto e visibilidade.",
+    highlights: [
+      "Artes cênicas e teatro",
+      "Exposições e museus",
+      "Festivais e eventos culturais",
+      "Patrimônio histórico",
+    ],
+    stats: { projects: "60+", reach: "8M+", partners: "30+" },
+    images: [
+      "/images/Projeto_cultural_1.png",
+      "/images/Projeto_cultural_2.jpg",
+      "/images/Projeto_cultural_3.jpg",
+      "/images/Projeto_cultural_4.jpg",
+      "/images/Projeto_cultural_5.jpg",
+    ],
+  },
   {
     id: "esportivo",
     icon: Trophy,
@@ -80,27 +79,6 @@ const projectCategories = [
       "/images/Projeto_esportivo_6.png",
     ],
   },
-  // {
-  //   id: "musical",
-  //   icon: Music,
-  //   title: "Musical",
-  //   shortTitle: "Musical",
-  //   description: "Shows, festivais e projetos musicais que conectam artistas, público e marcas em experiências memoráveis.",
-  //   highlights: [
-  //     "Shows e concertos",
-  //     "Festivais de música",
-  //     "Projetos culturais",
-  //     "Eventos corporativos"
-  //   ],
-  //   stats: { projects: "60+", reach: "8M+", partners: "35+" },
-  //   images: [
-  //     "/images/Projeto_cultural_1.png",
-  //     "/images/Projeto_cultural_2.jpg",
-  //     "/images/Projeto_cultural_3.jpg",
-  //     "/images/Projeto_cultural_4.jpg",
-  //     "/images/Projeto_cultural_5.jpg",
-  //   ],
-  // },
   {
     id: "educacional",
     icon: GraduationCap,
