@@ -16,48 +16,6 @@ import { cn } from "@/lib/utils"
 
 const projectCategories = [
   {
-    id: "audiovisual-nacional",
-    icon: Film,
-    title: "Audiovisual Nacional",
-    shortTitle: "Nacional",
-    description: "Projetos audiovisuais brasileiros que valorizam a cultura e a produção nacional, conectando marcas a conteúdos de alta qualidade e impacto social.",
-    highlights: [
-      "Filmes e documentários nacionais",
-      "Séries e programas de TV",
-      "Produções independentes",
-      "Conteúdo para streaming"
-    ],
-    stats: { projects: "50+", reach: "10M+", partners: "25+" },
-    images: [
-      "/images/Projeto_audiovisual_nacional_1.png",
-      "/images/Projeto_audiovisual_nacional_2.jpg",
-      "/images/Projeto_audiovisual_nacional_3.jpg",
-      "/images/Projeto_audiovisual_nacional_4.jpg",
-      "/images/Projeto_audiovisual_nacional_5.JPG",
-    ],
-  },
-  {
-    id: "cultural",
-    icon: Palette,
-    title: "Cultural",
-    shortTitle: "Cultural",
-    description: "Projetos culturais que preservam e difundem a identidade brasileira, conectando marcas a iniciativas de arte, música e expressão que geram impacto e visibilidade.",
-    highlights: [
-      "Artes cênicas e teatro",
-      "Exposições e museus",
-      "Festivais e eventos culturais",
-      "Patrimônio histórico",
-    ],
-    stats: { projects: "60+", reach: "8M+", partners: "30+" },
-    images: [
-      "/images/Projeto_cultural_1.png",
-      "/images/Projeto_cultural_2.jpg",
-      "/images/Projeto_cultural_3.jpg",
-      "/images/Projeto_cultural_4.jpg",
-      "/images/Projeto_cultural_5.jpg",
-    ],
-  },
-  {
     id: "esportivo",
     icon: Trophy,
     title: "Esportivo",
@@ -79,6 +37,49 @@ const projectCategories = [
       "/images/Projeto_esportivo_6.png",
     ],
   },
+  {
+    id: "audiovisual",
+    icon: Film,
+    title: "Audiovisual",
+    shortTitle: "Audiovisual",
+    description: "Projetos audiovisuais brasileiros que valorizam a cultura e a produção nacional, conectando marcas a conteúdos de alta qualidade e impacto social.",
+    highlights: [
+      "Filmes e documentários nacionais",
+      "Séries e programas de TV",
+      "Produções independentes",
+      "Conteúdo para streaming"
+    ],
+    stats: { projects: "50+", reach: "10M+", partners: "25+" },
+    images: [
+      "/images/Projeto_audiovisual_nacional_1.png",
+      "/images/Projeto_audiovisual_nacional_2.jpg",
+      "/images/Projeto_audiovisual_nacional_3.jpg",
+      "/images/Projeto_audiovisual_nacional_4.jpg",
+      "/images/Projeto_audiovisual_nacional_5.JPG",
+    ],
+  },
+  {
+    id: "cultural",
+    icon: Palette,
+    title: "Cultural e artístico",
+    shortTitle: "Cultural",
+    description: "Projetos culturais que preservam e difundem a identidade brasileira, conectando marcas a iniciativas de arte, música e expressão que geram impacto e visibilidade.",
+    highlights: [
+      "Artes cênicas e teatro",
+      "Exposições e museus",
+      "Festivais e eventos culturais",
+      "Patrimônio histórico",
+    ],
+    stats: { projects: "60+", reach: "8M+", partners: "30+" },
+    images: [
+      "/images/Projeto_cultural_1.png",
+      "/images/Projeto_cultural_2.jpg",
+      "/images/Projeto_cultural_3.jpg",
+      "/images/Projeto_cultural_4.jpg",
+      "/images/Projeto_cultural_5.jpg",
+    ],
+  },
+
   {
     id: "educacional",
     icon: GraduationCap,
