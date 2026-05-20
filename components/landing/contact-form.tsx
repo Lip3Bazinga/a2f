@@ -256,7 +256,7 @@ export function ContactForm() {
                       <button
                         type="button"
                         onClick={() => setCurrentStep(step.id)}
-                        className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                        className={`cursor-pointer w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
                           currentStep === step.id
                             ? "bg-accent/20 border-2 border-accent text-accent"
                             : currentStep > step.id

@@ -288,7 +288,7 @@ export function About() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300",
+                  "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
                     ? "bg-primary text-white shadow-md"
                     : "bg-gray-100 text-muted-foreground hover:bg-gray-200 hover:text-foreground"

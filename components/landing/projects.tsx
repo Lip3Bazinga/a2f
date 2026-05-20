@@ -149,7 +149,7 @@ export function Projects() {
   return (
     <section id="projetos" className="py-24 sm:py-32 relative section-gray" ref={ref}>
       {/* Decorative arc */}
-      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] rounded-full border-[50px] border-purple/5 translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-87.5 h-87.5 rounded-full border-50 border-purple/5 translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -183,7 +183,7 @@ export function Projects() {
                 key={category.id}
                 onClick={() => handleSelectCategory(index)}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 ease-out active:scale-95",
+                  "cursor-pointer flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 ease-out active:scale-95",
                   activeCategory === index
                     ? "bg-accent text-accent-foreground shadow-sm"
                     : "bg-background border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 hover:scale-[1.02]"
@@ -215,7 +215,7 @@ export function Projects() {
               className="grid lg:grid-cols-2 gap-0"
             >
               {/* Image Slider Section */}
-              <div className="relative h-64 sm:h-80 lg:h-auto lg:min-h-[400px] bg-secondary overflow-hidden">
+              <div className="relative h-64 sm:h-80 lg:h-auto lg:min-h-100 bg-secondary overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`${currentProject.id}-img-${activeImage}`}
@@ -243,14 +243,14 @@ export function Projects() {
                 {/* Image navigation arrows */}
                 <button
                   onClick={handlePrevImage}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground active:scale-90 transition-all duration-200"
+                  className="cursor-pointer absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground active:scale-90 transition-all duration-200"
                   aria-label="Imagem anterior"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleNextImage}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground active:scale-90 transition-all duration-200"
+                  className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground active:scale-90 transition-all duration-200"
                   aria-label="Próxima imagem"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -263,7 +263,7 @@ export function Projects() {
                       key={idx}
                       onClick={() => setActiveImage(idx)}
                       className={cn(
-                        "rounded-full transition-all duration-300 active:scale-90",
+                        "cursor-pointer rounded-full transition-all duration-300 active:scale-90",
                         activeImage === idx
                           ? "w-5 h-1.5 bg-white"
                           : "w-1.5 h-1.5 bg-white/50 hover:bg-white/80"
@@ -297,7 +297,7 @@ export function Projects() {
                   <ul className="grid sm:grid-cols-2 gap-2">
                     {currentProject.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                         <span className="text-sm">{highlight}</span>
                       </li>
                     ))}
@@ -334,7 +334,7 @@ export function Projects() {
         >
           <button
             onClick={handlePrevCategory}
-            className="p-2.5 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:scale-90 transition-all duration-200 shadow-sm"
+            className="cursor-pointer p-2.5 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:scale-90 transition-all duration-200 shadow-sm"
             aria-label="Projeto anterior"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -346,7 +346,7 @@ export function Projects() {
                 key={index}
                 onClick={() => handleSelectCategory(index)}
                 className={cn(
-                  "rounded-full transition-all duration-300 active:scale-90",
+                  "cursor-pointer rounded-full transition-all duration-300 active:scale-90",
                   activeCategory === index
                     ? "w-8 h-2.5 bg-accent"
                     : "w-2.5 h-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
@@ -358,7 +358,7 @@ export function Projects() {
 
           <button
             onClick={handleNextCategory}
-            className="p-2.5 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:scale-90 transition-all duration-200 shadow-sm"
+            className="cursor-pointer p-2.5 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:scale-90 transition-all duration-200 shadow-sm"
             aria-label="Próximo projeto"
           >
             <ChevronRight className="w-5 h-5" />
@@ -383,8 +383,8 @@ export function Projects() {
           {/* Slider Container */}
           <div className="relative overflow-hidden py-8">
             {/* Gradient Masks */}
-            <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-gray-bg via-gray-bg/80 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-gray-bg via-gray-bg/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-linear-to-r from-gray-bg via-gray-bg/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-linear-to-l from-gray-bg via-gray-bg/80 to-transparent z-10 pointer-events-none" />
 
             {/* Infinite Scroll Track */}
             <div className="flex animate-scroll">
@@ -395,7 +395,7 @@ export function Projects() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-shrink-0 mx-4 sm:mx-8 group active:scale-95 transition-transform duration-150"
+                  className="cursor-pointer shrink-0 mx-4 sm:mx-8 group active:scale-95 transition-transform duration-150"
                 >
                   <div className="relative w-52 h-30 sm:w-60 sm:h-33 flex items-center justify-center card-light rounded-xl transition-all duration-500 ease-out hover:scale-105 hover:shadow-glow-accent">
                     <div className="relative w-full h-full">

@@ -217,13 +217,13 @@ export function Hero() {
         >
           <a
             href="#quem-somos"
-            className="px-8 py-3.5 bg-accent hover:bg-accent/90 active:scale-95 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] text-sm tracking-wide"
+            className="cursor-pointer px-8 py-3.5 bg-accent hover:bg-accent/90 active:scale-95 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] text-sm tracking-wide"
           >
             Conheça a A2F
           </a>
           <a
             href="#servicos"
-            className="px-8 py-3.5 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/20 hover:border-white/50 active:scale-95 text-sm tracking-wide"
+            className="cursor-pointer px-8 py-3.5 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/20 hover:border-white/50 active:scale-95 text-sm tracking-wide"
           >
             Nossos Serviços
           </a>
@@ -233,14 +233,14 @@ export function Hero() {
       {/* Setas de navegação */}
       <button
         onClick={handlePrev}
-        className="absolute left-4 sm:left-8 bottom-[6.5rem] sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/25 active:scale-90 transition-all duration-200 group"
+        className="cursor-pointer absolute left-4 sm:left-8 bottom-26 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/25 active:scale-90 transition-all duration-200 group"
         aria-label="Slide anterior"
       >
         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-4 sm:right-8 bottom-[6.5rem] sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/25 active:scale-90 transition-all duration-200 group"
+        className="cursor-pointer absolute right-4 sm:right-8 bottom-26 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/25 active:scale-90 transition-all duration-200 group"
         aria-label="Próximo slide"
       >
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
@@ -252,7 +252,7 @@ export function Hero() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2.5 rounded-full transition-all duration-300 active:scale-90 ${currentSlide === index ? "w-8 bg-white" : "w-2.5 bg-white/40 hover:bg-white/65"
+            className={`cursor-pointer h-2.5 rounded-full transition-all duration-300 active:scale-90 ${currentSlide === index ? "w-8 bg-white" : "w-2.5 bg-white/40 hover:bg-white/65"
               }`}
             aria-label={`Ir para slide ${index + 1}`}
           />
