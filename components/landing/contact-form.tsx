@@ -2,10 +2,13 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { Phone, Mail, User, Building2, MessageSquare, ArrowRight, Globe } from "lucide-react"
+import { Phone, Mail, User, Building2, MessageSquare, ArrowRight, Globe, XCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { ThankYouScreen } from "@/components/landing/thank-you-screen"
+
+const WEB3FORMS_ACCESS_KEY = "dbdae555-f0c2-4d9a-81e0-6fde939d9c13"
 
 const steps = [
   { id: 1, label: "Seus Dados", icon: User },
@@ -25,6 +28,8 @@ export function ContactForm() {
     telefone: "",
     mensagem: "",
   })
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -32,7 +37,42 @@ export function ContactForm() {
 
   const handleNext = () => { if (currentStep < 4) setCurrentStep(currentStep + 1) }
   const handleBack = () => { if (currentStep > 1) setCurrentStep(currentStep - 1) }
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault() }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setSubmitStatus("idle")
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Novo contato de patrocínio — ${formData.nome} ${formData.sobrenome}`,
+          from_name: `${formData.nome} ${formData.sobrenome}`,
+          email: formData.email,
+          empresa: formData.empresa,
+          cargo: formData.cargo,
+          telefone: formData.telefone,
+          mensagem: formData.mensagem,
+        }),
+      })
+
+      const data = await res.json()
+      if (data.success) {
+        setSubmitStatus("success")
+        setFormData({ nome: "", sobrenome: "", empresa: "", cargo: "", email: "", telefone: "", mensagem: "" })
+        setCurrentStep(1)
+      } else {
+        setSubmitStatus("error")
+      }
+    } catch {
+      setSubmitStatus("error")
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   const inputClass = "pl-10 bg-secondary border-border h-12 text-foreground placeholder:text-muted-foreground focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl text-sm"
 
@@ -109,6 +149,17 @@ export function ContactForm() {
           </div>
         )
     }
+  }
+
+  if (submitStatus === "success") {
+    return (
+      <section id="contato" className="py-16 sm:py-24 relative overflow-hidden bg-background">
+        <ThankYouScreen
+          redirectDelay={10}
+          onBack={() => setSubmitStatus("idle")}
+        />
+      </section>
+    )
   }
 
   return (
@@ -244,6 +295,7 @@ export function ContactForm() {
                     type="button"
                     variant="outline"
                     onClick={handleBack}
+                    disabled={isLoading}
                     className="flex-1 h-12 border-border bg-transparent hover:bg-secondary text-foreground rounded-xl text-sm"
                   >
                     Voltar
@@ -252,12 +304,20 @@ export function ContactForm() {
                 <Button
                   type={currentStep === 4 ? "submit" : "button"}
                   onClick={currentStep < 4 ? handleNext : undefined}
-                  className="flex-1 h-12 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl transition-all duration-300 text-sm"
+                  disabled={isLoading}
+                  className="flex-1 h-12 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl transition-all duration-300 text-sm disabled:opacity-60"
                 >
-                  {currentStep === 4 ? "Enviar" : "Continuar"}
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  {isLoading ? "Enviando..." : currentStep === 4 ? "Enviar" : "Continuar"}
+                  {!isLoading && <ArrowRight className="w-4 h-4 ml-2" />}
                 </Button>
               </div>
+
+              {submitStatus === "error" && (
+                <div className="flex items-center gap-2 mt-4 text-sm text-red-500">
+                  <XCircle className="w-4 h-4 shrink-0" />
+                  <span>Erro ao enviar. Por favor, tente novamente.</span>
+                </div>
+              )}
             </form>
           </motion.div>
         </div>
