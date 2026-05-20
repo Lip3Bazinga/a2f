@@ -1,3 +1,5 @@
+export const dynamic = 'force-static'
+
 import type { MetadataRoute } from 'next'
 
 const siteUrl = 'https://www.a2f.com.br'

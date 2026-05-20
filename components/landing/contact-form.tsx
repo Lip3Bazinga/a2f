@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { Phone, Mail, User, Building2, MessageSquare, ArrowRight, Globe, XCircle } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { Phone, Mail, User, Building2, MessageSquare, ArrowRight, XCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { ThankYouScreen } from "@/components/landing/thank-you-screen"
 
 const WEB3FORMS_ACCESS_KEY = "dbdae555-f0c2-4d9a-81e0-6fde939d9c13"
 
@@ -17,7 +17,16 @@ const steps = [
   { id: 4, label: "Mensagem", icon: MessageSquare },
 ]
 
+function applyPhoneMask(value: string): string {
+  const digits = value.replace(/\D/g, "").slice(0, 11)
+  if (digits.length <= 2) return digits.length ? `(${digits}` : ""
+  if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`
+  if (digits.length <= 11) return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`
+  return value
+}
+
 export function ContactForm() {
+  const router = useRouter()
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({
     nome: "",
@@ -28,20 +37,64 @@ export function ContactForm() {
     telefone: "",
     mensagem: "",
   })
+  const [errors, setErrors] = useState<Record<string, string>>({})
   const [isLoading, setIsLoading] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [submitError, setSubmitError] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    const { name, value } = e.target
+    const newValue = name === "telefone" ? applyPhoneMask(value) : value
+    setFormData(prev => ({ ...prev, [name]: newValue }))
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: "" }))
   }
 
-  const handleNext = () => { if (currentStep < 4) setCurrentStep(currentStep + 1) }
-  const handleBack = () => { if (currentStep > 1) setCurrentStep(currentStep - 1) }
+  const validateStep = (): boolean => {
+    const newErrors: Record<string, string> = {}
+
+    if (currentStep === 1) {
+      if (!formData.nome.trim()) newErrors.nome = "Nome é obrigatório"
+      if (!formData.sobrenome.trim()) newErrors.sobrenome = "Sobrenome é obrigatório"
+    }
+
+    if (currentStep === 2) {
+      if (!formData.empresa.trim()) newErrors.empresa = "Nome da empresa é obrigatório"
+    }
+
+    if (currentStep === 3) {
+      if (!formData.email.trim()) {
+        newErrors.email = "E-mail é obrigatório"
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        newErrors.email = "E-mail inválido"
+      }
+      if (!formData.telefone.trim()) {
+        newErrors.telefone = "Telefone é obrigatório"
+      } else if (formData.telefone.replace(/\D/g, "").length < 10) {
+        newErrors.telefone = "Telefone inválido"
+      }
+    }
+
+    if (currentStep === 4) {
+      if (!formData.mensagem.trim()) newErrors.mensagem = "Mensagem é obrigatória"
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleNext = () => {
+    if (validateStep() && currentStep < 4) setCurrentStep(prev => prev + 1)
+  }
+
+  const handleBack = () => {
+    if (currentStep > 1) setCurrentStep(prev => prev - 1)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!validateStep()) return
+
     setIsLoading(true)
-    setSubmitStatus("idle")
+    setSubmitError(false)
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -51,30 +104,31 @@ export function ContactForm() {
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: `Novo contato de patrocínio — ${formData.nome} ${formData.sobrenome}`,
           from_name: `${formData.nome} ${formData.sobrenome}`,
-          email: formData.email,
-          empresa: formData.empresa,
-          cargo: formData.cargo,
-          telefone: formData.telefone,
-          mensagem: formData.mensagem,
+          replyto: formData.email,
+          Nome: `${formData.nome} ${formData.sobrenome}`,
+          Email: formData.email,
+          Empresa: formData.empresa,
+          Cargo: formData.cargo || "Não informado",
+          Telefone: formData.telefone,
+          Mensagem: formData.mensagem,
         }),
       })
 
       const data = await res.json()
       if (data.success) {
-        setSubmitStatus("success")
-        setFormData({ nome: "", sobrenome: "", empresa: "", cargo: "", email: "", telefone: "", mensagem: "" })
-        setCurrentStep(1)
+        router.push("/obrigado")
       } else {
-        setSubmitStatus("error")
+        setSubmitError(true)
       }
     } catch {
-      setSubmitStatus("error")
+      setSubmitError(true)
     } finally {
       setIsLoading(false)
     }
   }
 
   const inputClass = "pl-10 bg-secondary border-border h-12 text-foreground placeholder:text-muted-foreground focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl text-sm"
+  const errorClass = "border-red-400 focus:border-red-400"
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -82,18 +136,24 @@ export function ContactForm() {
         return (
           <div className="space-y-4">
             <div>
-              <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">Nome Completo</label>
+              <label htmlFor="nome" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">
+                Nome <span className="text-red-500">*</span>
+              </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input name="nome" value={formData.nome} onChange={handleInputChange} placeholder="Seu nome" className={inputClass} />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                <Input id="nome" name="nome" value={formData.nome} onChange={handleInputChange} placeholder="Seu nome" className={`${inputClass} ${errors.nome ? errorClass : ""}`} />
               </div>
+              {errors.nome && <p className="text-xs text-red-500 mt-1">{errors.nome}</p>}
             </div>
             <div>
-              <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">Sobrenome</label>
+              <label htmlFor="sobrenome" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">
+                Sobrenome <span className="text-red-500">*</span>
+              </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input name="sobrenome" value={formData.sobrenome} onChange={handleInputChange} placeholder="Seu sobrenome" className={inputClass} />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                <Input id="sobrenome" name="sobrenome" value={formData.sobrenome} onChange={handleInputChange} placeholder="Seu sobrenome" className={`${inputClass} ${errors.sobrenome ? errorClass : ""}`} />
               </div>
+              {errors.sobrenome && <p className="text-xs text-red-500 mt-1">{errors.sobrenome}</p>}
             </div>
           </div>
         )
@@ -101,17 +161,22 @@ export function ContactForm() {
         return (
           <div className="space-y-4">
             <div>
-              <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">Nome da Empresa</label>
+              <label htmlFor="empresa" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">
+                Nome da Empresa <span className="text-red-500">*</span>
+              </label>
               <div className="relative">
-                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input name="empresa" value={formData.empresa} onChange={handleInputChange} placeholder="Nome da sua empresa" className={inputClass} />
+                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                <Input id="empresa" name="empresa" value={formData.empresa} onChange={handleInputChange} placeholder="Nome da sua empresa" className={`${inputClass} ${errors.empresa ? errorClass : ""}`} />
               </div>
+              {errors.empresa && <p className="text-xs text-red-500 mt-1">{errors.empresa}</p>}
             </div>
             <div>
-              <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">Cargo</label>
+              <label htmlFor="cargo" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">
+                Cargo
+              </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input name="cargo" value={formData.cargo} onChange={handleInputChange} placeholder="Seu cargo" className={inputClass} />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                <Input id="cargo" name="cargo" value={formData.cargo} onChange={handleInputChange} placeholder="Seu cargo" className={inputClass} />
               </div>
             </div>
           </div>
@@ -120,46 +185,55 @@ export function ContactForm() {
         return (
           <div className="space-y-4">
             <div>
-              <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">E-mail</label>
+              <label htmlFor="email" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">
+                E-mail <span className="text-red-500">*</span>
+              </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="seu@email.com" className={inputClass} />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="seu@email.com" className={`${inputClass} ${errors.email ? errorClass : ""}`} />
               </div>
+              {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
             </div>
             <div>
-              <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">Telefone</label>
+              <label htmlFor="telefone" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">
+                Telefone <span className="text-red-500">*</span>
+              </label>
               <div className="relative">
-                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input name="telefone" value={formData.telefone} onChange={handleInputChange} placeholder="+55 (XX) XXXXX-XXXX" className={inputClass} />
+                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                <Input
+                  id="telefone"
+                  name="telefone"
+                  type="tel"
+                  inputMode="numeric"
+                  value={formData.telefone}
+                  onChange={handleInputChange}
+                  placeholder="(11) 99999-9999"
+                  maxLength={15}
+                  className={`${inputClass} ${errors.telefone ? errorClass : ""}`}
+                />
               </div>
+              {errors.telefone && <p className="text-xs text-red-500 mt-1">{errors.telefone}</p>}
             </div>
           </div>
         )
       case 4:
         return (
           <div>
-            <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">Sua Mensagem</label>
+            <label htmlFor="mensagem" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2 font-sans">
+              Sua Mensagem <span className="text-red-500">*</span>
+            </label>
             <Textarea
+              id="mensagem"
               name="mensagem"
               value={formData.mensagem}
               onChange={handleInputChange}
               placeholder="Escreva sua mensagem aqui..."
-              className="bg-secondary border-border min-h-[160px] text-foreground placeholder:text-muted-foreground focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 resize-none rounded-xl text-sm"
+              className={`bg-secondary border-border min-h-[160px] text-foreground placeholder:text-muted-foreground focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 resize-none rounded-xl text-sm ${errors.mensagem ? errorClass : ""}`}
             />
+            {errors.mensagem && <p className="text-xs text-red-500 mt-1">{errors.mensagem}</p>}
           </div>
         )
     }
-  }
-
-  if (submitStatus === "success") {
-    return (
-      <section id="contato" className="py-16 sm:py-24 relative overflow-hidden bg-background">
-        <ThankYouScreen
-          redirectDelay={10}
-          onBack={() => setSubmitStatus("idle")}
-        />
-      </section>
-    )
   }
 
   return (
@@ -210,28 +284,17 @@ export function ContactForm() {
                   href="mailto:contato@a2f.com.br"
                   className="flex items-center gap-4 text-muted-foreground hover:text-accent transition-colors duration-300 group"
                 >
-                  <div className="p-3 rounded-xl bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300 flex-shrink-0">
-                    <Mail className="w-5 h-5 text-accent" />
+                  <div className="p-3 rounded-xl bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300 shrink-0">
+                    <Mail className="w-5 h-5 text-accent" aria-hidden="true" />
                   </div>
                   <span className="text-sm">contato@a2f.com.br</span>
                 </a>
                 <div className="flex items-center gap-4 text-muted-foreground">
-                  <div className="p-3 rounded-xl bg-primary/10 flex-shrink-0">
-                    <Phone className="w-5 h-5 text-primary" />
+                  <div className="p-3 rounded-xl bg-primary/10 shrink-0">
+                    <Phone className="w-5 h-5 text-primary" aria-hidden="true" />
                   </div>
                   <span className="text-sm">(XX) XXXXX-XXXX</span>
                 </div>
-                <a
-                  href="https://www.a2f.com.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors duration-300 group"
-                >
-                  <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
-                    <Globe className="w-5 h-5 text-primary" />
-                  </div>
-                  <span className="text-sm">www.a2f.com.br</span>
-                </a>
               </div>
             </motion.div>
           </motion.div>
@@ -244,7 +307,7 @@ export function ContactForm() {
             viewport={{ once: true }}
             className="card-light rounded-2xl p-8"
           >
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} noValidate>
               {/* Step Indicator */}
               <div className="mb-8">
                 <span className="text-xs tracking-widest uppercase text-muted-foreground font-sans">
@@ -255,7 +318,8 @@ export function ContactForm() {
                     <div key={step.id} className="flex flex-col items-center gap-2">
                       <button
                         type="button"
-                        onClick={() => setCurrentStep(step.id)}
+                        onClick={() => currentStep > step.id && setCurrentStep(step.id)}
+                        aria-label={`${step.label}${currentStep > step.id ? " (concluído)" : ""}`}
                         className={`cursor-pointer w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
                           currentStep === step.id
                             ? "bg-accent/20 border-2 border-accent text-accent"
@@ -264,7 +328,7 @@ export function ContactForm() {
                             : "bg-secondary border border-border text-muted-foreground"
                         }`}
                       >
-                        <step.icon className="w-4 h-4" />
+                        <step.icon className="w-4 h-4" aria-hidden="true" />
                       </button>
                       <span className={`text-xs hidden sm:block font-sans tracking-wide ${
                         currentStep === step.id ? "text-accent" : "text-muted-foreground"
@@ -308,13 +372,13 @@ export function ContactForm() {
                   className="flex-1 h-12 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl transition-all duration-300 text-sm disabled:opacity-60"
                 >
                   {isLoading ? "Enviando..." : currentStep === 4 ? "Enviar" : "Continuar"}
-                  {!isLoading && <ArrowRight className="w-4 h-4 ml-2" />}
+                  {!isLoading && <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />}
                 </Button>
               </div>
 
-              {submitStatus === "error" && (
+              {submitError && (
                 <div className="flex items-center gap-2 mt-4 text-sm text-red-500">
-                  <XCircle className="w-4 h-4 shrink-0" />
+                  <XCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
                   <span>Erro ao enviar. Por favor, tente novamente.</span>
                 </div>
               )}

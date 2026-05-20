@@ -122,6 +122,8 @@ function FounderCard({ founder }: { founder: (typeof founders)[0] }) {
               src={founder.image}
               alt={founder.name}
               fill
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover object-top"
             />
             <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white to-transparent" />

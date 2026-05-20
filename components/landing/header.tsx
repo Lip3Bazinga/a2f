@@ -28,11 +28,11 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out w-full ${
         isScrolled ? "glass-header-scrolled shadow-soft py-3" : "glass-header-top py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex items-center justify-between">
           {/* Brand Logo - Horizontal version, ~40px desktop, ~32px mobile */}
           <div className="flex">
@@ -88,7 +88,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 cursor-pointer transition-colors duration-300 ${isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/70"
+            className={`lg:hidden p-2 min-w-11 min-h-11 flex items-center justify-center cursor-pointer transition-colors duration-300 ${isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/70"
               }`}
             aria-label="Alternar menu"
           >
@@ -100,10 +100,11 @@ export function Header() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.nav
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              style={{ willChange: "transform, opacity" }}
               className="lg:hidden mt-4 pb-4 bg-background rounded-xl shadow-soft"
             >
               <div className="flex flex-col gap-1 p-4">

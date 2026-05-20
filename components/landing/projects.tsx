@@ -229,6 +229,8 @@ export function Projects() {
                       src={currentProject.images[activeImage]}
                       alt={`${currentProject.title} — imagem ${activeImage + 1}`}
                       fill
+                      loading="lazy"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-black/20" />
@@ -243,14 +245,14 @@ export function Projects() {
                 {/* Image navigation arrows */}
                 <button
                   onClick={handlePrevImage}
-                  className="cursor-pointer absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground active:scale-90 transition-all duration-200"
+                  className="cursor-pointer absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2 min-w-11 min-h-11 flex items-center justify-center rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground active:scale-90 transition-all duration-200"
                   aria-label="Imagem anterior"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleNextImage}
-                  className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground active:scale-90 transition-all duration-200"
+                  className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2 min-w-11 min-h-11 flex items-center justify-center rounded-full bg-background/90 shadow-sm text-foreground hover:bg-accent hover:text-accent-foreground active:scale-90 transition-all duration-200"
                   aria-label="Próxima imagem"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -280,9 +282,9 @@ export function Projects() {
                   <div className="p-2 rounded-lg bg-accent/10">
                     <currentProject.icon className="w-6 h-6 text-accent" />
                   </div>
-                  <h4 className="font-display text-2xl sm:text-3xl font-normal text-foreground">
+                  <h3 className="font-display text-2xl sm:text-3xl font-normal text-foreground">
                     {currentProject.title}
-                  </h4>
+                  </h3>
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed mb-6">
@@ -334,14 +336,14 @@ export function Projects() {
         >
           <button
             onClick={handlePrevCategory}
-            className="cursor-pointer p-2.5 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:scale-90 transition-all duration-200 shadow-sm"
+            className="cursor-pointer p-2.5 min-w-11 min-h-11 flex items-center justify-center rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:scale-90 transition-all duration-200 shadow-sm"
             aria-label="Projeto anterior"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
           <div className="flex gap-2">
-            {projectCategories.map((_, index) => (
+            {projectCategories.map((cat, index) => (
               <button
                 key={index}
                 onClick={() => handleSelectCategory(index)}
@@ -351,14 +353,15 @@ export function Projects() {
                     ? "w-8 h-2.5 bg-accent"
                     : "w-2.5 h-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
                 )}
-                aria-label={`Ir para projeto ${index + 1}`}
+                aria-label={`Ir para categoria: ${cat.title}`}
+                aria-current={activeCategory === index ? "true" : undefined}
               />
             ))}
           </div>
 
           <button
             onClick={handleNextCategory}
-            className="cursor-pointer p-2.5 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:scale-90 transition-all duration-200 shadow-sm"
+            className="cursor-pointer p-2.5 min-w-11 min-h-11 flex items-center justify-center rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:scale-90 transition-all duration-200 shadow-sm"
             aria-label="Próximo projeto"
           >
             <ChevronRight className="w-5 h-5" />
@@ -375,9 +378,9 @@ export function Projects() {
         >
           <div className="text-center mb-10">
             <p className="text-xs tracking-widest uppercase text-accent font-sans font-semibold mb-3">Unidos pela Causa</p>
-            <h4 className="font-display text-2xl sm:text-3xl font-normal text-foreground">
+            <h3 className="font-display text-2xl sm:text-3xl font-normal text-foreground">
               Parceiros pelo Impacto Social
-            </h4>
+            </h3>
           </div>
 
           {/* Slider Container */}
@@ -387,7 +390,7 @@ export function Projects() {
             <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-linear-to-l from-gray-bg via-gray-bg/80 to-transparent z-10 pointer-events-none" />
 
             {/* Infinite Scroll Track */}
-            <div className="flex animate-scroll">
+            <div className="flex animate-scroll" style={{ willChange: "transform" }}>
               {/* First set of logos */}
               {[...partners, ...partners].map((partner, index) => (
                 <a
@@ -403,6 +406,8 @@ export function Projects() {
                         src={partner.logo}
                         alt={partner.name}
                         fill
+                        loading="lazy"
+                        sizes="(max-width: 640px) 208px, 240px"
                         className="object-contain"
                       />
                     </div>

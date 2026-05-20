@@ -153,6 +153,7 @@ export function Hero() {
             src={slides[currentSlide].image}
             alt={slides[currentSlide].theme}
             fill
+            sizes="100vw"
             className={slides[currentSlide].diffStyle ? "object-fill" : "object-cover"}
             priority={currentSlide === 0}
           />
@@ -233,14 +234,14 @@ export function Hero() {
       {/* Setas de navegação */}
       <button
         onClick={handlePrev}
-        className="cursor-pointer absolute left-4 sm:left-8 bottom-26 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/25 active:scale-90 transition-all duration-200 group"
+        className="cursor-pointer absolute left-4 sm:left-8 bottom-26 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-20 p-3 min-w-11 min-h-11 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/25 active:scale-90 transition-all duration-200 group"
         aria-label="Slide anterior"
       >
         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
       </button>
       <button
         onClick={handleNext}
-        className="cursor-pointer absolute right-4 sm:right-8 bottom-26 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/25 active:scale-90 transition-all duration-200 group"
+        className="cursor-pointer absolute right-4 sm:right-8 bottom-26 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-20 p-3 min-w-11 min-h-11 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/25 active:scale-90 transition-all duration-200 group"
         aria-label="Próximo slide"
       >
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
@@ -248,13 +249,14 @@ export function Hero() {
 
       {/* Dots de navegação */}
       <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {slides.map((_, index) => (
+        {slides.map((slide, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`cursor-pointer h-2.5 rounded-full transition-all duration-300 active:scale-90 ${currentSlide === index ? "w-8 bg-white" : "w-2.5 bg-white/40 hover:bg-white/65"
+            className={`cursor-pointer rounded-full transition-all duration-300 active:scale-90 ${currentSlide === index ? "w-8 h-2.5 bg-white" : "w-2.5 h-2.5 bg-white/40 hover:bg-white/65"
               }`}
-            aria-label={`Ir para slide ${index + 1}`}
+            aria-label={`Ir para slide ${index + 1}: ${slide.headline}`}
+            aria-current={currentSlide === index ? "true" : undefined}
           />
         ))}
       </div>

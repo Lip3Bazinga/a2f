@@ -41,7 +41,7 @@ export function Footer() {
   return (
     <footer className="pt-12 pb-10 relative section-navy" ref={ref}>
       {/* Decorative arc */}
-      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full border-[40px] border-white/5 translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-75 h-75 rounded-full border-40 border-white/5 translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Grid */}
@@ -105,7 +105,7 @@ export function Footer() {
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-xs tracking-widest uppercase text-accent font-semibold mb-5">Navegação</h4>
+            <h3 className="text-xs tracking-widest uppercase text-accent font-semibold mb-5">Navegação</h3>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.label}>
@@ -128,7 +128,7 @@ export function Footer() {
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="text-xs tracking-widest uppercase text-primary font-semibold mb-5">Serviços</h4>
+            <h3 className="text-xs tracking-widest uppercase text-primary font-semibold mb-5">Serviços</h3>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
@@ -151,14 +151,14 @@ export function Footer() {
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h4 className="text-xs tracking-widest uppercase text-accent font-semibold mb-5">Contato</h4>
+            <h3 className="text-xs tracking-widest uppercase text-accent font-semibold mb-5">Contato</h3>
             <ul className="space-y-4 mb-6">
               <li>
                 <a
                   href="mailto:contato@a2f.com.br"
                   className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors duration-300 text-sm group"
                 >
-                  <div className="p-2 rounded-lg bg-white/10 group-hover:bg-accent/20 transition-colors duration-300 flex-shrink-0">
+                  <div className="p-2 rounded-lg bg-white/10 group-hover:bg-accent/20 transition-colors duration-300 shrink-0">
                     <Mail className="w-3.5 h-3.5 text-accent" />
                   </div>
                   contato@a2f.com.br
@@ -166,7 +166,7 @@ export function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3 text-white/70 text-sm">
-                  <div className="p-2 rounded-lg bg-white/10 flex-shrink-0">
+                  <div className="p-2 rounded-lg bg-white/10 shrink-0">
                     <Phone className="w-3.5 h-3.5 text-primary" />
                   </div>
                   +55 (XX) XXXX-XXXX
@@ -179,7 +179,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors duration-300 text-sm group"
                 >
-                  <div className="p-2 rounded-lg bg-white/10 group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
+                  <div className="p-2 rounded-lg bg-white/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
                     <Globe className="w-3.5 h-3.5 text-primary" />
                   </div>
                   www.a2f.com.br
@@ -187,7 +187,7 @@ export function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3 text-white/70 text-sm">
-                  <div className="p-2 rounded-lg bg-white/10 flex-shrink-0">
+                  <div className="p-2 rounded-lg bg-white/10 shrink-0">
                     <MapPin className="w-3.5 h-3.5 text-white" />
                   </div>
                   Brasil
