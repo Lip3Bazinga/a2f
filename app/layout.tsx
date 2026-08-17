@@ -16,7 +16,7 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 })
 
-const siteUrl = 'https://www.a2f.com.br'
+const siteUrl = 'https://a2fcapital.com.br'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -281,19 +281,19 @@ export function ContactForm() {
               </h3>
               <div className="space-y-5">
                 <a
-                  href="mailto:contato@a2f.com.br"
+                  href="mailto:contato@a2fcapital.com.br"
                   className="flex items-center gap-4 text-muted-foreground hover:text-accent transition-colors duration-300 group"
                 >
                   <div className="p-3 rounded-xl bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300 shrink-0">
                     <Mail className="w-5 h-5 text-accent" aria-hidden="true" />
                   </div>
-                  <span className="text-sm">contato@a2f.com.br</span>
+                  <span className="text-sm">contato@a2fcapital.com.br</span>
                 </a>
                 <div className="flex items-center gap-4 text-muted-foreground">
                   <div className="p-3 rounded-xl bg-primary/10 shrink-0">
                     <Phone className="w-5 h-5 text-primary" aria-hidden="true" />
                   </div>
-                  <span className="text-sm">(XX) XXXXX-XXXX</span>
+                  <span className="text-sm">(16) 99183-6974</span>
                 </div>
               </div>
             </motion.div>

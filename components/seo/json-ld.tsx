@@ -1,4 +1,4 @@
-const siteUrl = 'https://www.a2f.com.br'
+const siteUrl = 'https://a2fcapital.com.br'
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -10,7 +10,7 @@ const organizationSchema = {
     'A A2F conecta empresas e pessoas a projetos esportivos e culturais incentivados pelas leis de incentivo fiscal brasileiras, transformando obrigação fiscal em impacto positivo e visibilidade de marca.',
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'contato@a2f.com.br',
+    email: 'contato@a2fcapital.com.br',
     contactType: 'customer service',
     availableLanguage: 'Portuguese',
   },

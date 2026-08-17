@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Globe } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 import { Logo } from "./logo"
 
@@ -28,18 +28,13 @@ const serviceLinks = [
   { label: "Palestras e Treinamentos", href: "#servicos" },
 ]
 
-const legalLinks = [
-  { label: "Política de Privacidade", href: "#" },
-  { label: "Termos de Uso", href: "#" },
-  { label: "Cookies", href: "#" },
-]
 
 export function Footer() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
-    <footer className="pt-12 pb-10 relative section-navy" ref={ref}>
+    <footer className="pt-12 pb-10 relative section-navy overflow-hidden" ref={ref}>
       {/* Decorative arc */}
       <div className="absolute bottom-0 right-0 w-75 h-75 rounded-full border-40 border-white/5 translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
@@ -155,13 +150,13 @@ export function Footer() {
             <ul className="space-y-4 mb-6">
               <li>
                 <a
-                  href="mailto:contato@a2f.com.br"
+                  href="mailto:contato@a2fcapital.com.br"
                   className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors duration-300 text-sm group"
                 >
                   <div className="p-2 rounded-lg bg-white/10 group-hover:bg-accent/20 transition-colors duration-300 shrink-0">
                     <Mail className="w-3.5 h-3.5 text-accent" />
                   </div>
-                  contato@a2f.com.br
+                  contato@a2fcapital.com.br
                 </a>
               </li>
               <li>
@@ -169,21 +164,8 @@ export function Footer() {
                   <div className="p-2 rounded-lg bg-white/10 shrink-0">
                     <Phone className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  +55 (XX) XXXX-XXXX
+                  +55 (16) 99183-6974
                 </div>
-              </li>
-              <li>
-                <a
-                  href="https://www.a2f.com.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors duration-300 text-sm group"
-                >
-                  <div className="p-2 rounded-lg bg-white/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
-                    <Globe className="w-3.5 h-3.5 text-primary" />
-                  </div>
-                  www.a2f.com.br
-                </a>
               </li>
               <li>
                 <div className="flex items-center gap-3 text-white/70 text-sm">
@@ -194,18 +176,6 @@ export function Footer() {
                 </div>
               </li>
             </ul>
-            {/* Legal links */}
-            <div className="space-y-2 pt-4 border-t border-white/10">
-              {legalLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="block text-xs text-white/50 hover:text-accent transition-colors duration-300"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
           </motion.div>
         </div>
 
